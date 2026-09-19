@@ -40,18 +40,18 @@ export const IndexPage: PageComponentType = () => {
     <PageShell overlayHeader>
       <section className="relative min-h-[100svh] overflow-hidden">
         <HeroScene />
-        <div className="relative z-10 mx-auto flex min-h-[100svh] max-w-6xl flex-col justify-end px-6 pb-20 pt-28 sm:px-8 sm:pb-24">
-          <p className="animate-fade-up font-display text-5xl font-semibold tracking-tight text-ink sm:text-7xl md:text-8xl">
+        <div className="relative z-10 mx-auto flex min-h-[100svh] max-w-6xl flex-col justify-end px-4 pb-16 pt-24 md:px-8 md:pb-24 md:pt-28">
+          <p className="animate-fade-up font-display text-4xl font-semibold tracking-tight text-ink sm:text-6xl md:text-8xl">
             Macovin
           </p>
-          <h1 className="animate-fade-up-delay mt-5 max-w-2xl font-display text-2xl font-medium leading-snug text-ink/90 sm:text-3xl text-balance">
+          <h1 className="animate-fade-up-delay mt-4 max-w-2xl font-display text-xl font-medium leading-snug text-ink/90 sm:text-2xl md:mt-5 md:text-3xl text-balance">
             Clear apps and informative websites for people when life gets hard.
           </h1>
-          <p className="animate-fade-up-late mt-5 max-w-xl text-lg leading-relaxed text-ink/70">
+          <p className="animate-fade-up-late mt-4 max-w-xl text-base leading-relaxed text-ink/70 md:mt-5 md:text-lg">
             We build the packet you wish someone had handed you. Meanwhile is
             the factory that keeps the words the same from seat to seat.
           </p>
-          <div className="animate-fade-up-late mt-8 flex flex-wrap gap-3">
+          <div className="animate-fade-up-late mt-6 flex flex-col gap-3 sm:mt-8 sm:flex-row sm:flex-wrap">
             <Button to="/work">See example sentences</Button>
             <Button to="/contact" variant="secondary">
               Talk to us
