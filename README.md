@@ -35,8 +35,35 @@ npm install && npm run dev
 
 ```bash
 npm run build   # production bundle → dist/
-npm run serve   # static serve of dist/
+npm start       # serve dist/ (uses PORT, default 3000)
+npm run serve   # local static preview on 4173
 npm run lint
+```
+
+## Deploy (Railway / Railpack)
+
+Webpack is not an auto-detected SPA framework, so Railpack needs an explicit
+start (or SPA output dir). This repo ships both:
+
+1. **`npm start`** serves `dist/` with [`serve`](https://www.npmjs.com/package/serve) on `PORT` (Railway sets this).
+2. **`Staticfile`** points `root` at `dist` for Railpack SPA / Caddy mode.
+
+`railway.json` sets build → `npm run build` and start → `npm run start`.
+
+### Env vars on Railway
+
+| Variable | Required? | Notes |
+| --- | --- | --- |
+| `PORT` | set by Railway | Bound by `start` |
+| `MACOVIN_API_BASE_URL` | optional | Production API origin (no trailing slash). Empty → mailto + static examples |
+| `RAILPACK_SPA_OUTPUT_DIR` | optional | Set to `dist` to force Railpack Caddy SPA mode. If set, you can clear a custom start command in the dashboard and let Railpack serve `dist` |
+
+Do **not** set `RAILPACK_STATIC_FILE_ROOT` for this Node app (wrong provider; causes the same “no start command” failure).
+
+Local production check:
+
+```bash
+npm run build && npm start
 ```
 
 ## Env: `MACOVIN_API_BASE_URL`
