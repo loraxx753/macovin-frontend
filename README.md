@@ -50,15 +50,21 @@ start (or SPA output dir). This repo ships both:
 
 `railway.json` sets build → `npm run build` and start → `npm run start`.
 
-### Env vars on Railway
+### Env vars on Railway (frontend service)
 
 | Variable | Required? | Notes |
 | --- | --- | --- |
 | `PORT` | set by Railway | Bound by `start` |
-| `MACOVIN_API_BASE_URL` | optional | Production API origin (no trailing slash). Empty → mailto + static examples |
+| `MACOVIN_API_BASE_URL` | **yes for live contact/examples** | Backend public HTTPS origin, no trailing slash (e.g. `https://YOUR-BACKEND.up.railway.app`). Baked in at **build** time; redeploy after changing. Empty → mailto + static examples only. |
 | `RAILPACK_SPA_OUTPUT_DIR` | optional | Set to `dist` to force Railpack Caddy SPA mode. If set, you can clear a custom start command in the dashboard and let Railpack serve `dist` |
 
 Do **not** set `RAILPACK_STATIC_FILE_ROOT` for this Node app (wrong provider; causes the same “no start command” failure).
+
+### Custom domain (`macovin.com`)
+
+Attach `macovin.com` / `www.macovin.com` in Railway → Settings → Public Networking → Custom Domain, then add the **exact** CNAME + TXT Railway shows at your DNS provider. Apex needs ALIAS/ANAME or CNAME flattening (not a static A record). Full checklist: see the project store doc `docs/macovin-domain-setup.md` (coordinator / Kevin).
+
+Backend must allow the site origins via `CORS_ORIGINS` (see macovin-backend).
 
 Local production check:
 
@@ -72,8 +78,11 @@ Point this at macovin-backend (no trailing slash).
 
 | Value | Behavior |
 | --- | --- |
-| `http://localhost:3001` | Contact posts to `/api/contact`; Work loads `/api/examples` |
-| empty / unset (production default) | Mailto for contact; static example blurbs on Work |
+| `http://localhost:3001` | Local API: contact + examples |
+| `https://YOUR-BACKEND.up.railway.app` | Production API (set on Railway frontend service, then redeploy) |
+| empty / unset | Mailto for contact; static example blurbs on Work |
+
+Production: set `MACOVIN_API_BASE_URL` on the **frontend** Railway service to the backend’s public HTTPS URL, then redeploy so webpack bakes it in.
 
 ```bash
 cp .env.example .env
