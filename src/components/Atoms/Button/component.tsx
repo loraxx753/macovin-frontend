@@ -3,12 +3,12 @@ import { Link, LinkProps } from 'react-router-dom';
 import { cn } from '@/lib/utils';
 
 const base =
-  'inline-flex items-center justify-center gap-2 rounded-md px-5 py-2.5 text-sm font-semibold tracking-wide transition focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-path';
+  'inline-flex items-center justify-center gap-2 rounded-md px-5 py-2.5 text-sm font-semibold tracking-wide transition focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-ember';
 
 const variants = {
-  primary: 'bg-path text-paper hover:bg-ink',
-  secondary: 'bg-transparent text-ink ring-1 ring-ink/20 hover:bg-mist/70',
-  ghost: 'bg-transparent text-path hover:bg-mist/60',
+  primary: 'bg-ember text-paper hover:bg-ink',
+  secondary: 'bg-transparent text-ink ring-1 ring-ink/20 hover:bg-mist/80',
+  ghost: 'bg-transparent text-ember hover:bg-mist/60',
 } as const;
 
 type Variant = keyof typeof variants;

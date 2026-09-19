@@ -16,8 +16,8 @@ export function SectionIntro({
 }: SectionIntroProps) {
   return (
     <header className={cn('max-w-2xl', className)}>
-      {eyebrow ? (
-        <p className="mb-3 text-sm font-semibold uppercase tracking-[0.14em] text-ridge">
+        {eyebrow ? (
+        <p className="mb-3 font-mono text-[11px] font-medium uppercase tracking-[0.18em] text-ember">
           {eyebrow}
         </p>
       ) : null}

@@ -45,7 +45,8 @@ export function SiteHeader() {
 
   return (
     <header className="absolute inset-x-0 top-0 z-30">
-      <div className="mx-auto flex max-w-6xl items-center justify-between gap-3 px-4 py-4 md:gap-6 md:px-8 md:py-5">
+      <div className="border-b border-ink/5 bg-paper/85 backdrop-blur-md">
+        <div className="mx-auto flex max-w-6xl items-center justify-between gap-3 px-4 py-3 md:gap-6 md:px-8 md:py-4">
         <NavLink
           to="/"
           onClick={closeMenu}
@@ -56,7 +57,7 @@ export function SiteHeader() {
 
         <button
           type="button"
-          className="relative z-40 inline-flex h-11 w-11 items-center justify-center rounded-md text-ink ring-1 ring-ink/15 transition hover:bg-ink/5 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-path md:hidden"
+          className="relative z-40 inline-flex h-11 w-11 items-center justify-center rounded-md text-ink ring-1 ring-ink/15 transition hover:bg-ink/5 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-ember md:hidden"
           aria-expanded={open}
           aria-controls={menuId}
           aria-label={open ? 'Close menu' : 'Open menu'}
@@ -101,6 +102,7 @@ export function SiteHeader() {
             </NavLink>
           ))}
         </nav>
+        </div>
       </div>
 
       {/* Mobile drawer */}
