@@ -1,0 +1,29 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+:root {
+  /* Soft slate-teal: calm clarity, not clinical purple or cream-terracotta */
+  --ink: 210 28% 14%;
+  --mist: 198 28% 92%;
+  --paper: 42 28% 97%;
+  --path: 168 38% 32%;
+  --ridge: 205 22% 38%;
+  --soft: 186 24% 86%;
+}
+
+@layer base {
+  * {
+    @apply border-soft/60;
+  }
+
+  a {
+    @apply text-path underline-offset-4 transition-colors hover:text-ink;
+  }
+}
+
+@layer utilities {
+  .text-balance {
+    text-wrap: balance;
+  }
+}
