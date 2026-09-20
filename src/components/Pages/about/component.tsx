@@ -8,16 +8,16 @@ import { SplitFeature } from '@/components/Organisms/SplitFeature';
 
 const habits = [
   {
-    title: 'Name a thing once',
-    body: 'That’s how we refuse to play telephone. Design, engineering, and testing use the same words for the same look. The next seat gets the last output and what was meant first, so the whisper can’t start.',
+    title: 'Name it once',
+    body: 'Design, engineering, and testing use the same words for the same thing. That’s how you stop playing telephone.',
   },
   {
-    title: 'Build from the story',
-    body: 'We start from a short story in plain language (Given / When / Then). That’s what development builds from. Tickets, docs, and tests are a byproduct. Same words, not a second project.',
+    title: 'Start from a story',
+    body: 'We write what should happen in plain language first (Given / When / Then). Tickets and docs follow. They’re leftovers, not the main event.',
   },
   {
-    title: 'Prove it with a clock',
-    body: 'What we actually shipped, and how long it took. Live products keep the pointing honest and the language real. Pointing without a shared language is only a speech. A shared language without shipping is only a longer week.',
+    title: 'Prove it by shipping',
+    body: 'Talk without a live site is just talk. We care what actually went out and how long it took.',
   },
 ] as const;
 
@@ -39,36 +39,33 @@ export const AboutPage: PageComponentType = () => {
             How we work
           </h1>
           <p className="mt-4 max-w-2xl text-base leading-relaxed text-paper/80 md:text-lg">
-            Macovin is a small family company. Meanwhile is the factory. We ship
-            real websites and apps, and we keep design, engineering, and testing
-            on the same words for the same thing.
+            Macovin is a small family company. Meanwhile is the factory. We
+            build websites and apps, and we try not to spend the week
+            re-explaining the same banner.
           </p>
           <PhotoCredit id="aboutPath" className="text-paper/50" />
         </div>
       </section>
 
       <PageSection>
-        <SectionIntro title="The problem we refuse to pretend is normal">
+        <SectionIntro title="The usual mess">
           <p>
-            You’ve sat in a planning meeting and felt worn out, a little
-            misunderstood, talking about the same thing for the tenth time.
-            That’s telephone with a salary. There’s an easier week on the other
-            side of that.
+            You&apos;ve been in that meeting. Everyone&apos;s tired.
+            You&apos;re talking about the same thing for the tenth time and
+            somehow it still isn&apos;t clear. That&apos;s telephone with a
+            paycheck.
           </p>
         </SectionIntro>
         <div className="mt-10 max-w-3xl space-y-5 text-base leading-relaxed text-ink/75 md:text-lg">
           <p>
-            Someone means a thing. The ticket whispers it. Design whispers what
-            they heard. Production whispers that. QA whispers the code. Standup
-            whispers it back so the room can relax. You can’t point to the seat
-            where the whisper became the meaning. That’s why it feels baked
-            in.
+            Someone means a thing. The ticket says something else. Design hears
+            a third version. Engineering builds a fourth. QA checks a fifth.
+            Standup repeats it so everyone can pretend they&apos;re aligned.
           </p>
           <p>
-            We make the circle lighter on purpose. We tell the truth about what
-            we know. “I don’t know yet” means the echo hasn’t gotten to me yet.
-            When it does, I get a copy of every previous echo, plus what was
-            meant at the start.
+            We&apos;re not interested in guessing better. We&apos;re interested
+            in keeping the original meaning in the room. If we don&apos;t know
+            yet, we say that.
           </p>
         </div>
       </PageSection>
@@ -97,18 +94,17 @@ export const AboutPage: PageComponentType = () => {
         <SplitFeature
           photo="homeTogether"
           eyebrow="Who’s in the room"
-          title="Same weather for every seat"
+          title="Same rules for every seat"
         >
           <p>
-            The person in the tree, the people in the middle, and the people
-            cutting deserve a week where “I don’t know yet” is allowed. That
-            includes the person who has to report up. We don’t invent an answer
-            just because someone asked the kid next to them.
+            The person pointing, the people in the middle, and the people
+            building all get to say “I don’t know yet.” Including whoever has to
+            report up. We don’t invent an answer just to make the room feel
+            scheduled.
           </p>
           <p>
-            From middle-manager on up through the client, the stakeholder loop
-            can live in the ticket when the ticket is the story. Same words.
-            Not a second telling they have to sit through.
+            If the ticket is the story, stakeholders can stay in that loop
+            without sitting through a second telling.
           </p>
         </SplitFeature>
       </PageSection>
@@ -116,13 +112,12 @@ export const AboutPage: PageComponentType = () => {
       <section className="bg-dusk text-paper">
         <PageSection>
           <h2 className="max-w-2xl font-display text-3xl font-semibold tracking-tight md:text-4xl text-balance">
-            Longer why, shorter week
+            Want the longer version?
           </h2>
           <p className="mt-4 max-w-2xl text-base leading-relaxed text-paper/70 md:text-lg">
-            The company docs hold the manifesto and the value of the shared
-            language. The factory that ships the sites lives in Meanwhile. This
-            site is the people-facing front door: clear apps and informative
-            websites when life gets hard.
+            Company docs are on GitHub. The factory is Meanwhile. This site is
+            the front door: clear apps and informative websites when life gets
+            hard.
           </p>
           <div className="mt-8 flex flex-col gap-3 sm:flex-row">
             <Button

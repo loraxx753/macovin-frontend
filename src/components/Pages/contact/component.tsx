@@ -54,30 +54,30 @@ export const ContactPage: PageComponentType = () => {
         <div>
           <SectionIntro eyebrow="Contact" title="Say hello">
             <p>
-              Tell us what you need built. Who it’s for. What’s true today.
-              If the API isn’t standing yet, this form opens a mail draft
-              instead. Either way, we’ll read it.
+              Tell us what you need. Who it&apos;s for. What&apos;s true today.
+              If the API isn&apos;t up, this opens a mail draft instead. Either
+              way, we&apos;ll read it.
             </p>
           </SectionIntro>
 
           <ul className="mt-10 space-y-5 border-t border-ink/10 pt-8 text-sm leading-relaxed text-ink/70 md:text-base">
             <li>
               <span className="font-display text-lg font-semibold text-ink">
-                A packet someone needs
+                A site someone needs
               </span>
               <p className="mt-1">
-                Elder care, workers’ rights, or another hard week where clear
-                words would help. Ideas are welcome. We haven’t named dollars
-                here.
+                Elder care, workers&apos; rights, or another hard week where
+                clear info would help. Ideas are fine. We haven&apos;t named
+                dollars here.
               </p>
             </li>
             <li>
               <span className="font-display text-lg font-semibold text-ink">
-                A site that fits the factory
+                Something that fits how we build
               </span>
               <p className="mt-1">
-                One clear purpose. Same language as everything else we ship.
-                Meanwhile keeps design, engineering, and testing on those words.
+                One clear job. Same language through design, engineering, and
+                testing. That&apos;s the Meanwhile habit.
               </p>
             </li>
             <li>
@@ -85,8 +85,8 @@ export const ContactPage: PageComponentType = () => {
                 Or just a question
               </span>
               <p className="mt-1">
-                How we work, what Meanwhile is, whether a site like ours
-                would fit. Ask. “I don’t know yet” is allowed on our side too.
+                How we work, what Meanwhile is, whether this fits what you need.
+                Ask. “I don’t know yet” is allowed on our side too.
               </p>
             </li>
           </ul>
@@ -160,18 +160,18 @@ export const ContactPage: PageComponentType = () => {
 
             {status === 'sent' ? (
               <p className="text-sm text-path" role="status">
-                Got it. We’ll read it soon.
+                Got it. We&apos;ll read it.
               </p>
             ) : null}
             {status === 'mailto' ? (
               <p className="text-sm text-ink/65" role="status">
                 Opening your mail app
-                {API_BASE_URL ? '.' : ' (no API base set; mailto fallback).'}
+                {API_BASE_URL ? '.' : ' (no API set; mailto fallback).'}
               </p>
             ) : null}
             {status === 'error' ? (
               <p className="text-sm text-ink/65" role="status">
-                The API didn’t answer, so we opened a mail draft instead.
+                API didn&apos;t answer. Opened a mail draft instead.
               </p>
             ) : null}
           </form>

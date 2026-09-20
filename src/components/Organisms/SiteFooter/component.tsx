@@ -6,7 +6,7 @@ export function SiteFooter() {
           <p className="font-display text-2xl font-semibold tracking-tight">Macovin</p>
           <p className="mt-3 max-w-md text-sm leading-relaxed text-paper/70">
             Clear apps and informative websites for people when life gets hard.
-            Macovin is the company. Meanwhile is the factory.
+            Macovin&apos;s the company. Meanwhile&apos;s the factory.
           </p>
         </div>
         <div className="space-y-3 text-sm text-paper/70 md:text-right">
