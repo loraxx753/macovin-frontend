@@ -3,13 +3,15 @@
 @tailwind utilities;
 
 :root {
-  /* Soft slate-teal: calm clarity, not clinical purple or cream-terracotta */
-  --ink: 210 28% 14%;
-  --mist: 198 28% 92%;
-  --paper: 42 28% 97%;
-  --path: 168 38% 32%;
-  --ridge: 205 22% 38%;
-  --soft: 186 24% 86%;
+  /* Dusk ink + copper ember on cool bone (not purple, not cream-terracotta) */
+  --ink: 214 32% 12%;
+  --mist: 210 24% 90%;
+  --paper: 40 22% 96%;
+  --path: 168 28% 28%;
+  --ridge: 214 18% 36%;
+  --soft: 210 20% 86%;
+  --ember: 18 72% 42%;
+  --dusk: 214 28% 18%;
 }
 
 @layer base {
@@ -18,12 +20,25 @@
   }
 
   a {
-    @apply text-path underline-offset-4 transition-colors hover:text-ink;
+    @apply text-path underline-offset-4 transition-colors hover:text-ember;
   }
 }
 
 @layer utilities {
   .text-balance {
     text-wrap: balance;
+  }
+
+  .bg-grain {
+    background-image:
+      radial-gradient(ellipse at 12% 0%, hsl(18 55% 48% / 0.12), transparent 42%),
+      radial-gradient(ellipse at 88% 8%, hsl(210 40% 70% / 0.22), transparent 48%),
+      linear-gradient(165deg, hsl(210 30% 92%) 0%, hsl(40 22% 96%) 48%, hsl(40 18% 94%) 100%);
+  }
+
+  .bg-band-dusk {
+    background:
+      linear-gradient(120deg, hsl(214 32% 12% / 0.82), hsl(214 28% 18% / 0.55)),
+      hsl(214 32% 12%);
   }
 }

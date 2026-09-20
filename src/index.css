@@ -8,7 +8,7 @@ body,
 
 body {
   margin: 0;
-  font-family: Figtree, ui-sans-serif, system-ui, sans-serif;
+  font-family: Outfit, ui-sans-serif, system-ui, sans-serif;
   color: hsl(var(--ink));
   background: hsl(var(--paper));
   text-rendering: optimizeLegibility;
