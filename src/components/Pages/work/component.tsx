@@ -23,15 +23,15 @@ const extraCopy: Record<
 > = {
   'elder-care': {
     forWhom:
-      'For the person holding things together when someone in the family is dying. Not a clinic. Not a pitch deck.',
+      'For the person holding it together when someone in the family is dying. Not a clinic. Not a pitch.',
     ifWeBuild:
-      'If we build it: what to ask, what to expect, where the forms and phone numbers are, how to keep relatives from talking past each other. Plain language. Readable when you’re exhausted.',
+      'If we build it: what to ask, what to expect, where the forms and numbers are, how to keep relatives from talking past each other. Plain language. Readable when you’re wiped.',
   },
   'texas-workers-rights': {
     forWhom:
-      'For people in specific jobs in Texas who need real answers. Nurses first. Not a law firm. Not a rant.',
+      'For people in specific Texas jobs who need real answers. Nurses first. Not a law firm. Not a rant.',
     ifWeBuild:
-      'If we build it: what you can refuse, what has to be in writing, who to call, and how hospital vs clinic vs agency changes things. Other jobs after the first version works.',
+      'If we build it: what you can refuse, what has to be in writing, who to call, and how hospital vs clinic vs agency changes it. Other jobs after the first version works.',
   },
 };
 
@@ -62,14 +62,13 @@ export const WorkPage: PageComponentType = () => {
           <SectionIntro eyebrow="Work" title="What we can build">
             <p>
               These are ideas. Not live products. If we build them, each one
-              gets a clear job and the same shop habits as everything else we
-              ship.
+              gets a clear job. Same approach as everything else we ship.
             </p>
           </SectionIntro>
           {source === 'fallback' ? (
             <p className="mt-6 text-sm text-ink/55" role="status">
-              Showing the offline copy. API isn&apos;t up or isn&apos;t set.
-              Same ideas either way.
+              Offline copy. API isn&apos;t up or isn&apos;t set. Same ideas
+              either way.
             </p>
           ) : source === 'api' ? (
             <p className="mt-6 text-sm text-ink/55" role="status">
@@ -127,8 +126,8 @@ export const WorkPage: PageComponentType = () => {
             Know someone who needs one of these?
           </h2>
           <p className="mt-4 max-w-xl text-base leading-relaxed text-paper/70 md:text-lg">
-            Tell us. We haven&apos;t named dollars here. We&apos;re still
-            figuring out what fits.
+            Tell us. We haven&apos;t named dollars. We&apos;re still figuring
+            out what fits.
           </p>
           <div className="mt-8">
             <Button to="/contact">Contact Macovin</Button>

@@ -26,13 +26,12 @@ export const IndexPage: PageComponentType = () => {
             Macovin
           </p>
           <h1 className="animate-fade-up-delay mt-4 max-w-2xl font-display text-xl font-medium leading-snug text-paper/95 sm:text-2xl md:mt-5 md:text-3xl text-balance">
-            We build clear apps and informative websites for people when life
-            gets hard.
+            Clear apps and informative websites for people when life gets hard.
           </h1>
           <p className="animate-fade-up-late mt-4 max-w-xl text-base leading-relaxed text-paper/75 md:mt-5 md:text-lg">
-            Not a sales funnel. Not a pile of features. Stuff you can actually
-            read when you&apos;re tired. Meanwhile is the factory we use to ship
-            it.
+            Here&apos;s what we do: build sites you can actually use when
+            you&apos;re stressed. Not a sales funnel. Not a feature buffet.
+            Meanwhile is how we ship them.
           </p>
           <div className="animate-fade-up-late mt-7 flex flex-col gap-3 sm:mt-9 sm:flex-row sm:flex-wrap">
             <Button to="/work">See what we can build</Button>
@@ -54,17 +53,18 @@ export const IndexPage: PageComponentType = () => {
         <SplitFeature
           photo="homeTogether"
           eyebrow="Who it’s for"
-          title="Here’s who it’s for"
+          title="Real talk: who this is for"
         >
           <p>
-            Someone in your family is dying and nobody handed you the forms.
+            Someone in your family is dying and nobody handed you the packet.
             You&apos;re a nurse and you need a straight answer about what you
-            can refuse at work. Relatives keep talking past each other and
-            you&apos;re the one stuck in the middle.
+            can refuse. Relatives keep talking past each other and you&apos;re
+            stuck in the middle.
           </p>
           <p>
-            That&apos;s the job. Clear information for people in a hard week.
-            If we don&apos;t know something yet, we say so.
+            That&apos;s who we build for. Clear info for a hard week. If we
+            don&apos;t know something yet, we say so. Guessing just to sound
+            sure is a silly way to run a week.
           </p>
         </SplitFeature>
       </PageSection>
@@ -75,28 +75,29 @@ export const IndexPage: PageComponentType = () => {
             How we work
           </p>
           <h2 className="mt-3 max-w-3xl font-display text-3xl font-semibold tracking-tight md:text-4xl text-balance">
-            Most teams waste a week re-explaining the same thing.
+            Most teams burn a week re-explaining the same thing.
           </h2>
           <div className="mt-8 grid gap-8 md:grid-cols-3">
             <div className="border-t border-paper/20 pt-5">
               <h3 className="font-display text-xl font-semibold">Same words</h3>
               <p className="mt-3 text-sm leading-relaxed text-paper/70 md:text-base">
-                Design, engineering, and testing use the same names for the same
-                thing. Less telephone. Less “wait, which banner?”
+                Design, engineering, and testing use the same names. Less
+                telephone. Less “wait, which banner was that again?”
               </p>
             </div>
             <div className="border-t border-paper/20 pt-5">
-              <h3 className="font-display text-xl font-semibold">Start from a story</h3>
+              <h3 className="font-display text-xl font-semibold">Write it plain first</h3>
               <p className="mt-3 text-sm leading-relaxed text-paper/70 md:text-base">
-                We write what should happen in plain language first. Tickets and
-                docs come out of that. They&apos;re not a second project.
+                We start with what should happen, in language a normal person
+                can read. Tickets and docs come after. They&apos;re not the
+                point.
               </p>
             </div>
             <div className="border-t border-paper/20 pt-5">
-              <h3 className="font-display text-xl font-semibold">Ship something real</h3>
+              <h3 className="font-display text-xl font-semibold">Ship it</h3>
               <p className="mt-3 text-sm leading-relaxed text-paper/70 md:text-base">
-                Talking about process without shipping is just talking. We prove
-                it by putting sites live.
+                Process talk without a live site is just talk. We care what
+                actually went out.
               </p>
             </div>
           </div>
@@ -108,15 +109,14 @@ export const IndexPage: PageComponentType = () => {
           photo="aboutPath"
           reverse
           eyebrow="Meanwhile"
-          title="Macovin is the company. Meanwhile is the shop."
+          title="Macovin builds it. Meanwhile is the shop."
         >
           <p>
-            We build sites in Meanwhile. Same tooling, same habits. If you want
-            the longer version of how that works, it&apos;s on the About page and
-            in the company docs.
+            We use Meanwhile to build these sites. Same tooling, same habits.
+            Want the longer version? About page and the company docs.
           </p>
           <p>
-            The factory repo is{' '}
+            Factory code:{' '}
             <a
               href="https://github.com/MeanwhileJS/meanwhile"
               target="_blank"
@@ -145,10 +145,9 @@ export const IndexPage: PageComponentType = () => {
                 Sites we might build
               </h2>
               <p className="mt-4 text-base leading-relaxed text-ink/70 md:text-lg">
-                These aren&apos;t live products. They&apos;re ideas. An elder care
-                end-of-life packet. A Texas workers&apos; rights site starting
-                with nurses. If we build them, they get the same clear treatment
-                as everything else.
+                Not live yet. Ideas. An elder care end-of-life packet. A Texas
+                workers&apos; rights site starting with nurses. If we build them,
+                they get the same clear treatment as everything else.
               </p>
             </div>
             <Button to="/work">See what we can build</Button>

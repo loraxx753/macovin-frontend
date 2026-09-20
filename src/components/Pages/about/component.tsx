@@ -12,11 +12,11 @@ const habits = [
     body: 'Design, engineering, and testing use the same words for the same thing. That’s how you stop playing telephone.',
   },
   {
-    title: 'Start from a story',
-    body: 'We write what should happen in plain language first (Given / When / Then). Tickets and docs follow. They’re leftovers, not the main event.',
+    title: 'Write it plain first',
+    body: 'What should happen, in language a normal person can read. Tickets and docs follow. They’re leftovers, not the main event.',
   },
   {
-    title: 'Prove it by shipping',
+    title: 'Ship it',
     body: 'Talk without a live site is just talk. We care what actually went out and how long it took.',
   },
 ] as const;
@@ -39,8 +39,8 @@ export const AboutPage: PageComponentType = () => {
             How we work
           </h1>
           <p className="mt-4 max-w-2xl text-base leading-relaxed text-paper/80 md:text-lg">
-            Macovin is a small family company. Meanwhile is the factory. We
-            build websites and apps, and we try not to spend the week
+            Macovin&apos;s a small family company. Meanwhile&apos;s the
+            factory. We build websites and apps. We try not to spend the week
             re-explaining the same banner.
           </p>
           <PhotoCredit id="aboutPath" className="text-paper/50" />
@@ -48,12 +48,11 @@ export const AboutPage: PageComponentType = () => {
       </section>
 
       <PageSection>
-        <SectionIntro title="The usual mess">
+        <SectionIntro title="You’ve been in that meeting">
           <p>
-            You&apos;ve been in that meeting. Everyone&apos;s tired.
-            You&apos;re talking about the same thing for the tenth time and
-            somehow it still isn&apos;t clear. That&apos;s telephone with a
-            paycheck.
+            Everyone&apos;s tired. You&apos;re talking about the same thing for
+            the tenth time and it still isn&apos;t clear. That&apos;s telephone
+            with a paycheck.
           </p>
         </SectionIntro>
         <div className="mt-10 max-w-3xl space-y-5 text-base leading-relaxed text-ink/75 md:text-lg">
@@ -63,9 +62,10 @@ export const AboutPage: PageComponentType = () => {
             Standup repeats it so everyone can pretend they&apos;re aligned.
           </p>
           <p>
-            We&apos;re not interested in guessing better. We&apos;re interested
-            in keeping the original meaning in the room. If we don&apos;t know
-            yet, we say that.
+            Real talk: we&apos;re not trying to guess better. We&apos;re trying
+            to keep what was meant in the room. If we don&apos;t know yet, we
+            say that. Inventing an answer just to make the schedule feel tidy is
+            a silly argument on its face.
           </p>
         </div>
       </PageSection>
@@ -94,17 +94,16 @@ export const AboutPage: PageComponentType = () => {
         <SplitFeature
           photo="homeTogether"
           eyebrow="Who’s in the room"
-          title="Same rules for every seat"
+          title="Same standard for every seat"
         >
           <p>
             The person pointing, the people in the middle, and the people
             building all get to say “I don’t know yet.” Including whoever has to
-            report up. We don’t invent an answer just to make the room feel
-            scheduled.
+            report up.
           </p>
           <p>
-            If the ticket is the story, stakeholders can stay in that loop
-            without sitting through a second telling.
+            Have you ever sat through a second meeting that was just a retelling
+            of the first? Yeah. If the ticket is the story, you can skip that.
           </p>
         </SplitFeature>
       </PageSection>
@@ -112,7 +111,7 @@ export const AboutPage: PageComponentType = () => {
       <section className="bg-dusk text-paper">
         <PageSection>
           <h2 className="max-w-2xl font-display text-3xl font-semibold tracking-tight md:text-4xl text-balance">
-            Want the longer version?
+            Want more detail?
           </h2>
           <p className="mt-4 max-w-2xl text-base leading-relaxed text-paper/70 md:text-lg">
             Company docs are on GitHub. The factory is Meanwhile. This site is
