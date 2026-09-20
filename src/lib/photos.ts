@@ -2,9 +2,9 @@
 export const photoCredits = {
   heroCare: {
     file: 'hero-care.jpg',
-    alt: 'Two people sitting close, hands resting together',
-    photographer: 'Filippo Boni',
-    url: 'https://unsplash.com/photos/elderly-couple-sitting-on-sofa-together-1581579438747',
+    alt: 'Caregiver holding an older adult’s hand in a quiet room',
+    photographer: 'National Cancer Institute',
+    url: 'https://unsplash.com/photos/person-holding-babys-hand-1576765608535',
   },
   homeTogether: {
     file: 'home-together.jpg',

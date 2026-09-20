@@ -5,7 +5,7 @@ All photos are from [Unsplash](https://unsplash.com) and attributed in the UI.
 
 | File | Photographer | Unsplash |
 | --- | --- | --- |
-| `hero-care.jpg` | Filippo Boni | [photo](https://unsplash.com/photos/elderly-couple-sitting-on-sofa-together-1581579438747) |
+| `hero-care.jpg` | National Cancer Institute | [photo](https://unsplash.com/photos/person-holding-babys-hand-1576765608535) |
 | `home-together.jpg` | Annie Spratt | [photo](https://unsplash.com/photos/people-sitting-beside-table-1522071820081) |
 | `work-elder.jpg` | Matt Bennett | [photo](https://unsplash.com/photos/man-and-woman-walking-on-pathway-during-daytime-1516733725897) |
 | `work-nurses.jpg` | National Cancer Institute | [photo](https://unsplash.com/photos/person-wearing-lavatory-gown-with-green-stethoscope-on-neck-using-phone-while-standing-1576091160399) |
