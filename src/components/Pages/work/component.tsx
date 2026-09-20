@@ -25,13 +25,13 @@ const extraCopy: Record<
     forWhom:
       'For the person holding the week together when a family member is at the end of life. Not a clinic. Not a sales funnel.',
     ifWeBuild:
-      'If we build it, it’s a site with a clear sentence: what to ask, what to expect, where the forms and phone numbers live, how to keep relatives from playing telephone. Words a tired person can read.',
+      'If we build it, it’s a site with one clear job: what to ask, what to expect, where the forms and phone numbers live, how to keep relatives from playing telephone. Words a tired person can read.',
   },
   'texas-workers-rights': {
     forWhom:
       'For people with specific jobs in Texas who need real answers, starting with nurses. Not a law firm. Not a rant.',
     ifWeBuild:
-      'If we build it, each profession gets its own sentence in the same shop. What you’re allowed to refuse, what has to be in writing, who to call, and what changes by hospital vs clinic vs agency. Nurses first. Other jobs after the first vocabulary exists.',
+      'If we build it, each profession gets its own clear page in the same shop. What you’re allowed to refuse, what has to be in writing, who to call, and what changes by hospital vs clinic vs agency. Nurses first. Other jobs after the first version exists.',
   },
 };
 
@@ -59,13 +59,10 @@ export const WorkPage: PageComponentType = () => {
     <PageShell>
       <section className="relative overflow-hidden bg-grain">
         <PageSection className="pb-10 md:pb-14">
-          <SectionIntro
-            eyebrow="Work"
-            title="Example sentences we might invent"
-          >
+          <SectionIntro eyebrow="Work" title="What we can build">
             <p>
               These are ideas / coming work. They&apos;re not live products yet.
-              If we build them, each one gets a clear sentence in the same
+              If we build them, each one gets a clear purpose in the same
               factory. Same shop language. Same honest story about what exists
               today.
             </p>
@@ -127,12 +124,12 @@ export const WorkPage: PageComponentType = () => {
       <section className="bg-dusk text-paper">
         <PageSection>
           <h2 className="max-w-2xl font-display text-3xl font-semibold tracking-tight md:text-4xl text-balance">
-            If a sentence like this would help someone you know, tell us.
+            If a site like this would help someone you know, tell us.
           </h2>
           <p className="mt-4 max-w-xl text-base leading-relaxed text-paper/70 md:text-lg">
             We haven&apos;t named dollars here. We&apos;re still pointing at
             what fits. The front door is clear sites for people. The factory
-            keeps the language so the next sentence isn&apos;t a custom month.
+            keeps the language so the next one isn&apos;t a custom month.
           </p>
           <div className="mt-8">
             <Button to="/contact">Contact Macovin</Button>

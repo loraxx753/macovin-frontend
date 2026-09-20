@@ -1,10 +1,10 @@
 /** Photo credits for Unsplash assets in src/assets/photos (Unsplash License). */
 export const photoCredits = {
-  heroCare: {
-    file: 'hero-care.jpg',
-    alt: 'Caregiver holding an older adult’s hand in a quiet room',
-    photographer: 'National Cancer Institute',
-    url: 'https://unsplash.com/photos/person-holding-babys-hand-1576765608535',
+  heroHome: {
+    file: 'hero-home.jpg',
+    alt: 'Person reviewing papers and a laptop at a kitchen table',
+    photographer: 'Scott Graham',
+    url: 'https://unsplash.com/photos/person-using-macbook-pro-1454165804606',
   },
   homeTogether: {
     file: 'home-together.jpg',

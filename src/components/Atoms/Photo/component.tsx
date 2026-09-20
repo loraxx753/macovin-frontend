@@ -1,4 +1,4 @@
-import heroCare from '@/assets/photos/hero-care.jpg';
+import heroHome from '@/assets/photos/hero-home.jpg';
 import homeTogether from '@/assets/photos/home-together.jpg';
 import workElder from '@/assets/photos/work-elder.jpg';
 import workNurses from '@/assets/photos/work-nurses.jpg';
@@ -8,7 +8,7 @@ import { photoCredits, PhotoCreditKey } from '@/lib/photos';
 import { cn } from '@/lib/utils';
 
 const images = {
-  heroCare,
+  heroHome,
   homeTogether,
   workElder,
   workNurses,

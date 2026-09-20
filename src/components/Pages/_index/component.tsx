@@ -11,7 +11,7 @@ export const IndexPage: PageComponentType = () => {
       <section className="relative min-h-[100svh] overflow-hidden">
         <div className="absolute inset-0">
           <Photo
-            id="heroCare"
+            id="heroHome"
             priority
             className="h-full w-full object-cover animate-ken-slow"
           />
@@ -35,7 +35,7 @@ export const IndexPage: PageComponentType = () => {
             same from seat to seat.
           </p>
           <div className="animate-fade-up-late mt-7 flex flex-col gap-3 sm:mt-9 sm:flex-row sm:flex-wrap">
-            <Button to="/work">See example sentences</Button>
+            <Button to="/work">See what we can build</Button>
             <Button
               to="/contact"
               variant="secondary"
@@ -45,7 +45,7 @@ export const IndexPage: PageComponentType = () => {
             </Button>
           </div>
           <div className="mt-6">
-            <PhotoCredit id="heroCare" className="text-paper/55" />
+            <PhotoCredit id="heroHome" className="text-paper/55" />
           </div>
         </div>
       </section>
@@ -60,7 +60,7 @@ export const IndexPage: PageComponentType = () => {
             You’re caring for a family member and nobody handed you the forms.
             You’re a nurse trying to learn what you’re allowed to refuse. You’re
             trying to keep relatives from playing telephone about the same
-            sentence. That’s who we build for.
+            few facts. That’s who we build for.
           </p>
           <p>
             Execs, the middle, and the people cutting are in the same weather.
@@ -84,7 +84,7 @@ export const IndexPage: PageComponentType = () => {
               <p className="mt-3 text-sm leading-relaxed text-paper/70 md:text-base">
                 Grown-up telephone is expensive. Tickets whisper. Design
                 whispers. Production whispers. We name a thing once so the next
-                seat gets the first sentence and the last output.
+                seat gets what was meant, plus what the last seat actually built.
               </p>
             </div>
             <div className="border-t border-paper/20 pt-5">
@@ -148,15 +148,15 @@ export const IndexPage: PageComponentType = () => {
                 Coming work
               </p>
               <h2 className="mt-3 font-display text-3xl font-semibold tracking-tight md:text-4xl text-balance">
-                Example sentences we might invent
+                Sites we might build
               </h2>
               <p className="mt-4 text-base leading-relaxed text-ink/70 md:text-lg">
                 Ideas, not live products yet. Elder care end-of-life packet.
-                Texas workers’ rights for nurses. Each one gets a clear sentence
+                Texas workers’ rights for nurses. Each one gets a clear purpose
                 in the same factory if we build it.
               </p>
             </div>
-            <Button to="/work">Browse examples</Button>
+            <Button to="/work">See what we can build</Button>
           </div>
         </PageSection>
       </section>

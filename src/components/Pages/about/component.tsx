@@ -9,7 +9,7 @@ import { SplitFeature } from '@/components/Organisms/SplitFeature';
 const habits = [
   {
     title: 'Name a thing once',
-    body: 'That’s how we refuse to play telephone. Design, engineering, and testing use the same words for the same look. The next seat gets the last output and the first sentence, so the whisper can’t start.',
+    body: 'That’s how we refuse to play telephone. Design, engineering, and testing use the same words for the same look. The next seat gets the last output and what was meant first, so the whisper can’t start.',
   },
   {
     title: 'Build from the story',
@@ -61,14 +61,14 @@ export const AboutPage: PageComponentType = () => {
             Someone means a thing. The ticket whispers it. Design whispers what
             they heard. Production whispers that. QA whispers the code. Standup
             whispers it back so the room can relax. You can’t point to the seat
-            where the whisper became the sentence. That’s why it feels baked
+            where the whisper became the meaning. That’s why it feels baked
             in.
           </p>
           <p>
             We make the circle lighter on purpose. We tell the truth about what
             we know. “I don’t know yet” means the echo hasn’t gotten to me yet.
-            When it does, I get a copy of every previous echo, plus the first
-            sentence.
+            When it does, I get a copy of every previous echo, plus what was
+            meant at the start.
           </p>
         </div>
       </PageSection>
@@ -102,7 +102,7 @@ export const AboutPage: PageComponentType = () => {
           <p>
             The person in the tree, the people in the middle, and the people
             cutting deserve a week where “I don’t know yet” is allowed. That
-            includes the person who has to report up. We don’t invent a sentence
+            includes the person who has to report up. We don’t invent an answer
             just because someone asked the kid next to them.
           </p>
           <p>

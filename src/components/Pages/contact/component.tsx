@@ -54,7 +54,7 @@ export const ContactPage: PageComponentType = () => {
         <div>
           <SectionIntro eyebrow="Contact" title="Say hello">
             <p>
-              Tell us what sentence you need. Who it’s for. What’s true today.
+              Tell us what you need built. Who it’s for. What’s true today.
               If the API isn’t standing yet, this form opens a mail draft
               instead. Either way, we’ll read it.
             </p>
@@ -76,7 +76,7 @@ export const ContactPage: PageComponentType = () => {
                 A site that fits the factory
               </span>
               <p className="mt-1">
-                One clear sentence. Same language as everything else we ship.
+                One clear purpose. Same language as everything else we ship.
                 Meanwhile keeps design, engineering, and testing on those words.
               </p>
             </li>
@@ -85,7 +85,7 @@ export const ContactPage: PageComponentType = () => {
                 Or just a question
               </span>
               <p className="mt-1">
-                How we work, what Meanwhile is, whether a sentence like ours
+                How we work, what Meanwhile is, whether a site like ours
                 would fit. Ask. “I don’t know yet” is allowed on our side too.
               </p>
             </li>
@@ -142,7 +142,7 @@ export const ContactPage: PageComponentType = () => {
                 value={message}
                 onChange={(e) => setMessage(e.target.value)}
                 className={`${fieldClass} resize-y`}
-                placeholder="What’s the sentence? Who’s it for?"
+                placeholder="What do you need? Who’s it for?"
               />
             </label>
 
