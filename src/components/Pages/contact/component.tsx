@@ -116,67 +116,15 @@ export const ContactPage: PageComponentType = () => {
 
   return (
     <PageShell>
-      <PageSection className="grid items-start gap-10 md:grid-cols-2 md:gap-14 md:py-20">
-        <div>
-          <SectionIntro as="h1" eyebrow="Contact" title="Say hello">
-            <p>
-              Tell us what you need. Who it&apos;s for. What&apos;s true today.
-              Messy is fine.
-            </p>
-          </SectionIntro>
+      <PageSection className="grid items-start gap-8 md:grid-cols-2 md:gap-x-14 md:gap-y-8 md:py-20">
+        <SectionIntro as="h1" eyebrow="Contact" title="Say hello">
+          <p>
+            Tell us what you need. Who it&apos;s for. What&apos;s true today.
+            Messy is fine.
+          </p>
+        </SectionIntro>
 
-          <div className="mt-8 rounded-md border border-ink/10 bg-mist/30 p-4 text-sm leading-relaxed text-ink/70 md:text-base">
-            <p className="font-medium text-ink">What happens next</p>
-            <p className="mt-2">
-              We read every note. If the API is up, you&apos;ll see a quick
-              “Got it.” If not, your mail app opens a draft to{' '}
-              <a href={`mailto:${CONTACT_EMAIL}`}>{CONTACT_EMAIL}</a>. Either
-              way, we&apos;ll reply when we can. No spam list. No bot gate.
-            </p>
-          </div>
-
-          <ul className="mt-10 space-y-5 border-t border-ink/10 pt-8 text-sm leading-relaxed text-ink/70 md:text-base">
-            <li>
-              <span className="font-display text-lg font-semibold text-ink">
-                A site someone needs
-              </span>
-              <p className="mt-1">
-                Elder care, workers&apos; rights, or another hard week where
-                clear info would help. Ideas are fine. We haven&apos;t named
-                dollars here.
-              </p>
-            </li>
-            <li>
-              <span className="font-display text-lg font-semibold text-ink">
-                Something that fits how we build
-              </span>
-              <p className="mt-1">
-                One clear job. Same language through design, engineering, and
-                testing. That&apos;s the Meanwhile habit.
-              </p>
-            </li>
-            <li>
-              <span className="font-display text-lg font-semibold text-ink">
-                Or just a question
-              </span>
-              <p className="mt-1">
-                How we work, what Meanwhile is, whether this fits. Ask.
-              </p>
-            </li>
-          </ul>
-
-          <figure className="mt-10 hidden md:block">
-            <div className="overflow-hidden">
-              <Photo
-                id="contactDesk"
-                className="aspect-[16/10] w-full object-cover"
-              />
-            </div>
-            <PhotoCredit id="contactDesk" />
-          </figure>
-        </div>
-
-        <div className="border border-ink/10 bg-mist/25 p-5 md:p-8">
+        <div className="border border-ink/10 bg-mist/25 p-5 md:row-span-2 md:p-8">
           <form onSubmit={onSubmit} className="space-y-5" noValidate>
             <label className="block">
               <span className="mb-1.5 flex items-baseline justify-between gap-2 text-sm font-medium text-ink">
@@ -310,6 +258,58 @@ export const ContactPage: PageComponentType = () => {
               </p>
             ) : null}
           </form>
+        </div>
+
+        <div>
+          <div className="rounded-md border border-ink/10 bg-mist/30 p-4 text-sm leading-relaxed text-ink/70 md:text-base">
+            <p className="font-medium text-ink">What happens next</p>
+            <p className="mt-2">
+              We read every note. If the API is up, you&apos;ll see a quick
+              “Got it.” If not, your mail app opens a draft to{' '}
+              <a href={`mailto:${CONTACT_EMAIL}`}>{CONTACT_EMAIL}</a>. Either
+              way, we&apos;ll reply when we can. No spam list. No bot gate.
+            </p>
+          </div>
+
+          <ul className="mt-10 space-y-5 border-t border-ink/10 pt-8 text-sm leading-relaxed text-ink/70 md:text-base">
+            <li>
+              <span className="font-display text-lg font-semibold text-ink">
+                A site someone needs
+              </span>
+              <p className="mt-1">
+                Elder care, workers&apos; rights, or another hard week where
+                clear info would help. Ideas are fine. We haven&apos;t named
+                dollars here.
+              </p>
+            </li>
+            <li>
+              <span className="font-display text-lg font-semibold text-ink">
+                Something that fits how we build
+              </span>
+              <p className="mt-1">
+                One clear job. Same language through design, engineering, and
+                testing. That&apos;s the Meanwhile habit.
+              </p>
+            </li>
+            <li>
+              <span className="font-display text-lg font-semibold text-ink">
+                Or just a question
+              </span>
+              <p className="mt-1">
+                How we work, what Meanwhile is, whether this fits. Ask.
+              </p>
+            </li>
+          </ul>
+
+          <figure className="mt-10 hidden md:block">
+            <div className="overflow-hidden">
+              <Photo
+                id="contactDesk"
+                className="aspect-[16/10] w-full object-cover"
+              />
+            </div>
+            <PhotoCredit id="contactDesk" />
+          </figure>
         </div>
       </PageSection>
     </PageShell>
