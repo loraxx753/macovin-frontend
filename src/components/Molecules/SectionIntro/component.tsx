@@ -6,6 +6,7 @@ type SectionIntroProps = {
   title: string;
   children?: ReactNode;
   className?: string;
+  as?: 'h1' | 'h2';
 };
 
 export function SectionIntro({
@@ -13,19 +14,22 @@ export function SectionIntro({
   title,
   children,
   className,
+  as: Heading = 'h2',
 }: SectionIntroProps) {
   return (
     <header className={cn('max-w-2xl', className)}>
-        {eyebrow ? (
+      {eyebrow ? (
         <p className="mb-3 font-mono text-[11px] font-medium uppercase tracking-[0.18em] text-ember">
           {eyebrow}
         </p>
       ) : null}
-      <h2 className="font-display text-3xl font-semibold tracking-tight text-ink sm:text-4xl text-balance">
+      <Heading className="font-display text-3xl font-semibold tracking-tight text-ink sm:text-4xl text-balance">
         {title}
-      </h2>
+      </Heading>
       {children ? (
-        <div className="mt-4 text-lg leading-relaxed text-ink/75">{children}</div>
+        <div className="mt-4 text-lg leading-relaxed text-ink/75 text-pretty">
+          {children}
+        </div>
       ) : null}
     </header>
   );

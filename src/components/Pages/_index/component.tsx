@@ -4,47 +4,69 @@ import { Button } from '@/components/Atoms/Button';
 import { Photo, PhotoCredit } from '@/components/Atoms/Photo';
 import { SplitFeature } from '@/components/Organisms/SplitFeature';
 import { PageSection } from '@/components/Molecules/PageSection';
+import { FaqList } from '@/components/Molecules/FaqList';
+
+const faqs = [
+  {
+    question: 'What do you actually sell?',
+    answer:
+      'Sites and apps people can use when life gets hard. Clear info, plain language, one job per page. Not a feature buffet.',
+  },
+  {
+    question: 'Is anything live yet?',
+    answer:
+      'These are ideas / coming work. Not live products. If we build them, they’ll get the same clear treatment as everything else.',
+  },
+  {
+    question: 'What’s Meanwhile?',
+    answer:
+      'Meanwhile is the factory. Macovin is the company. Same tooling and habits so the next site feels like an afternoon, not a custom month.',
+  },
+  {
+    question: 'How do we start?',
+    answer:
+      'Tell us what you need. Who it’s for. What’s true today. Messy is fine. We’ll read it and say what fits.',
+  },
+] as const;
 
 export const IndexPage: PageComponentType = () => {
   return (
-    <PageShell overlayHeader>
-      <section className="relative min-h-[100svh] overflow-hidden">
+    <PageShell>
+      <section className="relative min-h-[min(100svh,52rem)] overflow-hidden md:min-h-[min(100svh,44rem)]">
         <div className="absolute inset-0">
           <Photo
             id="heroHome"
             priority
             className="h-full w-full object-cover animate-ken-slow"
           />
-          <div className="absolute inset-0 bg-gradient-to-t from-ink/85 via-ink/45 to-ink/20" />
-          <div className="absolute inset-0 bg-gradient-to-r from-ink/55 via-transparent to-transparent" />
+          <div className="absolute inset-0 bg-gradient-to-t from-ink/90 via-ink/50 to-ink/25" />
+          <div className="absolute inset-0 bg-gradient-to-r from-ink/60 via-ink/20 to-transparent" />
         </div>
-        <div className="relative z-10 mx-auto flex min-h-[100svh] max-w-6xl flex-col justify-end px-4 pb-14 pt-24 md:px-8 md:pb-20">
-          <p className="animate-fade-up font-mono text-[11px] font-medium uppercase tracking-[0.2em] text-paper/80">
+        <div className="relative z-10 mx-auto flex min-h-[min(100svh,52rem)] max-w-6xl flex-col justify-end px-4 pb-16 pt-10 md:min-h-[min(100svh,44rem)] md:px-8 md:pb-20">
+          <p className="animate-fade-up font-display text-hero font-semibold tracking-tight text-paper">
             Macovin
           </p>
-          <p className="animate-fade-up mt-3 font-display text-5xl font-semibold tracking-tight text-paper sm:text-6xl md:text-8xl">
-            Macovin
-          </p>
-          <h1 className="animate-fade-up-delay mt-4 max-w-2xl font-display text-xl font-medium leading-snug text-paper/95 sm:text-2xl md:mt-5 md:text-3xl text-balance">
-            Clear apps and informative websites for people when life gets hard.
+          <h1 className="animate-fade-up-delay mt-4 max-w-2xl font-display text-2xl font-medium leading-snug text-paper/95 md:text-3xl text-balance">
+            Clear apps and sites for people when life gets hard.
           </h1>
-          <p className="animate-fade-up-late mt-4 max-w-xl text-base leading-relaxed text-paper/75 md:mt-5 md:text-lg">
-            Here&apos;s what we do: build sites you can actually use when
-            you&apos;re stressed. Not a sales funnel. Not a feature buffet.
-            Meanwhile is how we ship them.
+          <p className="animate-fade-up-late mt-4 max-w-lg text-base leading-relaxed text-paper/75 md:text-lg text-pretty">
+            The packet you wish someone had handed you. Meanwhile is how we
+            ship it.
           </p>
-          <div className="animate-fade-up-late mt-7 flex flex-col gap-3 sm:mt-9 sm:flex-row sm:flex-wrap">
-            <Button to="/work">See what we can build</Button>
+          <div className="animate-fade-up-late mt-8 flex flex-col gap-3 sm:flex-row sm:flex-wrap">
+            <Button to="/work" className="no-underline">
+              See what we can build
+            </Button>
             <Button
               to="/contact"
               variant="secondary"
-              className="border-0 bg-paper/10 text-paper ring-1 ring-paper/35 hover:bg-paper/20"
+              className="border-0 bg-paper/10 text-paper no-underline ring-1 ring-paper/35 hover:bg-paper/20"
             >
               Talk to us
             </Button>
           </div>
-          <div className="mt-6">
-            <PhotoCredit id="heroHome" className="text-paper/55" />
+          <div className="mt-8">
+            <PhotoCredit id="heroHome" className="text-paper/50" />
           </div>
         </div>
       </section>
@@ -53,18 +75,16 @@ export const IndexPage: PageComponentType = () => {
         <SplitFeature
           photo="homeTogether"
           eyebrow="Who it’s for"
-          title="Real talk: who this is for"
+          title="You’re not looking for a pitch deck"
         >
           <p>
-            Someone in your family is dying and nobody handed you the packet.
-            You&apos;re a nurse and you need a straight answer about what you
-            can refuse. Relatives keep talking past each other and you&apos;re
-            stuck in the middle.
+            Someone in the family is dying and nobody handed you the packet.
+            Relatives keep talking past each other. You need a straight answer
+            about work, care, or the next form, and you&apos;re wiped.
           </p>
           <p>
             That&apos;s who we build for. Clear info for a hard week. If we
-            don&apos;t know something yet, we say so. Guessing just to sound
-            sure is a silly way to run a week.
+            don&apos;t know something yet, we say so.
           </p>
         </SplitFeature>
       </PageSection>
@@ -77,23 +97,30 @@ export const IndexPage: PageComponentType = () => {
           <h2 className="mt-3 max-w-3xl font-display text-3xl font-semibold tracking-tight md:text-4xl text-balance">
             Most teams burn a week re-explaining the same thing.
           </h2>
-          <div className="mt-8 grid gap-8 md:grid-cols-3">
-            <div className="border-t border-paper/20 pt-5">
-              <h3 className="font-display text-xl font-semibold">Same words</h3>
-              <p className="mt-3 text-sm leading-relaxed text-paper/70 md:text-base">
+          <p className="mt-4 max-w-2xl text-base leading-relaxed text-paper/70 md:text-lg">
+            We name a thing once so design, engineering, and testing aren&apos;t
+            playing telephone.
+          </p>
+          <div className="mt-10 grid gap-4 md:grid-cols-6 md:auto-rows-fr">
+            <div className="border border-paper/15 bg-paper/5 p-6 md:col-span-3 md:row-span-2 md:p-8">
+              <h3 className="font-display text-2xl font-semibold md:text-3xl">
+                Same words
+              </h3>
+              <p className="mt-4 text-base leading-relaxed text-paper/70 md:text-lg">
                 Design, engineering, and testing use the same names. Less
                 telephone. Less “wait, which banner was that again?”
               </p>
             </div>
-            <div className="border-t border-paper/20 pt-5">
-              <h3 className="font-display text-xl font-semibold">Write it plain first</h3>
+            <div className="border border-paper/15 bg-paper/5 p-6 md:col-span-3">
+              <h3 className="font-display text-xl font-semibold">
+                Write it plain first
+              </h3>
               <p className="mt-3 text-sm leading-relaxed text-paper/70 md:text-base">
-                We start with what should happen, in language a normal person
-                can read. Tickets and docs come after. They&apos;re not the
-                point.
+                What should happen, in language a normal person can read.
+                Tickets and docs come after. They&apos;re not the point.
               </p>
             </div>
-            <div className="border-t border-paper/20 pt-5">
+            <div className="border border-paper/15 bg-paper/5 p-6 md:col-span-3">
               <h3 className="font-display text-xl font-semibold">Ship it</h3>
               <p className="mt-3 text-sm leading-relaxed text-paper/70 md:text-base">
                 Process talk without a live site is just talk. We care what
@@ -112,8 +139,8 @@ export const IndexPage: PageComponentType = () => {
           title="Macovin builds it. Meanwhile is the shop."
         >
           <p>
-            We use Meanwhile to build these sites. Same tooling, same habits.
-            Want the longer version? About page and the company docs.
+            Same tooling, same habits. Want the longer version? About page and
+            the company docs.
           </p>
           <p>
             Factory code:{' '}
@@ -127,14 +154,14 @@ export const IndexPage: PageComponentType = () => {
             .
           </p>
           <div className="pt-2">
-            <Button to="/about" variant="secondary">
+            <Button to="/about" variant="secondary" className="no-underline">
               How we work
             </Button>
           </div>
         </SplitFeature>
       </PageSection>
 
-      <section className="bg-mist/50">
+      <section className="bg-atmosphere">
         <PageSection>
           <div className="flex flex-col gap-6 md:flex-row md:items-end md:justify-between">
             <div className="max-w-2xl">
@@ -144,16 +171,28 @@ export const IndexPage: PageComponentType = () => {
               <h2 className="mt-3 font-display text-3xl font-semibold tracking-tight md:text-4xl text-balance">
                 Sites we might build
               </h2>
-              <p className="mt-4 text-base leading-relaxed text-ink/70 md:text-lg">
+              <p className="mt-4 text-base leading-relaxed text-ink/70 md:text-lg text-pretty">
                 Not live yet. Ideas. An elder care end-of-life packet. A Texas
-                workers&apos; rights site starting with nurses. If we build them,
-                they get the same clear treatment as everything else.
+                workers&apos; rights site (nurses first, then other jobs). If we
+                build them, they get the same clear treatment.
               </p>
             </div>
-            <Button to="/work">See what we can build</Button>
+            <Button to="/work" className="no-underline shrink-0">
+              See what we can build
+            </Button>
           </div>
         </PageSection>
       </section>
+
+      <PageSection>
+        <p className="font-mono text-[11px] font-medium uppercase tracking-[0.18em] text-ember">
+          Straight answers
+        </p>
+        <h2 className="mt-3 max-w-2xl font-display text-3xl font-semibold tracking-tight md:text-4xl text-balance">
+          Questions we get
+        </h2>
+        <FaqList items={faqs} className="mt-8" />
+      </PageSection>
     </PageShell>
   );
 };

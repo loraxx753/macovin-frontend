@@ -6,12 +6,28 @@
   /* Dusk ink + copper ember on cool bone (not purple, not cream-terracotta) */
   --ink: 214 32% 12%;
   --mist: 210 24% 90%;
-  --paper: 40 22% 96%;
-  --path: 168 28% 28%;
+  --paper: 40 22% 97%;
+  --path: 168 32% 26%;
   --ridge: 214 18% 36%;
   --soft: 210 20% 86%;
-  --ember: 18 72% 42%;
-  --dusk: 214 28% 18%;
+  --ember: 18 72% 40%;
+  --dusk: 214 28% 16%;
+  --focus: 18 72% 40%;
+
+  /* Fluid type: rem term kept so zoom still works */
+  --text-xs: clamp(0.75rem, 0.72rem + 0.12vw, 0.8125rem);
+  --text-sm: clamp(0.875rem, 0.84rem + 0.15vw, 0.9375rem);
+  --text-base: clamp(1rem, 0.96rem + 0.2vw, 1.125rem);
+  --text-lg: clamp(1.125rem, 1.05rem + 0.35vw, 1.25rem);
+  --text-xl: clamp(1.25rem, 1.1rem + 0.7vw, 1.5rem);
+  --text-2xl: clamp(1.5rem, 1.2rem + 1.2vw, 2rem);
+  --text-3xl: clamp(1.875rem, 1.35rem + 2vw, 2.5rem);
+  --text-4xl: clamp(2.25rem, 1.5rem + 2.8vw, 3.25rem);
+  --text-5xl: clamp(2.75rem, 1.6rem + 4.2vw, 4.5rem);
+  --text-hero: clamp(3rem, 1.4rem + 6vw, 6rem);
+
+  --space-section: clamp(3.5rem, 2.5rem + 4vw, 6rem);
+  --measure: 65ch;
 }
 
 @layer base {
@@ -19,8 +35,22 @@
     @apply border-soft/60;
   }
 
+  html {
+    scroll-behavior: smooth;
+  }
+
+  body {
+    font-size: var(--text-base);
+    line-height: 1.65;
+  }
+
   a {
     @apply text-path underline-offset-4 transition-colors hover:text-ember;
+  }
+
+  :focus-visible {
+    outline: 2px solid hsl(var(--focus));
+    outline-offset: 2px;
   }
 }
 
@@ -29,16 +59,66 @@
     text-wrap: balance;
   }
 
+  .text-pretty {
+    text-wrap: pretty;
+  }
+
+  .measure {
+    max-width: var(--measure);
+  }
+
   .bg-grain {
     background-image:
-      radial-gradient(ellipse at 12% 0%, hsl(18 55% 48% / 0.12), transparent 42%),
-      radial-gradient(ellipse at 88% 8%, hsl(210 40% 70% / 0.22), transparent 48%),
-      linear-gradient(165deg, hsl(210 30% 92%) 0%, hsl(40 22% 96%) 48%, hsl(40 18% 94%) 100%);
+      radial-gradient(ellipse at 10% 0%, hsl(18 55% 48% / 0.1), transparent 40%),
+      radial-gradient(ellipse at 90% 5%, hsl(210 40% 70% / 0.18), transparent 46%),
+      linear-gradient(168deg, hsl(210 28% 93%) 0%, hsl(40 22% 97%) 52%, hsl(40 16% 95%) 100%);
   }
 
   .bg-band-dusk {
     background:
-      linear-gradient(120deg, hsl(214 32% 12% / 0.82), hsl(214 28% 18% / 0.55)),
+      linear-gradient(125deg, hsl(214 32% 12% / 0.88), hsl(214 28% 18% / 0.5)),
       hsl(214 32% 12%);
+  }
+
+  .bg-atmosphere {
+    background-image:
+      radial-gradient(ellipse 80% 55% at 20% -10%, hsl(18 50% 50% / 0.08), transparent 55%),
+      radial-gradient(ellipse 60% 40% at 100% 0%, hsl(210 35% 65% / 0.12), transparent 50%),
+      linear-gradient(180deg, hsl(var(--paper)), hsl(210 20% 94%));
+  }
+
+  /* Soft frost for sticky chrome; solid fallback underneath */
+  .chrome-glass {
+    background-color: hsl(var(--paper) / 0.92);
+    backdrop-filter: blur(10px);
+  }
+
+  @supports not ((backdrop-filter: blur(1px)) or (-webkit-backdrop-filter: blur(1px))) {
+    .chrome-glass {
+      background-color: hsl(var(--paper));
+    }
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  html {
+    scroll-behavior: auto;
+  }
+
+  .animate-fade-up,
+  .animate-fade-up-delay,
+  .animate-fade-up-late,
+  .animate-ken-slow {
+    animation: none !important;
+    opacity: 1 !important;
+    transform: none !important;
+  }
+
+  .motion-safe-hover {
+    transition: none !important;
+  }
+
+  .motion-safe-hover:hover {
+    transform: none !important;
   }
 }

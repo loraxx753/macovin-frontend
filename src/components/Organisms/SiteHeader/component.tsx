@@ -1,6 +1,7 @@
 import { useEffect, useId, useState } from 'react';
 import { NavLink } from 'react-router-dom';
 import { cn } from '@/lib/utils';
+import { Button } from '@/components/Atoms/Button';
 
 const links = [
   { to: '/', label: 'Home', end: true },
@@ -11,7 +12,7 @@ const links = [
 
 function linkClass({ isActive }: { isActive: boolean }) {
   return cn(
-    'block rounded-md px-3 py-2.5 text-base font-medium no-underline transition md:inline-flex md:px-3 md:py-1.5 md:text-sm',
+    'block min-h-tap rounded-md px-3 py-2.5 text-base font-medium no-underline transition md:inline-flex md:min-h-0 md:items-center md:px-3 md:py-2 md:text-sm',
     isActive
       ? 'bg-ink/5 text-ink'
       : 'text-ink/70 hover:bg-ink/5 hover:text-ink',
@@ -44,68 +45,72 @@ export function SiteHeader() {
   }
 
   return (
-    <header className="absolute inset-x-0 top-0 z-30">
-      <div className="border-b border-ink/5 bg-paper/85 backdrop-blur-md">
-        <div className="mx-auto flex max-w-6xl items-center justify-between gap-3 px-4 py-3 md:gap-6 md:px-8 md:py-4">
-        <NavLink
-          to="/"
-          onClick={closeMenu}
-          className="relative z-40 font-display text-xl font-semibold tracking-tight text-ink no-underline hover:text-ink"
-        >
-          Macovin
-        </NavLink>
+    <header className="sticky top-0 z-30">
+      <div className="border-b border-ink/8 chrome-glass">
+        <div className="mx-auto flex max-w-6xl items-center justify-between gap-3 px-4 py-3 md:gap-6 md:px-8 md:py-3.5">
+          <NavLink
+            to="/"
+            onClick={closeMenu}
+            className="relative z-40 font-display text-xl font-semibold tracking-tight text-ink no-underline hover:text-ink"
+          >
+            Macovin
+          </NavLink>
 
-        <button
-          type="button"
-          className="relative z-40 inline-flex h-11 w-11 items-center justify-center rounded-md text-ink ring-1 ring-ink/15 transition hover:bg-ink/5 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-ember md:hidden"
-          aria-expanded={open}
-          aria-controls={menuId}
-          aria-label={open ? 'Close menu' : 'Open menu'}
-          onClick={() => setOpen((value) => !value)}
-        >
-          <span className="sr-only">{open ? 'Close menu' : 'Open menu'}</span>
-          <span className="flex w-5 flex-col gap-1.5" aria-hidden>
-            <span
-              className={cn(
-                'block h-0.5 w-full origin-center bg-ink transition',
-                open && 'translate-y-2 rotate-45',
-              )}
-            />
-            <span
-              className={cn(
-                'block h-0.5 w-full bg-ink transition',
-                open && 'opacity-0',
-              )}
-            />
-            <span
-              className={cn(
-                'block h-0.5 w-full origin-center bg-ink transition',
-                open && '-translate-y-2 -rotate-45',
-              )}
-            />
-          </span>
-        </button>
+          <button
+            type="button"
+            className="relative z-40 inline-flex h-11 w-11 items-center justify-center rounded-md text-ink ring-1 ring-ink/15 transition hover:bg-ink/5 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-ember md:hidden"
+            aria-expanded={open}
+            aria-controls={menuId}
+            aria-label={open ? 'Close menu' : 'Open menu'}
+            onClick={() => setOpen((value) => !value)}
+          >
+            <span className="sr-only">{open ? 'Close menu' : 'Open menu'}</span>
+            <span className="flex w-5 flex-col gap-1.5" aria-hidden>
+              <span
+                className={cn(
+                  'block h-0.5 w-full origin-center bg-ink transition',
+                  open && 'translate-y-2 rotate-45',
+                )}
+              />
+              <span
+                className={cn(
+                  'block h-0.5 w-full bg-ink transition',
+                  open && 'opacity-0',
+                )}
+              />
+              <span
+                className={cn(
+                  'block h-0.5 w-full origin-center bg-ink transition',
+                  open && '-translate-y-2 -rotate-45',
+                )}
+              />
+            </span>
+          </button>
 
-        {/* Desktop nav */}
-        <nav
-          aria-label="Primary"
-          className="hidden items-center gap-1 md:flex"
-        >
-          {links.map((link) => (
-            <NavLink
-              key={link.to}
-              to={link.to}
-              end={'end' in link ? link.end : false}
-              className={linkClass}
+          <nav
+            aria-label="Primary"
+            className="hidden items-center gap-1 md:flex"
+          >
+            {links.map((link) => (
+              <NavLink
+                key={link.to}
+                to={link.to}
+                end={'end' in link ? link.end : false}
+                className={linkClass}
+              >
+                {link.label}
+              </NavLink>
+            ))}
+            <Button
+              to="/work"
+              className="ml-3 no-underline"
             >
-              {link.label}
-            </NavLink>
-          ))}
-        </nav>
+              See what we can build
+            </Button>
+          </nav>
         </div>
       </div>
 
-      {/* Mobile drawer */}
       <div
         className={cn(
           'fixed inset-0 z-30 md:hidden',
@@ -115,7 +120,7 @@ export function SiteHeader() {
         <button
           type="button"
           className={cn(
-            'absolute inset-0 bg-ink/25 transition-opacity',
+            'absolute inset-0 bg-ink/30 transition-opacity',
             open ? 'opacity-100' : 'opacity-0',
           )}
           aria-label="Close menu"
@@ -126,7 +131,7 @@ export function SiteHeader() {
           id={menuId}
           aria-label="Primary"
           className={cn(
-            'absolute inset-x-0 top-0 border-b border-ink/10 bg-paper px-4 pb-6 pt-20 shadow-sm transition-transform duration-200',
+            'absolute inset-x-0 top-0 border-b border-ink/10 bg-paper px-4 pb-8 pt-20 shadow-sm transition-transform duration-200',
             open ? 'translate-y-0' : '-translate-y-full',
           )}
         >
@@ -144,6 +149,11 @@ export function SiteHeader() {
               </li>
             ))}
           </ul>
+          <div className="mt-5">
+            <Button to="/work" className="w-full no-underline" onClick={closeMenu}>
+              See what we can build
+            </Button>
+          </div>
         </nav>
       </div>
     </header>

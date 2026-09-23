@@ -11,6 +11,7 @@ import {
   fetchExamples,
 } from '@/lib/api';
 import { PhotoCreditKey } from '@/lib/photos';
+import { cn } from '@/lib/utils';
 
 const photoById: Record<string, PhotoCreditKey> = {
   'elder-care': 'workElder',
@@ -29,9 +30,9 @@ const extraCopy: Record<
   },
   'texas-workers-rights': {
     forWhom:
-      'For people in specific Texas jobs who need real answers. Nurses first. Not a law firm. Not a rant.',
+      'For people in specific Texas jobs who need real answers. Nurses first, then other jobs. Not a law firm. Not a rant.',
     ifWeBuild:
-      'If we build it: what you can refuse, what has to be in writing, who to call, and how hospital vs clinic vs agency changes it. Other jobs after the first version works.',
+      'If we build it: what you can refuse, what has to be in writing, who to call, and how hospital vs clinic vs agency changes it.',
   },
 };
 
@@ -58,8 +59,8 @@ export const WorkPage: PageComponentType = () => {
   return (
     <PageShell>
       <section className="relative overflow-hidden bg-grain">
-        <PageSection className="pb-10 md:pb-14">
-          <SectionIntro eyebrow="Work" title="What we can build">
+        <PageSection className="pb-8 md:pb-10">
+          <SectionIntro as="h1" eyebrow="Work" title="What we can build">
             <p>
               These are ideas. Not live products. If we build them, each one
               gets a clear job. Same approach as everything else we ship.
@@ -78,38 +79,55 @@ export const WorkPage: PageComponentType = () => {
         </PageSection>
       </section>
 
-      <PageSection className="space-y-20 pt-4 md:space-y-28">
+      <PageSection className="space-y-16 pt-2 md:space-y-24">
         {examples.map((example, index) => {
           const photo = photoById[example.id] ?? 'workElder';
           const copy = extraCopy[example.id];
-          const reverse = index % 2 === 1;
+          const featured = index === 0;
 
           return (
             <article
               key={example.id}
-              className="grid items-start gap-8 border-t border-ink/10 pt-12 md:grid-cols-2 md:gap-12"
+              className={cn(
+                'grid items-start gap-8 border-t border-ink/10 pt-12',
+                featured
+                  ? 'md:grid-cols-[1.15fr_0.85fr] md:gap-14'
+                  : 'md:grid-cols-2 md:gap-12',
+                !featured && index % 2 === 1 && 'md:[&>figure]:order-2',
+              )}
             >
-              <figure className={reverse ? 'md:order-2' : undefined}>
-                <div className="overflow-hidden rounded-sm">
+              <figure>
+                <div className="overflow-hidden">
                   <Photo
                     id={photo}
-                    className="aspect-[5/4] w-full object-cover"
+                    priority={featured}
+                    className={cn(
+                      'w-full object-cover',
+                      featured ? 'aspect-[16/11]' : 'aspect-[5/4]',
+                    )}
                   />
                 </div>
                 <PhotoCredit id={photo} />
               </figure>
-              <div className={reverse ? 'md:order-1' : undefined}>
+              <div>
                 <p className="font-mono text-[11px] font-medium uppercase tracking-[0.18em] text-ember">
                   Idea / coming work
                 </p>
-                <h2 className="mt-3 font-display text-3xl font-semibold tracking-tight text-ink md:text-4xl text-balance">
+                <h2
+                  className={cn(
+                    'mt-3 font-display font-semibold tracking-tight text-ink text-balance',
+                    featured
+                      ? 'text-3xl md:text-5xl'
+                      : 'text-3xl md:text-4xl',
+                  )}
+                >
                   {example.title}
                 </h2>
-                <p className="mt-4 text-lg leading-relaxed text-ink/75">
+                <p className="mt-4 text-lg leading-relaxed text-ink/75 text-pretty">
                   {example.summary}
                 </p>
                 {copy ? (
-                  <div className="mt-6 space-y-4 text-base leading-relaxed text-ink/70">
+                  <div className="mt-6 space-y-4 text-base leading-relaxed text-ink/70 text-pretty">
                     <p>{copy.forWhom}</p>
                     <p>{copy.ifWeBuild}</p>
                   </div>
@@ -125,12 +143,14 @@ export const WorkPage: PageComponentType = () => {
           <h2 className="max-w-2xl font-display text-3xl font-semibold tracking-tight md:text-4xl text-balance">
             Know someone who needs one of these?
           </h2>
-          <p className="mt-4 max-w-xl text-base leading-relaxed text-paper/70 md:text-lg">
+          <p className="mt-4 max-w-xl text-base leading-relaxed text-paper/70 md:text-lg text-pretty">
             Tell us. We haven&apos;t named dollars. We&apos;re still figuring
             out what fits.
           </p>
           <div className="mt-8">
-            <Button to="/contact">Contact Macovin</Button>
+            <Button to="/contact" className="no-underline">
+              Talk to us
+            </Button>
           </div>
         </PageSection>
       </section>

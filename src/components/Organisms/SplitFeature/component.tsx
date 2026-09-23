@@ -32,11 +32,11 @@ export function SplitFeature({
     >
       <div className={cn(reverse && 'md:order-2')}>
         <figure>
-          <div className="overflow-hidden rounded-sm shadow-[0_20px_50px_-28px_rgba(20,28,36,0.55)]">
+          <div className="overflow-hidden">
             <Photo
               id={photo}
               priority={priority}
-              className="aspect-[4/3] w-full object-cover transition duration-700 hover:scale-[1.02]"
+              className="motion-safe-hover aspect-[4/3] w-full object-cover transition duration-700 hover:scale-[1.02]"
             />
           </div>
           <PhotoCredit id={photo} />
@@ -51,7 +51,7 @@ export function SplitFeature({
         <h2 className="font-display text-3xl font-semibold tracking-tight text-ink md:text-4xl text-balance">
           {title}
         </h2>
-        <div className="mt-4 space-y-4 text-base leading-relaxed text-ink/75 md:text-lg">
+        <div className="mt-4 space-y-4 text-base leading-relaxed text-ink/75 md:text-lg text-pretty">
           {children}
         </div>
       </div>
