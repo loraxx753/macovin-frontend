@@ -29,6 +29,33 @@ const faqs = [
   },
 ] as const;
 
+const habits = [
+  {
+    n: '01',
+    title: 'Same words',
+    body: 'Design, engineering, and testing use the same names. Less telephone. Less “wait, which banner was that again?”',
+    tone: 'bg-primary text-primary-fg',
+    span: 'md:col-span-3 md:row-span-2 md:p-8',
+    titleSize: 'text-2xl md:text-3xl',
+  },
+  {
+    n: '02',
+    title: 'Write it plain first',
+    body: 'What should happen, in language a normal person can read. Tickets and docs come after. They’re not the point.',
+    tone: 'bg-secondary text-secondary-fg',
+    span: 'md:col-span-3',
+    titleSize: 'text-xl',
+  },
+  {
+    n: '03',
+    title: 'Ship it',
+    body: 'Process talk without a live site is just talk. We care what actually went out.',
+    tone: 'bg-tertiary text-tertiary-fg',
+    span: 'md:col-span-3',
+    titleSize: 'text-xl',
+  },
+] as const;
+
 export const IndexPage: PageComponentType = () => {
   return (
     <PageShell>
@@ -68,27 +95,29 @@ export const IndexPage: PageComponentType = () => {
         </div>
       </section>
 
-      <PageSection>
-        <SplitFeature
-          photo="homeTogether"
-          eyebrow="Who it’s for"
-          title="Real talk: who this is for"
-        >
-          <p>
-            What are you actually trying to get done this week? Someone in the
-            family is dying and nobody handed you the packet. Relatives keep
-            talking past each other. You need a straight answer about work,
-            care, or the next form, and you&apos;re wiped.
-          </p>
-          <p>
-            That&apos;s who we build for. Clear info for a hard week. If we
-            don&apos;t know something yet, we say so. Guessing just to sound
-            sure is a silly way to run a week.
-          </p>
-        </SplitFeature>
-      </PageSection>
+      <section className="border-b-[3px] border-ink bg-atmosphere">
+        <PageSection>
+          <SplitFeature
+            photo="homeTogether"
+            eyebrow="Who it’s for"
+            title="Real talk: who this is for"
+          >
+            <p>
+              What are you actually trying to get done this week? Someone in the
+              family is dying and nobody handed you the packet. Relatives keep
+              talking past each other. You need a straight answer about work,
+              care, or the next form, and you&apos;re wiped.
+            </p>
+            <p>
+              That&apos;s who we build for. Clear info for a hard week. If we
+              don&apos;t know something yet, we say so. Guessing just to sound
+              sure is a silly way to run a week.
+            </p>
+          </SplitFeature>
+        </PageSection>
+      </section>
 
-      <section className="border-y-[3px] border-ink bg-band-dusk text-surface">
+      <section className="border-b-[3px] border-ink bg-band-dusk text-surface">
         <PageSection>
           <p className="eyebrow text-primary">How we work</p>
           <h2 className="mt-3 max-w-3xl font-display text-3xl uppercase tracking-tight md:text-4xl text-balance">
@@ -100,29 +129,28 @@ export const IndexPage: PageComponentType = () => {
             does.
           </p>
           <div className="mt-10 grid gap-4 md:grid-cols-6">
-            <div className="panel bg-primary p-6 text-primary-fg md:col-span-3 md:row-span-2 md:p-8">
-              <h3 className="font-display text-2xl uppercase md:text-3xl">
-                Same words
-              </h3>
-              <p className="mt-4 text-base leading-relaxed md:text-lg">
-                Design, engineering, and testing use the same names. Less
-                telephone. Less “wait, which banner was that again?”
-              </p>
-            </div>
-            <div className="panel bg-secondary p-6 text-secondary-fg md:col-span-3">
-              <h3 className="font-display text-xl uppercase">Write it plain first</h3>
-              <p className="mt-3 text-sm leading-relaxed md:text-base">
-                What should happen, in language a normal person can read.
-                Tickets and docs come after. They&apos;re not the point.
-              </p>
-            </div>
-            <div className="panel bg-tertiary p-6 text-tertiary-fg md:col-span-3">
-              <h3 className="font-display text-xl uppercase">Ship it</h3>
-              <p className="mt-3 text-sm leading-relaxed md:text-base">
-                Process talk without a live site is just talk. We care what
-                actually went out.
-              </p>
-            </div>
+            {habits.map((habit) => (
+              <div
+                key={habit.n}
+                className={`panel relative overflow-hidden p-6 ${habit.tone} ${habit.span}`}
+              >
+                <span
+                  aria-hidden
+                  className="stamp absolute -right-1 -top-1 font-display text-5xl leading-none opacity-20 md:text-6xl"
+                >
+                  {habit.n}
+                </span>
+                <p className="font-mono text-[11px] font-bold uppercase tracking-[0.16em] opacity-70">
+                  Step {habit.n}
+                </p>
+                <h3 className={`mt-2 font-display uppercase ${habit.titleSize}`}>
+                  {habit.title}
+                </h3>
+                <p className="mt-3 text-sm leading-relaxed md:mt-4 md:text-base">
+                  {habit.body}
+                </p>
+              </div>
+            ))}
           </div>
         </PageSection>
       </section>
@@ -179,13 +207,15 @@ export const IndexPage: PageComponentType = () => {
         </PageSection>
       </section>
 
-      <PageSection>
-        <p className="eyebrow">Straight answers</p>
-        <h2 className="mt-3 max-w-2xl font-display text-3xl uppercase tracking-tight md:text-4xl text-balance">
-          Questions we get
-        </h2>
-        <FaqList items={faqs} className="mt-8" />
-      </PageSection>
+      <section className="border-b-[3px] border-ink bg-secondary text-secondary-fg">
+        <PageSection>
+          <p className="eyebrow text-primary">Straight answers</p>
+          <h2 className="mt-3 max-w-2xl font-display text-3xl uppercase tracking-tight md:text-4xl text-balance">
+            Questions we get
+          </h2>
+          <FaqList items={faqs} tone="onCyan" className="mt-8" />
+        </PageSection>
+      </section>
     </PageShell>
   );
 };

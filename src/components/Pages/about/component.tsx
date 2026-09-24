@@ -9,18 +9,21 @@ import { FaqList } from '@/components/Molecules/FaqList';
 
 const habits = [
   {
+    n: '01',
     title: 'Name it once',
     body: 'Design, engineering, and testing use the same words for the same thing. That’s how you stop playing telephone.',
     tone: 'bg-primary text-primary-fg',
     span: 'md:col-span-2',
   },
   {
+    n: '02',
     title: 'Write it plain first',
     body: 'What should happen, in language a normal person can read. Tickets and docs follow. They’re leftovers, not the main event.',
     tone: 'bg-secondary text-secondary-fg',
     span: 'md:col-span-1',
   },
   {
+    n: '03',
     title: 'Ship it',
     body: 'Talk without a live site is just talk. We care what actually went out and how long it took.',
     tone: 'bg-tertiary text-tertiary-fg',
@@ -52,6 +55,7 @@ export const AboutPage: PageComponentType = () => {
         />
         <div className="absolute inset-0 bg-ink/70" />
         <div className="absolute inset-0 bg-halftone opacity-35 mix-blend-overlay" />
+        <div className="absolute inset-x-0 bottom-0 h-1/3 bg-gradient-to-t from-secondary/35 to-transparent" />
         <div className="relative z-10 mx-auto flex min-h-[48vh] max-w-6xl flex-col justify-end px-4 pb-12 pt-10 md:min-h-[56vh] md:px-8 md:pb-16">
           <p className="eyebrow text-primary">About</p>
           <h1 className="mt-3 max-w-3xl font-display text-4xl uppercase tracking-tight text-surface md:text-5xl text-balance">
@@ -66,38 +70,57 @@ export const AboutPage: PageComponentType = () => {
         </div>
       </section>
 
-      <PageSection>
-        <SectionIntro title="You’ve been in that meeting">
-          <p>
-            Everyone&apos;s tired. You&apos;re talking about the same thing for
-            the tenth time and it still isn&apos;t clear. That&apos;s telephone
-            with a paycheck.
-          </p>
-        </SectionIntro>
-        <div className="mt-10 max-w-3xl space-y-5 text-base leading-relaxed text-ink-muted md:text-lg text-pretty">
-          <p>
-            Someone means a thing. The ticket says something else. Design hears
-            a third version. Engineering builds a fourth. QA checks a fifth.
-            Standup repeats it so everyone can pretend they&apos;re aligned.
-          </p>
-          <p>
-            Real talk: we&apos;re not trying to guess better. We&apos;re trying
-            to keep what was meant in the room. If we don&apos;t know yet, we
-            say that.
-          </p>
-        </div>
-      </PageSection>
-
-      <section className="border-y-[3px] border-ink bg-surface-2">
+      <section className="border-b-[3px] border-ink bg-atmosphere">
         <PageSection>
-          <p className="eyebrow">Three habits</p>
+          <div className="panel bg-surface p-6 md:p-10">
+            <SectionIntro title="You’ve been in that meeting">
+              <p>
+                Everyone&apos;s tired. You&apos;re talking about the same thing
+                for the tenth time and it still isn&apos;t clear. That&apos;s
+                telephone with a paycheck.
+              </p>
+            </SectionIntro>
+            <div className="mt-8 max-w-3xl space-y-5 border-t-[3px] border-ink pt-8 text-base leading-relaxed text-ink-muted md:text-lg text-pretty">
+              <p>
+                Someone means a thing. The ticket says something else. Design
+                hears a third version. Engineering builds a fourth. QA checks a
+                fifth. Standup repeats it so everyone can pretend they&apos;re
+                aligned.
+              </p>
+              <p>
+                Real talk: we&apos;re not trying to guess better. We&apos;re
+                trying to keep what was meant in the room. If we don&apos;t know
+                yet, we say that.
+              </p>
+            </div>
+          </div>
+        </PageSection>
+      </section>
+
+      <section className="border-b-[3px] border-ink bg-band-dusk text-surface">
+        <PageSection>
+          <p className="eyebrow text-primary">Three habits</p>
+          <h2 className="mt-3 max-w-2xl font-display text-3xl uppercase tracking-tight md:text-4xl text-balance">
+            Name it. Write it. Ship it.
+          </h2>
           <div className="mt-8 grid gap-4 md:grid-cols-2">
             {habits.map((habit) => (
               <div
                 key={habit.title}
-                className={`panel p-6 ${habit.tone} ${habit.span}`}
+                className={`panel relative overflow-hidden p-6 ${habit.tone} ${habit.span}`}
               >
-                <h2 className="font-display text-2xl uppercase">{habit.title}</h2>
+                <span
+                  aria-hidden
+                  className="stamp absolute -right-1 -top-1 font-display text-5xl leading-none opacity-20"
+                >
+                  {habit.n}
+                </span>
+                <p className="font-mono text-[11px] font-bold uppercase tracking-[0.16em] opacity-70">
+                  Habit {habit.n}
+                </p>
+                <h2 className="mt-2 font-display text-2xl uppercase">
+                  {habit.title}
+                </h2>
                 <p className="mt-3 max-w-prose text-sm leading-relaxed md:text-base">
                   {habit.body}
                 </p>
@@ -125,14 +148,17 @@ export const AboutPage: PageComponentType = () => {
         </SplitFeature>
       </PageSection>
 
-      <PageSection>
-        <h2 className="font-display text-3xl uppercase tracking-tight md:text-4xl text-balance">
-          Quick answers
-        </h2>
-        <FaqList items={faqs} className="mt-8" />
-      </PageSection>
+      <section className="border-y-[3px] border-ink bg-secondary text-secondary-fg">
+        <PageSection>
+          <p className="eyebrow text-primary">Straight answers</p>
+          <h2 className="mt-3 font-display text-3xl uppercase tracking-tight md:text-4xl text-balance">
+            Quick answers
+          </h2>
+          <FaqList items={faqs} tone="onCyan" className="mt-8" />
+        </PageSection>
+      </section>
 
-      <section className="border-t-[3px] border-ink bg-band-dusk text-surface">
+      <section className="border-b-[3px] border-ink bg-band-dusk text-surface">
         <PageSection>
           <h2 className="max-w-2xl font-display text-3xl uppercase tracking-tight text-primary md:text-4xl text-balance">
             Want more detail?
@@ -159,7 +185,7 @@ export const AboutPage: PageComponentType = () => {
             >
               Meanwhile factory
             </Button>
-            <Button to="/contact" variant="ghost" className="text-surface no-underline hover:text-ink">
+            <Button to="/contact" variant="tertiary" className="no-underline">
               Talk to us
             </Button>
           </div>

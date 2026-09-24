@@ -134,6 +134,13 @@
   .panel-flat {
     border: var(--ink-border) solid hsl(var(--ink));
   }
+
+  /* Oversized print stamps on panels — decorative, never content */
+  .stamp {
+    pointer-events: none;
+    user-select: none;
+    font-family: 'Archivo Black', Impact, sans-serif;
+  }
 }
 
 @layer utilities {
