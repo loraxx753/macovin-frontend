@@ -14,14 +14,14 @@ const links = [
  * Nav states (CTA stays yellow — menu must not):
  *   default — ink text, no chrome
  *   hover   — cyan underline + cyan text
- *   active  — ink underline bar + ink text (filled cyan wash, no yellow)
+ *   active  — ink underline only (no fill wash)
  */
 function linkClass({ isActive }: { isActive: boolean }) {
   return cn(
     'relative block min-h-tap px-3 py-2.5 text-base font-bold uppercase tracking-wide no-underline transition md:inline-flex md:min-h-0 md:items-center md:px-2.5 md:py-2 md:text-xs',
     'after:absolute after:inset-x-2.5 after:bottom-1 after:h-[3px] after:origin-left after:transition',
     isActive
-      ? 'bg-secondary-soft text-ink after:scale-x-100 after:bg-ink hover:text-ink'
+      ? 'text-ink after:scale-x-100 after:bg-ink hover:text-ink'
       : 'text-ink after:scale-x-0 after:bg-secondary hover:text-secondary hover:after:scale-x-100',
   );
 }
