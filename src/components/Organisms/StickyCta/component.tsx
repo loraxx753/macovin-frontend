@@ -35,7 +35,7 @@ export function StickyCta() {
       )}
       aria-hidden={!visible}
     >
-      <div className="pointer-events-auto border-t border-secondary/30 chrome-glass px-4 pb-[max(0.75rem,env(safe-area-inset-bottom))] pt-3 shadow-[0_-8px_24px_-16px_rgba(20,40,30,0.3)]">
+      <div className="pointer-events-auto border-t-[3px] border-ink bg-surface px-4 pb-[max(0.75rem,env(safe-area-inset-bottom))] pt-3">
         <Button
           to={onWork ? '/contact' : '/work'}
           className="w-full no-underline"

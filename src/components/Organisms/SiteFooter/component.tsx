@@ -9,27 +9,25 @@ const nav = [
 
 export function SiteFooter() {
   return (
-    <footer className="border-t border-primary/20 bg-surface-inverse text-primary-fg">
-      <div className="theme-rail h-1 w-full" aria-hidden />
+    <footer className="border-t-[3px] border-ink bg-surface-inverse text-primary-fg">
+      <div className="theme-rail h-1.5 w-full" aria-hidden />
       <div className="mx-auto grid max-w-6xl gap-10 px-4 py-12 md:grid-cols-[1.5fr_1fr_1fr] md:px-8 md:py-16">
         <div>
-          <p className="font-display text-2xl font-semibold tracking-tight text-secondary">
-            Macovin
-          </p>
-          <p className="mt-3 max-w-md text-sm leading-relaxed text-primary-fg/75 md:text-base">
+          <p className="wordmark text-3xl text-primary">Macovin</p>
+          <p className="mt-3 max-w-md text-sm leading-relaxed text-primary-fg/80 md:text-base">
             Clear apps and sites for people when life gets hard. Small family
             company. Meanwhile&apos;s the factory. We&apos;ll tell you when we
             don&apos;t know yet.
           </p>
         </div>
         <div>
-          <p className="eyebrow text-secondary">On this site</p>
+          <p className="eyebrow text-primary">On this site</p>
           <ul className="mt-4 space-y-2 text-sm">
             {nav.map((item) => (
               <li key={item.to}>
                 <Link
                   to={item.to}
-                  className="font-medium text-primary-fg no-underline hover:text-secondary"
+                  className="font-bold text-primary-fg no-underline hover:text-primary"
                 >
                   {item.label}
                 </Link>
@@ -37,12 +35,12 @@ export function SiteFooter() {
             ))}
           </ul>
         </div>
-        <div className="space-y-3 text-sm text-primary-fg/70">
-          <p className="eyebrow text-secondary">Elsewhere</p>
+        <div className="space-y-3 text-sm text-primary-fg/75">
+          <p className="eyebrow text-primary">Elsewhere</p>
           <p>
             <a
               href="https://github.com/MeanwhileJS/meanwhile"
-              className="font-medium text-primary-fg no-underline hover:text-secondary"
+              className="font-bold text-primary-fg no-underline hover:text-primary"
               target="_blank"
               rel="noreferrer"
             >
@@ -52,7 +50,7 @@ export function SiteFooter() {
           <p>
             <a
               href="https://github.com/loraxx753/macovin"
-              className="font-medium text-primary-fg no-underline hover:text-secondary"
+              className="font-bold text-primary-fg no-underline hover:text-primary"
               target="_blank"
               rel="noreferrer"
             >

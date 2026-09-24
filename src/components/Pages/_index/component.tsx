@@ -32,24 +32,25 @@ const faqs = [
 export const IndexPage: PageComponentType = () => {
   return (
     <PageShell>
-      <section className="relative min-h-[min(100svh,52rem)] overflow-hidden md:min-h-[min(100svh,44rem)]">
+      <section className="relative min-h-[min(100svh,52rem)] overflow-hidden border-b-[3px] border-ink md:min-h-[min(100svh,44rem)]">
         <div className="absolute inset-0">
           <Photo
             id="heroHome"
             priority
             className="h-full w-full object-cover animate-ken-slow"
           />
-          <div className="absolute inset-0 bg-gradient-to-t from-surface-inverse/95 via-primary/55 to-primary/20" />
-          <div className="absolute inset-0 bg-gradient-to-r from-surface-inverse/70 via-transparent to-tertiary/10" />
+          <div className="absolute inset-0 bg-ink/75" />
+          <div className="absolute inset-0 bg-halftone opacity-40 mix-blend-overlay" />
+          <div className="absolute inset-x-0 bottom-0 h-1/3 bg-gradient-to-t from-primary/40 to-transparent" />
         </div>
         <div className="relative z-10 mx-auto flex min-h-[min(100svh,52rem)] max-w-6xl flex-col justify-end px-4 pb-16 pt-10 md:min-h-[min(100svh,44rem)] md:px-8 md:pb-20">
-          <p className="animate-fade-up font-display text-hero font-semibold tracking-tight text-secondary">
+          <p className="animate-fade-up wordmark text-hero leading-none text-primary drop-shadow-[3px_3px_0_hsl(var(--ink))]">
             Macovin
           </p>
-          <h1 className="animate-fade-up-delay mt-4 max-w-2xl font-display text-2xl font-medium leading-snug text-primary-fg md:text-3xl text-balance">
+          <h1 className="animate-fade-up-delay mt-5 max-w-2xl font-display text-2xl uppercase leading-tight text-surface md:text-3xl text-balance">
             Clear apps and sites for people when life gets hard.
           </h1>
-          <p className="animate-fade-up-late mt-4 max-w-lg text-base leading-relaxed text-primary-fg/80 md:text-lg text-pretty">
+          <p className="animate-fade-up-late mt-4 max-w-lg text-base leading-relaxed text-surface/85 md:text-lg text-pretty">
             The packet you wish someone had handed you. No sales funnel.
             Meanwhile is how we ship it.
           </p>
@@ -57,16 +58,12 @@ export const IndexPage: PageComponentType = () => {
             <Button to="/work" className="no-underline">
               See what we can build
             </Button>
-            <Button
-              to="/contact"
-              variant="secondary"
-              className="no-underline"
-            >
+            <Button to="/contact" variant="secondary" className="no-underline">
               Talk to us
             </Button>
           </div>
           <div className="mt-8">
-            <PhotoCredit id="heroHome" className="text-primary-fg/50" />
+            <PhotoCredit id="heroHome" className="text-surface/55" />
           </div>
         </div>
       </section>
@@ -91,41 +88,37 @@ export const IndexPage: PageComponentType = () => {
         </SplitFeature>
       </PageSection>
 
-      <section className="bg-band-dusk text-primary-fg">
+      <section className="border-y-[3px] border-ink bg-band-dusk text-surface">
         <PageSection>
-          <p className="eyebrow text-secondary">How we work</p>
-          <h2 className="mt-3 max-w-3xl font-display text-3xl font-semibold tracking-tight md:text-4xl text-balance">
+          <p className="eyebrow text-primary">How we work</p>
+          <h2 className="mt-3 max-w-3xl font-display text-3xl uppercase tracking-tight md:text-4xl text-balance">
             Most teams burn a week re-explaining the same thing.
           </h2>
-          <p className="mt-4 max-w-2xl text-base leading-relaxed text-primary-fg/75 md:text-lg">
+          <p className="mt-4 max-w-2xl text-base leading-relaxed text-surface/80 md:text-lg">
             We name a thing once so design, engineering, and testing aren&apos;t
             playing telephone. Kudos if your standup already does this. Ours
             does.
           </p>
-          <div className="mt-10 grid gap-4 md:grid-cols-6 md:auto-rows-fr">
-            <div className="border border-secondary/35 bg-primary/25 p-6 md:col-span-3 md:row-span-2 md:p-8">
-              <h3 className="font-display text-2xl font-semibold text-secondary md:text-3xl">
+          <div className="mt-10 grid gap-4 md:grid-cols-6">
+            <div className="panel bg-primary p-6 text-primary-fg md:col-span-3 md:row-span-2 md:p-8">
+              <h3 className="font-display text-2xl uppercase md:text-3xl">
                 Same words
               </h3>
-              <p className="mt-4 text-base leading-relaxed text-primary-fg/75 md:text-lg">
+              <p className="mt-4 text-base leading-relaxed md:text-lg">
                 Design, engineering, and testing use the same names. Less
                 telephone. Less “wait, which banner was that again?”
               </p>
             </div>
-            <div className="border border-tertiary/30 bg-primary/20 p-6 md:col-span-3">
-              <h3 className="font-display text-xl font-semibold text-secondary">
-                Write it plain first
-              </h3>
-              <p className="mt-3 text-sm leading-relaxed text-primary-fg/75 md:text-base">
+            <div className="panel bg-secondary p-6 text-secondary-fg md:col-span-3">
+              <h3 className="font-display text-xl uppercase">Write it plain first</h3>
+              <p className="mt-3 text-sm leading-relaxed md:text-base">
                 What should happen, in language a normal person can read.
                 Tickets and docs come after. They&apos;re not the point.
               </p>
             </div>
-            <div className="border border-secondary/30 bg-primary/20 p-6 md:col-span-3">
-              <h3 className="font-display text-xl font-semibold text-secondary">
-                Ship it
-              </h3>
-              <p className="mt-3 text-sm leading-relaxed text-primary-fg/75 md:text-base">
+            <div className="panel bg-tertiary p-6 text-tertiary-fg md:col-span-3">
+              <h3 className="font-display text-xl uppercase">Ship it</h3>
+              <p className="mt-3 text-sm leading-relaxed md:text-base">
                 Process talk without a live site is just talk. We care what
                 actually went out.
               </p>
@@ -164,22 +157,22 @@ export const IndexPage: PageComponentType = () => {
         </SplitFeature>
       </PageSection>
 
-      <section className="bg-atmosphere">
+      <section className="border-y-[3px] border-ink bg-atmosphere">
         <PageSection>
-          <div className="flex flex-col gap-6 md:flex-row md:items-end md:justify-between">
-            <div className="max-w-2xl">
-              <p className="eyebrow">Coming work</p>
-              <h2 className="mt-3 font-display text-3xl font-semibold tracking-tight md:text-4xl text-balance">
+          <div className="panel flex flex-col gap-6 bg-primary p-6 md:flex-row md:items-end md:justify-between md:p-10">
+            <div className="max-w-2xl text-primary-fg">
+              <p className="eyebrow text-ink">Coming work</p>
+              <h2 className="mt-3 font-display text-3xl uppercase tracking-tight md:text-4xl text-balance">
                 Sites we might build
               </h2>
-              <p className="mt-4 text-base leading-relaxed text-ink-muted md:text-lg text-pretty">
+              <p className="mt-4 text-base leading-relaxed md:text-lg text-pretty">
                 Not live yet. Ideas. An elder care end-of-life packet. A Texas
                 workers&apos; rights site (nurses first, then other jobs). If
                 that fits someone you know, tell us. We haven&apos;t named
                 dollars.
               </p>
             </div>
-            <Button to="/work" className="no-underline shrink-0">
+            <Button to="/work" variant="tertiary" className="no-underline shrink-0">
               See what we can build
             </Button>
           </div>
@@ -188,7 +181,7 @@ export const IndexPage: PageComponentType = () => {
 
       <PageSection>
         <p className="eyebrow">Straight answers</p>
-        <h2 className="mt-3 max-w-2xl font-display text-3xl font-semibold tracking-tight md:text-4xl text-balance">
+        <h2 className="mt-3 max-w-2xl font-display text-3xl uppercase tracking-tight md:text-4xl text-balance">
           Questions we get
         </h2>
         <FaqList items={faqs} className="mt-8" />

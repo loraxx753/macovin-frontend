@@ -4,43 +4,42 @@
 
 :root {
   /*
-   * Theme roles (use these by name):
-   *   primary   — spruce: CTAs, brand weight, inverse surfaces
-   *   secondary — marigold: eyebrows, highlights, secondary chrome
-   *   tertiary  — coral: links, small accents, ghost actions
-   * Avoids clinical cool gray, SaaS purple, and cream-terracotta clones.
+   * Comic print triad (process energy, not pastel SaaS):
+   *   primary   — comic yellow: CTAs, brand punches, flat fills
+   *   secondary — process cyan: eyebrows, panels, secondary chrome
+   *   tertiary  — comic red: links, small accents, tension hits
+   * Ink black for outlines / inverse. Paper white for surfaces.
+   * Complementary tension: yellow↔cyan, red as the hot accent.
    */
-  --primary: 158 42% 26%;
-  --primary-soft: 152 28% 90%;
-  --primary-fg: 42 35% 98%;
+  --primary: 48 100% 50%;
+  --primary-soft: 48 100% 88%;
+  --primary-fg: 0 0% 6%;
 
-  --secondary: 36 88% 48%;
-  --secondary-soft: 38 72% 92%;
-  --secondary-fg: 28 42% 14%;
+  --secondary: 196 100% 38%;
+  --secondary-soft: 196 70% 90%;
+  --secondary-fg: 0 0% 100%;
 
-  --tertiary: 8 72% 46%;
-  --tertiary-soft: 10 60% 94%;
-  --tertiary-fg: 40 30% 98%;
+  --tertiary: 2 86% 48%;
+  --tertiary-soft: 2 80% 93%;
+  --tertiary-fg: 0 0% 100%;
 
-  /* Surfaces + type */
-  --surface: 42 30% 96%;
-  --surface-2: 150 20% 91%;
-  --surface-inverse: 158 36% 15%;
-  --ink: 160 24% 13%;
-  --ink-muted: 158 12% 36%;
-  --line: 150 14% 80%;
-  --focus: 36 88% 42%;
+  --surface: 48 40% 97%;
+  --surface-2: 48 35% 92%;
+  --surface-inverse: 0 0% 7%;
+  --ink: 0 0% 7%;
+  --ink-muted: 0 0% 32%;
+  --line: 0 0% 12%;
+  --focus: 196 100% 32%;
 
-  /* Legacy aliases (same HSL channels as roles; keeps old class names working) */
-  --paper: 42 30% 96%;
-  --mist: 150 20% 91%;
-  --dusk: 158 36% 15%;
-  --ember: 36 88% 48%;
-  --path: 8 72% 46%;
-  --ridge: 158 12% 36%;
-  --soft: 150 14% 80%;
+  /* Legacy aliases */
+  --paper: 48 40% 97%;
+  --mist: 48 35% 92%;
+  --dusk: 0 0% 7%;
+  --ember: 48 100% 50%;
+  --path: 2 86% 48%;
+  --ridge: 0 0% 32%;
+  --soft: 0 0% 80%;
 
-  /* Fluid type: rem term kept so zoom still works */
   --text-xs: clamp(0.75rem, 0.72rem + 0.12vw, 0.8125rem);
   --text-sm: clamp(0.875rem, 0.84rem + 0.15vw, 0.9375rem);
   --text-base: clamp(1rem, 0.96rem + 0.2vw, 1.125rem);
@@ -54,11 +53,12 @@
 
   --space-section: clamp(3.5rem, 2.5rem + 4vw, 6rem);
   --measure: 65ch;
+  --ink-border: 3px;
 }
 
 @layer base {
   * {
-    border-color: hsl(var(--line) / 0.7);
+    border-color: hsl(var(--line) / 0.35);
   }
 
   html {
@@ -73,18 +73,18 @@
   }
 
   a {
-    @apply text-tertiary underline-offset-4 transition-colors hover:text-primary;
+    @apply text-tertiary underline-offset-4 transition-colors hover:text-secondary;
   }
 
   :focus-visible {
-    outline: 2px solid hsl(var(--focus));
+    outline: 3px solid hsl(var(--focus));
     outline-offset: 2px;
   }
 }
 
 @layer components {
   .eyebrow {
-    @apply font-mono text-[11px] font-medium uppercase tracking-[0.18em] text-secondary;
+    @apply font-mono text-[11px] font-bold uppercase tracking-[0.16em] text-secondary;
   }
 
   .theme-rail {
@@ -94,6 +94,21 @@
       hsl(var(--secondary)) 33.33% 66.66%,
       hsl(var(--tertiary)) 66.66% 100%
     );
+  }
+
+  .wordmark {
+    font-family: 'Alfa Slab One', 'Georgia', serif;
+    letter-spacing: 0.01em;
+    font-weight: 400;
+  }
+
+  .panel {
+    border: var(--ink-border) solid hsl(var(--ink));
+    box-shadow: 4px 4px 0 hsl(var(--ink));
+  }
+
+  .panel-flat {
+    border: var(--ink-border) solid hsl(var(--ink));
   }
 }
 
@@ -110,37 +125,50 @@
     max-width: var(--measure);
   }
 
+  /* Light print halftone — graphic, not noisy */
+  .bg-halftone {
+    background-image: radial-gradient(
+      hsl(var(--ink) / 0.12) 1.1px,
+      transparent 1.2px
+    );
+    background-size: 7px 7px;
+  }
+
   .bg-grain {
+    background-color: hsl(var(--surface));
     background-image:
-      radial-gradient(ellipse at 8% 0%, hsl(var(--secondary) / 0.18), transparent 42%),
-      radial-gradient(ellipse at 92% 6%, hsl(var(--primary) / 0.12), transparent 48%),
-      radial-gradient(ellipse at 50% 100%, hsl(var(--tertiary) / 0.08), transparent 55%),
-      linear-gradient(168deg, hsl(var(--surface-2)) 0%, hsl(var(--surface)) 55%, hsl(42 28% 94%) 100%);
+      radial-gradient(ellipse at 10% 0%, hsl(var(--primary) / 0.35), transparent 42%),
+      radial-gradient(ellipse at 90% 8%, hsl(var(--secondary) / 0.18), transparent 48%),
+      radial-gradient(hsl(var(--ink) / 0.06) 1px, transparent 1.1px);
+    background-size: auto, auto, 8px 8px;
   }
 
   .bg-band-dusk {
-    background:
-      linear-gradient(125deg, hsl(var(--primary) / 0.92), hsl(158 30% 20% / 0.75)),
-      hsl(var(--surface-inverse));
+    background: hsl(var(--surface-inverse));
   }
 
   .bg-band-secondary {
-    background:
-      linear-gradient(160deg, hsl(var(--secondary-soft)), hsl(var(--surface))),
-      hsl(var(--secondary-soft));
+    background: hsl(var(--secondary));
+    color: hsl(var(--secondary-fg));
+  }
+
+  .bg-band-primary {
+    background: hsl(var(--primary));
+    color: hsl(var(--primary-fg));
   }
 
   .bg-atmosphere {
+    background-color: hsl(var(--surface-2));
     background-image:
-      radial-gradient(ellipse 80% 55% at 15% -10%, hsl(var(--secondary) / 0.16), transparent 55%),
-      radial-gradient(ellipse 55% 40% at 100% 10%, hsl(var(--primary) / 0.1), transparent 50%),
-      radial-gradient(ellipse 40% 30% at 70% 100%, hsl(var(--tertiary) / 0.08), transparent 50%),
-      linear-gradient(180deg, hsl(var(--surface)), hsl(var(--surface-2)));
+      radial-gradient(ellipse 70% 50% at 0% 0%, hsl(var(--primary) / 0.4), transparent 55%),
+      radial-gradient(ellipse 50% 40% at 100% 20%, hsl(var(--tertiary) / 0.12), transparent 50%),
+      radial-gradient(hsl(var(--ink) / 0.07) 1px, transparent 1.1px);
+    background-size: auto, auto, 8px 8px;
   }
 
   .chrome-glass {
-    background-color: hsl(var(--surface) / 0.92);
-    backdrop-filter: blur(10px);
+    background-color: hsl(var(--surface) / 0.95);
+    backdrop-filter: blur(8px);
   }
 
   @supports not ((backdrop-filter: blur(1px)) or (-webkit-backdrop-filter: blur(1px))) {

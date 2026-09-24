@@ -8,7 +8,6 @@ type Props = {
   eyebrow?: string;
   title: string;
   children: ReactNode;
-  /** Photo on the right on desktop when true */
   reverse?: boolean;
   className?: string;
   priority?: boolean;
@@ -32,7 +31,7 @@ export function SplitFeature({
     >
       <div className={cn(reverse && 'md:order-2')}>
         <figure>
-          <div className="overflow-hidden ring-1 ring-line/50">
+          <div className="panel overflow-hidden bg-surface">
             <Photo
               id={photo}
               priority={priority}
@@ -44,7 +43,7 @@ export function SplitFeature({
       </div>
       <div className={cn(reverse && 'md:order-1')}>
         {eyebrow ? <p className="eyebrow mb-3">{eyebrow}</p> : null}
-        <h2 className="font-display text-3xl font-semibold tracking-tight text-ink md:text-4xl text-balance">
+        <h2 className="font-display text-3xl uppercase tracking-tight text-ink md:text-4xl text-balance">
           {title}
         </h2>
         <div className="mt-4 space-y-4 text-base leading-relaxed text-ink-muted md:text-lg text-pretty">

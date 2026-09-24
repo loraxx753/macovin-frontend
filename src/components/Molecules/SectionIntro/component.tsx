@@ -19,7 +19,7 @@ export function SectionIntro({
   return (
     <header className={cn('max-w-2xl', className)}>
       {eyebrow ? <p className="eyebrow mb-3">{eyebrow}</p> : null}
-      <Heading className="font-display text-3xl font-semibold tracking-tight text-ink sm:text-4xl text-balance">
+      <Heading className="font-display text-3xl uppercase tracking-tight text-ink sm:text-4xl text-balance">
         {title}
       </Heading>
       {children ? (

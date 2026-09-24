@@ -22,7 +22,7 @@ type FieldErrors = {
 };
 
 const fieldClass =
-  'w-full rounded-md border bg-surface px-3 py-3 text-ink outline-none transition focus:ring-2 focus:ring-secondary/50';
+  'w-full border-[3px] border-ink bg-surface px-3 py-3 text-ink outline-none transition focus:bg-primary-soft focus:shadow-[3px_3px_0_0_hsl(var(--ink))]';
 
 function validateEmail(value: string): string | undefined {
   if (!value.trim()) return 'Email is required.';
@@ -124,12 +124,12 @@ export const ContactPage: PageComponentType = () => {
           </p>
         </SectionIntro>
 
-        <div className="border border-secondary/30 bg-secondary-soft/60 p-5 md:row-span-2 md:p-8">
+        <div className="panel bg-primary p-5 md:row-span-2 md:p-8">
           <form onSubmit={onSubmit} className="space-y-5" noValidate>
             <label className="block">
-              <span className="mb-1.5 flex items-baseline justify-between gap-2 text-sm font-medium text-ink">
+              <span className="mb-1.5 flex items-baseline justify-between gap-2 text-sm font-bold text-primary-fg">
                 <span>Name</span>
-                <span className="text-xs font-normal text-ink-muted">Required</span>
+                <span className="text-xs font-normal text-primary-fg/70">Required</span>
               </span>
               <input
                 name="name"
@@ -143,22 +143,22 @@ export const ContactPage: PageComponentType = () => {
                 onBlur={() => onBlur('name')}
                 className={cn(
                   fieldClass,
-                  errors.name ? 'border-tertiary' : 'border-line',
+                  errors.name ? 'border-tertiary' : 'border-ink',
                 )}
                 autoComplete="name"
                 aria-invalid={Boolean(errors.name)}
                 aria-describedby={errors.name ? 'name-error' : undefined}
               />
               {errors.name ? (
-                <p id="name-error" className="mt-1.5 text-sm text-tertiary" role="alert">
+                <p id="name-error" className="mt-1.5 text-sm font-bold text-tertiary" role="alert">
                   {errors.name}
                 </p>
               ) : null}
             </label>
             <label className="block">
-              <span className="mb-1.5 flex items-baseline justify-between gap-2 text-sm font-medium text-ink">
+              <span className="mb-1.5 flex items-baseline justify-between gap-2 text-sm font-bold text-primary-fg">
                 <span>Email</span>
-                <span className="text-xs font-normal text-ink-muted">Required</span>
+                <span className="text-xs font-normal text-primary-fg/70">Required</span>
               </span>
               <input
                 type="email"
@@ -173,7 +173,7 @@ export const ContactPage: PageComponentType = () => {
                 onBlur={() => onBlur('email')}
                 className={cn(
                   fieldClass,
-                  errors.email ? 'border-tertiary' : 'border-line',
+                  errors.email ? 'border-tertiary' : 'border-ink',
                 )}
                 autoComplete="email"
                 autoCapitalize="none"
@@ -182,15 +182,15 @@ export const ContactPage: PageComponentType = () => {
                 aria-describedby={errors.email ? 'email-error' : undefined}
               />
               {errors.email ? (
-                <p id="email-error" className="mt-1.5 text-sm text-tertiary" role="alert">
+                <p id="email-error" className="mt-1.5 text-sm font-bold text-tertiary" role="alert">
                   {errors.email}
                 </p>
               ) : null}
             </label>
             <label className="block">
-              <span className="mb-1.5 flex items-baseline justify-between gap-2 text-sm font-medium text-ink">
+              <span className="mb-1.5 flex items-baseline justify-between gap-2 text-sm font-bold text-primary-fg">
                 <span>Message</span>
-                <span className="text-xs font-normal text-ink-muted">Required</span>
+                <span className="text-xs font-normal text-primary-fg/70">Required</span>
               </span>
               <textarea
                 name="message"
@@ -206,7 +206,7 @@ export const ContactPage: PageComponentType = () => {
                 className={cn(
                   fieldClass,
                   'resize-y',
-                  errors.message ? 'border-tertiary' : 'border-line',
+                  errors.message ? 'border-tertiary' : 'border-ink',
                 )}
                 placeholder="What do you need? Who’s it for?"
                 aria-invalid={Boolean(errors.message)}
@@ -215,7 +215,7 @@ export const ContactPage: PageComponentType = () => {
               {errors.message ? (
                 <p
                   id="message-error"
-                  className="mt-1.5 text-sm text-tertiary"
+                  className="mt-1.5 text-sm font-bold text-tertiary"
                   role="alert"
                 >
                   {errors.message}
@@ -227,32 +227,33 @@ export const ContactPage: PageComponentType = () => {
               <Button
                 type="submit"
                 disabled={status === 'sending'}
+                variant="tertiary"
                 className="no-underline"
               >
                 {status === 'sending' ? 'Sending…' : 'Send message'}
               </Button>
               <a
                 href={`mailto:${CONTACT_EMAIL}`}
-                className="inline-flex min-h-tap items-center text-sm font-medium"
+                className="inline-flex min-h-tap items-center text-sm font-bold text-ink"
               >
                 Or email {CONTACT_EMAIL}
               </a>
             </div>
 
             {status === 'sent' ? (
-              <p className="text-sm font-medium text-primary" role="status">
+              <p className="text-sm font-bold text-ink" role="status">
                 Got it. We&apos;ll read it soon.
               </p>
             ) : null}
             {status === 'mailto' ? (
-              <p className="text-sm text-ink-muted" role="status">
+              <p className="text-sm text-primary-fg/80" role="status">
                 Opening your mail app
                 {API_BASE_URL ? '.' : ' (no API set; mailto fallback).'} Your
                 message is still in the form if you need to copy it.
               </p>
             ) : null}
             {status === 'error' ? (
-              <p className="text-sm text-ink-muted" role="status">
+              <p className="text-sm text-primary-fg/80" role="status">
                 API didn&apos;t answer. Opened a mail draft instead. Your words
                 are still here.
               </p>
@@ -261,19 +262,22 @@ export const ContactPage: PageComponentType = () => {
         </div>
 
         <div>
-          <div className="rounded-md border border-primary/25 bg-primary-soft p-4 text-sm leading-relaxed text-ink-muted md:text-base">
-            <p className="font-medium text-primary">What happens next</p>
+          <div className="panel bg-secondary p-4 text-sm leading-relaxed text-secondary-fg md:text-base">
+            <p className="font-display text-lg uppercase text-primary">What happens next</p>
             <p className="mt-2">
               We read every note. If the API is up, you&apos;ll see a quick
               “Got it.” If not, your mail app opens a draft to{' '}
-              <a href={`mailto:${CONTACT_EMAIL}`}>{CONTACT_EMAIL}</a>. Either
-              way, we&apos;ll reply when we can. No spam list. No bot gate.
+              <a href={`mailto:${CONTACT_EMAIL}`} className="font-bold text-primary hover:text-surface">
+                {CONTACT_EMAIL}
+              </a>
+              . Either way, we&apos;ll reply when we can. No spam list. No bot
+              gate.
             </p>
           </div>
 
-          <ul className="mt-10 space-y-5 border-t border-line pt-8 text-sm leading-relaxed text-ink-muted md:text-base">
+          <ul className="mt-10 space-y-5 border-t-[3px] border-ink pt-8 text-sm leading-relaxed text-ink-muted md:text-base">
             <li>
-              <span className="font-display text-lg font-semibold text-ink">
+              <span className="font-display text-lg uppercase text-ink">
                 A site someone needs
               </span>
               <p className="mt-1">
@@ -283,7 +287,7 @@ export const ContactPage: PageComponentType = () => {
               </p>
             </li>
             <li>
-              <span className="font-display text-lg font-semibold text-ink">
+              <span className="font-display text-lg uppercase text-ink">
                 Something that fits how we build
               </span>
               <p className="mt-1">
@@ -292,7 +296,7 @@ export const ContactPage: PageComponentType = () => {
               </p>
             </li>
             <li>
-              <span className="font-display text-lg font-semibold text-ink">
+              <span className="font-display text-lg uppercase text-ink">
                 Or just a question
               </span>
               <p className="mt-1">
@@ -303,7 +307,7 @@ export const ContactPage: PageComponentType = () => {
           </ul>
 
           <figure className="mt-10 hidden md:block">
-            <div className="overflow-hidden ring-1 ring-line/50">
+            <div className="panel overflow-hidden">
               <Photo
                 id="contactDesk"
                 className="aspect-[16/10] w-full object-cover"

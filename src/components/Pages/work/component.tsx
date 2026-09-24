@@ -58,7 +58,7 @@ export const WorkPage: PageComponentType = () => {
 
   return (
     <PageShell>
-      <section className="relative overflow-hidden bg-grain">
+      <section className="relative overflow-hidden border-b-[3px] border-ink bg-grain">
         <PageSection className="pb-8 md:pb-10">
           <SectionIntro as="h1" eyebrow="Work" title="What we can build">
             <p>
@@ -85,50 +85,49 @@ export const WorkPage: PageComponentType = () => {
           const photo = photoById[example.id] ?? 'workElder';
           const copy = extraCopy[example.id];
           const featured = index === 0;
-          const accent = featured ? 'border-secondary' : 'border-tertiary';
+          const panelTone = featured ? 'bg-primary' : 'bg-secondary-soft';
 
           return (
             <article
               key={example.id}
               className={cn(
-                'grid items-start gap-8 border-t-4 pt-12',
-                accent,
+                'panel grid items-start gap-0 overflow-hidden',
                 featured
-                  ? 'md:grid-cols-[1.15fr_0.85fr] md:gap-14'
-                  : 'md:grid-cols-2 md:gap-12',
+                  ? 'md:grid-cols-[1.1fr_0.9fr]'
+                  : 'md:grid-cols-2',
                 !featured && index % 2 === 1 && 'md:[&>figure]:order-2',
               )}
             >
-              <figure>
-                <div className="overflow-hidden ring-1 ring-line/50">
-                  <Photo
-                    id={photo}
-                    priority={featured}
-                    className={cn(
-                      'w-full object-cover',
-                      featured ? 'aspect-[16/11]' : 'aspect-[5/4]',
-                    )}
-                  />
+              <figure className="border-b-[3px] border-ink md:border-b-0 md:border-r-[3px]">
+                <Photo
+                  id={photo}
+                  priority={featured}
+                  className={cn(
+                    'w-full object-cover',
+                    featured ? 'aspect-[16/11]' : 'aspect-[5/4]',
+                  )}
+                />
+                <div className="border-t-[3px] border-ink bg-surface px-3 py-2">
+                  <PhotoCredit id={photo} className="mt-0" />
                 </div>
-                <PhotoCredit id={photo} />
               </figure>
-              <div>
-                <p className="eyebrow">Idea / coming work</p>
+              <div className={cn('p-6 md:p-8', panelTone, featured ? 'text-primary-fg' : 'text-ink')}>
+                <p className={cn('eyebrow', featured ? 'text-ink' : undefined)}>
+                  Idea / coming work
+                </p>
                 <h2
                   className={cn(
-                    'mt-3 font-display font-semibold tracking-tight text-ink text-balance',
-                    featured
-                      ? 'text-3xl md:text-5xl'
-                      : 'text-3xl md:text-4xl',
+                    'mt-3 font-display uppercase tracking-tight text-balance',
+                    featured ? 'text-3xl md:text-5xl' : 'text-3xl md:text-4xl',
                   )}
                 >
                   {example.title}
                 </h2>
-                <p className="mt-4 text-lg leading-relaxed text-ink-muted text-pretty">
+                <p className="mt-4 text-lg leading-relaxed text-pretty opacity-90">
                   {example.summary}
                 </p>
                 {copy ? (
-                  <div className="mt-6 space-y-4 text-base leading-relaxed text-ink-muted text-pretty">
+                  <div className="mt-6 space-y-4 text-base leading-relaxed text-pretty opacity-85">
                     <p>{copy.forWhom}</p>
                     <p>{copy.ifWeBuild}</p>
                   </div>
@@ -139,12 +138,12 @@ export const WorkPage: PageComponentType = () => {
         })}
       </PageSection>
 
-      <section className="bg-band-dusk text-primary-fg">
+      <section className="border-t-[3px] border-ink bg-band-dusk text-surface">
         <PageSection>
-          <h2 className="max-w-2xl font-display text-3xl font-semibold tracking-tight text-secondary md:text-4xl text-balance">
+          <h2 className="max-w-2xl font-display text-3xl uppercase tracking-tight text-primary md:text-4xl text-balance">
             Know someone who needs one of these?
           </h2>
-          <p className="mt-4 max-w-xl text-base leading-relaxed text-primary-fg/75 md:text-lg text-pretty">
+          <p className="mt-4 max-w-xl text-base leading-relaxed text-surface/80 md:text-lg text-pretty">
             Tell us. We haven&apos;t named dollars. We&apos;re still figuring
             out what fits. Messy notes welcome.
           </p>

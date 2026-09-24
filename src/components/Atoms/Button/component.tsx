@@ -3,16 +3,13 @@ import { Link, LinkProps } from 'react-router-dom';
 import { cn } from '@/lib/utils';
 
 const base =
-  'inline-flex min-h-tap items-center justify-center gap-2 rounded-md px-5 py-3 text-sm font-semibold tracking-wide transition duration-press focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-focus active:scale-[0.98] disabled:pointer-events-none disabled:opacity-60';
+  'inline-flex min-h-tap items-center justify-center gap-2 border-[3px] border-ink px-5 py-3 text-sm font-bold tracking-wide shadow-[3px_3px_0_0_hsl(var(--ink))] transition duration-press focus-visible:outline focus-visible:outline-3 focus-visible:outline-offset-2 focus-visible:outline-focus active:translate-x-[2px] active:translate-y-[2px] active:shadow-none disabled:pointer-events-none disabled:opacity-60';
 
 const variants = {
-  primary:
-    'bg-primary text-primary-fg hover:bg-secondary hover:text-secondary-fg',
-  secondary:
-    'bg-secondary-soft text-secondary-fg ring-1 ring-secondary/40 hover:bg-secondary hover:text-secondary-fg',
-  tertiary:
-    'bg-tertiary-soft text-tertiary ring-1 ring-tertiary/30 hover:bg-tertiary hover:text-tertiary-fg',
-  ghost: 'bg-transparent text-tertiary hover:bg-tertiary-soft',
+  primary: 'bg-primary text-primary-fg hover:bg-secondary hover:text-secondary-fg',
+  secondary: 'bg-surface text-ink hover:bg-secondary-soft',
+  tertiary: 'bg-tertiary text-tertiary-fg hover:bg-primary hover:text-primary-fg',
+  ghost: 'border-ink bg-transparent text-ink shadow-none hover:bg-primary',
 } as const;
 
 type Variant = keyof typeof variants;

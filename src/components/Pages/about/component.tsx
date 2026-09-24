@@ -11,19 +11,19 @@ const habits = [
   {
     title: 'Name it once',
     body: 'Design, engineering, and testing use the same words for the same thing. That’s how you stop playing telephone.',
-    accent: 'border-secondary',
+    tone: 'bg-primary text-primary-fg',
     span: 'md:col-span-2',
   },
   {
     title: 'Write it plain first',
     body: 'What should happen, in language a normal person can read. Tickets and docs follow. They’re leftovers, not the main event.',
-    accent: 'border-tertiary',
+    tone: 'bg-secondary text-secondary-fg',
     span: 'md:col-span-1',
   },
   {
     title: 'Ship it',
     body: 'Talk without a live site is just talk. We care what actually went out and how long it took.',
-    accent: 'border-primary',
+    tone: 'bg-tertiary text-tertiary-fg',
     span: 'md:col-span-1',
   },
 ] as const;
@@ -44,24 +44,25 @@ const faqs = [
 export const AboutPage: PageComponentType = () => {
   return (
     <PageShell>
-      <section className="relative min-h-[48vh] overflow-hidden md:min-h-[56vh]">
+      <section className="relative min-h-[48vh] overflow-hidden border-b-[3px] border-ink md:min-h-[56vh]">
         <Photo
           id="aboutPath"
           priority
           className="absolute inset-0 h-full w-full object-cover"
         />
-        <div className="absolute inset-0 bg-gradient-to-t from-surface-inverse via-primary/50 to-secondary/15" />
+        <div className="absolute inset-0 bg-ink/70" />
+        <div className="absolute inset-0 bg-halftone opacity-35 mix-blend-overlay" />
         <div className="relative z-10 mx-auto flex min-h-[48vh] max-w-6xl flex-col justify-end px-4 pb-12 pt-10 md:min-h-[56vh] md:px-8 md:pb-16">
-          <p className="eyebrow text-secondary">About</p>
-          <h1 className="mt-3 max-w-3xl font-display text-4xl font-semibold tracking-tight text-primary-fg md:text-5xl text-balance">
+          <p className="eyebrow text-primary">About</p>
+          <h1 className="mt-3 max-w-3xl font-display text-4xl uppercase tracking-tight text-surface md:text-5xl text-balance">
             How we work
           </h1>
-          <p className="mt-4 max-w-xl text-base leading-relaxed text-primary-fg/85 md:text-lg text-pretty">
+          <p className="mt-4 max-w-xl text-base leading-relaxed text-surface/85 md:text-lg text-pretty">
             Macovin&apos;s a small family company. Meanwhile&apos;s the factory.
             We build sites and apps. We try not to spend the week re-explaining
             the same banner. (You&apos;ve been in that meeting. We know.)
           </p>
-          <PhotoCredit id="aboutPath" className="text-primary-fg/50" />
+          <PhotoCredit id="aboutPath" className="text-surface/50" />
         </div>
       </section>
 
@@ -82,25 +83,22 @@ export const AboutPage: PageComponentType = () => {
           <p>
             Real talk: we&apos;re not trying to guess better. We&apos;re trying
             to keep what was meant in the room. If we don&apos;t know yet, we
-            say that. Inventing an answer just to make the schedule feel tidy is
-            a silly argument on its face.
+            say that.
           </p>
         </div>
       </PageSection>
 
-      <section className="bg-band-secondary">
+      <section className="border-y-[3px] border-ink bg-surface-2">
         <PageSection>
           <p className="eyebrow">Three habits</p>
           <div className="mt-8 grid gap-4 md:grid-cols-2">
             {habits.map((habit) => (
               <div
                 key={habit.title}
-                className={`border-t-4 bg-surface/80 pt-5 ${habit.accent} ${habit.span}`}
+                className={`panel p-6 ${habit.tone} ${habit.span}`}
               >
-                <h2 className="font-display text-2xl font-semibold text-ink">
-                  {habit.title}
-                </h2>
-                <p className="mt-3 max-w-prose text-sm leading-relaxed text-ink-muted md:text-base">
+                <h2 className="font-display text-2xl uppercase">{habit.title}</h2>
+                <p className="mt-3 max-w-prose text-sm leading-relaxed md:text-base">
                   {habit.body}
                 </p>
               </div>
@@ -128,18 +126,18 @@ export const AboutPage: PageComponentType = () => {
       </PageSection>
 
       <PageSection>
-        <h2 className="font-display text-3xl font-semibold tracking-tight md:text-4xl text-balance">
+        <h2 className="font-display text-3xl uppercase tracking-tight md:text-4xl text-balance">
           Quick answers
         </h2>
         <FaqList items={faqs} className="mt-8" />
       </PageSection>
 
-      <section className="bg-band-dusk text-primary-fg">
+      <section className="border-t-[3px] border-ink bg-band-dusk text-surface">
         <PageSection>
-          <h2 className="max-w-2xl font-display text-3xl font-semibold tracking-tight text-secondary md:text-4xl text-balance">
+          <h2 className="max-w-2xl font-display text-3xl uppercase tracking-tight text-primary md:text-4xl text-balance">
             Want more detail?
           </h2>
-          <p className="mt-4 max-w-2xl text-base leading-relaxed text-primary-fg/75 md:text-lg text-pretty">
+          <p className="mt-4 max-w-2xl text-base leading-relaxed text-surface/80 md:text-lg text-pretty">
             Company docs are on GitHub. The factory is Meanwhile. This site is
             the front door. If that fits, tell us.
           </p>
@@ -161,11 +159,7 @@ export const AboutPage: PageComponentType = () => {
             >
               Meanwhile factory
             </Button>
-            <Button
-              to="/contact"
-              variant="ghost"
-              className="text-secondary no-underline hover:bg-primary/30"
-            >
+            <Button to="/contact" variant="ghost" className="text-surface no-underline hover:text-ink">
               Talk to us
             </Button>
           </div>

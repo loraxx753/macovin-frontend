@@ -12,10 +12,10 @@ const links = [
 
 function linkClass({ isActive }: { isActive: boolean }) {
   return cn(
-    'block min-h-tap rounded-md px-3 py-2.5 text-base font-medium no-underline transition md:inline-flex md:min-h-0 md:items-center md:px-3 md:py-2 md:text-sm',
+    'block min-h-tap border-[2px] border-transparent px-3 py-2.5 text-base font-bold uppercase tracking-wide no-underline transition md:inline-flex md:min-h-0 md:items-center md:px-3 md:py-1.5 md:text-xs',
     isActive
-      ? 'bg-primary-soft text-primary'
-      : 'text-ink-muted hover:bg-secondary-soft hover:text-ink',
+      ? 'border-ink bg-primary text-ink'
+      : 'text-ink hover:border-ink hover:bg-secondary-soft',
   );
 }
 
@@ -46,20 +46,20 @@ export function SiteHeader() {
 
   return (
     <header className="sticky top-0 z-30">
-      <div className="theme-rail h-1 w-full" aria-hidden />
-      <div className="border-b border-line/60 chrome-glass">
+      <div className="theme-rail h-1.5 w-full" aria-hidden />
+      <div className="border-b-[3px] border-ink bg-surface">
         <div className="mx-auto flex max-w-6xl items-center justify-between gap-3 px-4 py-3 md:gap-6 md:px-8 md:py-3.5">
           <NavLink
             to="/"
             onClick={closeMenu}
-            className="relative z-40 font-display text-xl font-semibold tracking-tight text-primary no-underline hover:text-tertiary"
+            className="wordmark relative z-40 text-xl text-ink no-underline hover:text-tertiary md:text-2xl"
           >
             Macovin
           </NavLink>
 
           <button
             type="button"
-            className="relative z-40 inline-flex h-11 w-11 items-center justify-center rounded-md text-ink ring-1 ring-line transition hover:bg-secondary-soft focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-focus md:hidden"
+            className="relative z-40 inline-flex h-11 w-11 items-center justify-center border-[3px] border-ink bg-primary text-ink transition hover:bg-secondary hover:text-secondary-fg focus-visible:outline focus-visible:outline-3 focus-visible:outline-offset-2 focus-visible:outline-focus md:hidden"
             aria-expanded={open}
             aria-controls={menuId}
             aria-label={open ? 'Close menu' : 'Open menu'}
@@ -69,19 +69,19 @@ export function SiteHeader() {
             <span className="flex w-5 flex-col gap-1.5" aria-hidden>
               <span
                 className={cn(
-                  'block h-0.5 w-full origin-center bg-ink transition',
+                  'block h-0.5 w-full origin-center bg-current transition',
                   open && 'translate-y-2 rotate-45',
                 )}
               />
               <span
                 className={cn(
-                  'block h-0.5 w-full bg-ink transition',
+                  'block h-0.5 w-full bg-current transition',
                   open && 'opacity-0',
                 )}
               />
               <span
                 className={cn(
-                  'block h-0.5 w-full origin-center bg-ink transition',
+                  'block h-0.5 w-full origin-center bg-current transition',
                   open && '-translate-y-2 -rotate-45',
                 )}
               />
@@ -90,7 +90,7 @@ export function SiteHeader() {
 
           <nav
             aria-label="Primary"
-            className="hidden items-center gap-1 md:flex"
+            className="hidden items-center gap-1.5 md:flex"
           >
             {links.map((link) => (
               <NavLink
@@ -102,7 +102,7 @@ export function SiteHeader() {
                 {link.label}
               </NavLink>
             ))}
-            <Button to="/work" className="ml-3 no-underline">
+            <Button to="/work" className="ml-2 no-underline">
               See what we can build
             </Button>
           </nav>
@@ -118,7 +118,7 @@ export function SiteHeader() {
         <button
           type="button"
           className={cn(
-            'absolute inset-0 bg-ink/35 transition-opacity',
+            'absolute inset-0 bg-ink/40 transition-opacity',
             open ? 'opacity-100' : 'opacity-0',
           )}
           aria-label="Close menu"
@@ -129,11 +129,11 @@ export function SiteHeader() {
           id={menuId}
           aria-label="Primary"
           className={cn(
-            'absolute inset-x-0 top-0 border-b border-line bg-surface px-4 pb-8 pt-20 shadow-sm transition-transform duration-200',
+            'absolute inset-x-0 top-0 border-b-[3px] border-ink bg-surface px-4 pb-8 pt-20 transition-transform duration-200',
             open ? 'translate-y-0' : '-translate-y-full',
           )}
         >
-          <ul className="flex flex-col gap-1">
+          <ul className="flex flex-col gap-2">
             {links.map((link) => (
               <li key={link.to}>
                 <NavLink
