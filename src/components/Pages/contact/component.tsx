@@ -143,7 +143,7 @@ export const ContactPage: PageComponentType = () => {
                 onBlur={() => onBlur('name')}
                 className={cn(
                   fieldClass,
-                  errors.name ? 'border-tertiary' : 'border-border',
+                  errors.name ? 'border-tertiary' : 'border-line',
                 )}
                 autoComplete="name"
                 aria-invalid={Boolean(errors.name)}
@@ -173,7 +173,7 @@ export const ContactPage: PageComponentType = () => {
                 onBlur={() => onBlur('email')}
                 className={cn(
                   fieldClass,
-                  errors.email ? 'border-tertiary' : 'border-border',
+                  errors.email ? 'border-tertiary' : 'border-line',
                 )}
                 autoComplete="email"
                 autoCapitalize="none"
@@ -206,7 +206,7 @@ export const ContactPage: PageComponentType = () => {
                 className={cn(
                   fieldClass,
                   'resize-y',
-                  errors.message ? 'border-tertiary' : 'border-border',
+                  errors.message ? 'border-tertiary' : 'border-line',
                 )}
                 placeholder="What do you need? Who’s it for?"
                 aria-invalid={Boolean(errors.message)}
@@ -271,7 +271,7 @@ export const ContactPage: PageComponentType = () => {
             </p>
           </div>
 
-          <ul className="mt-10 space-y-5 border-t border-border pt-8 text-sm leading-relaxed text-ink-muted md:text-base">
+          <ul className="mt-10 space-y-5 border-t border-line pt-8 text-sm leading-relaxed text-ink-muted md:text-base">
             <li>
               <span className="font-display text-lg font-semibold text-ink">
                 A site someone needs
@@ -303,7 +303,7 @@ export const ContactPage: PageComponentType = () => {
           </ul>
 
           <figure className="mt-10 hidden md:block">
-            <div className="overflow-hidden ring-1 ring-border/50">
+            <div className="overflow-hidden ring-1 ring-line/50">
               <Photo
                 id="contactDesk"
                 className="aspect-[16/10] w-full object-cover"

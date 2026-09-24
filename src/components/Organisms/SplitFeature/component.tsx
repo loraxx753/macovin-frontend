@@ -32,7 +32,7 @@ export function SplitFeature({
     >
       <div className={cn(reverse && 'md:order-2')}>
         <figure>
-          <div className="overflow-hidden ring-1 ring-border/50">
+          <div className="overflow-hidden ring-1 ring-line/50">
             <Photo
               id={photo}
               priority={priority}

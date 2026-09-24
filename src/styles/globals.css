@@ -28,7 +28,7 @@
   --surface-inverse: 158 36% 15%;
   --ink: 160 24% 13%;
   --ink-muted: 158 12% 36%;
-  --border: 150 14% 80%;
+  --line: 150 14% 80%;
   --focus: 36 88% 42%;
 
   /* Legacy aliases (same HSL channels as roles; keeps old class names working) */
@@ -58,7 +58,7 @@
 
 @layer base {
   * {
-    @apply border-border/70;
+    border-color: hsl(var(--line) / 0.7);
   }
 
   html {

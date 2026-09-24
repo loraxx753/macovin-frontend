@@ -100,7 +100,7 @@ export const WorkPage: PageComponentType = () => {
               )}
             >
               <figure>
-                <div className="overflow-hidden ring-1 ring-border/50">
+                <div className="overflow-hidden ring-1 ring-line/50">
                   <Photo
                     id={photo}
                     priority={featured}

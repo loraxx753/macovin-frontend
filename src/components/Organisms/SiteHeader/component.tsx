@@ -47,7 +47,7 @@ export function SiteHeader() {
   return (
     <header className="sticky top-0 z-30">
       <div className="theme-rail h-1 w-full" aria-hidden />
-      <div className="border-b border-border/60 chrome-glass">
+      <div className="border-b border-line/60 chrome-glass">
         <div className="mx-auto flex max-w-6xl items-center justify-between gap-3 px-4 py-3 md:gap-6 md:px-8 md:py-3.5">
           <NavLink
             to="/"
@@ -59,7 +59,7 @@ export function SiteHeader() {
 
           <button
             type="button"
-            className="relative z-40 inline-flex h-11 w-11 items-center justify-center rounded-md text-ink ring-1 ring-border transition hover:bg-secondary-soft focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-focus md:hidden"
+            className="relative z-40 inline-flex h-11 w-11 items-center justify-center rounded-md text-ink ring-1 ring-line transition hover:bg-secondary-soft focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-focus md:hidden"
             aria-expanded={open}
             aria-controls={menuId}
             aria-label={open ? 'Close menu' : 'Open menu'}
@@ -129,7 +129,7 @@ export function SiteHeader() {
           id={menuId}
           aria-label="Primary"
           className={cn(
-            'absolute inset-x-0 top-0 border-b border-border bg-surface px-4 pb-8 pt-20 shadow-sm transition-transform duration-200',
+            'absolute inset-x-0 top-0 border-b border-line bg-surface px-4 pb-8 pt-20 shadow-sm transition-transform duration-200',
             open ? 'translate-y-0' : '-translate-y-full',
           )}
         >

@@ -28,7 +28,7 @@ export default {
           DEFAULT: 'hsl(var(--ink) / <alpha-value>)',
           muted: 'hsl(var(--ink-muted) / <alpha-value>)',
         },
-        border: 'hsl(var(--border) / <alpha-value>)',
+        line: 'hsl(var(--line) / <alpha-value>)',
         focus: 'hsl(var(--focus) / <alpha-value>)',
         /* Legacy aliases */
         paper: 'hsl(var(--paper) / <alpha-value>)',
