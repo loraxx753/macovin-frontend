@@ -22,7 +22,7 @@ type FieldErrors = {
 };
 
 const fieldClass =
-  'w-full rounded-md border bg-paper px-3 py-3 text-ink outline-none transition focus:ring-2 focus:ring-ember/40';
+  'w-full rounded-md border bg-surface px-3 py-3 text-ink outline-none transition focus:ring-2 focus:ring-secondary/50';
 
 function validateEmail(value: string): string | undefined {
   if (!value.trim()) return 'Email is required.';
@@ -120,16 +120,16 @@ export const ContactPage: PageComponentType = () => {
         <SectionIntro as="h1" eyebrow="Contact" title="Say hello">
           <p>
             Tell us what you need. Who it&apos;s for. What&apos;s true today.
-            Messy is fine.
+            Messy is fine. Feel free to send the messy version.
           </p>
         </SectionIntro>
 
-        <div className="border border-ink/10 bg-mist/25 p-5 md:row-span-2 md:p-8">
+        <div className="border border-secondary/30 bg-secondary-soft/60 p-5 md:row-span-2 md:p-8">
           <form onSubmit={onSubmit} className="space-y-5" noValidate>
             <label className="block">
               <span className="mb-1.5 flex items-baseline justify-between gap-2 text-sm font-medium text-ink">
                 <span>Name</span>
-                <span className="text-xs font-normal text-ink/45">Required</span>
+                <span className="text-xs font-normal text-ink-muted">Required</span>
               </span>
               <input
                 name="name"
@@ -143,14 +143,14 @@ export const ContactPage: PageComponentType = () => {
                 onBlur={() => onBlur('name')}
                 className={cn(
                   fieldClass,
-                  errors.name ? 'border-ember' : 'border-ink/15',
+                  errors.name ? 'border-tertiary' : 'border-border',
                 )}
                 autoComplete="name"
                 aria-invalid={Boolean(errors.name)}
                 aria-describedby={errors.name ? 'name-error' : undefined}
               />
               {errors.name ? (
-                <p id="name-error" className="mt-1.5 text-sm text-ember" role="alert">
+                <p id="name-error" className="mt-1.5 text-sm text-tertiary" role="alert">
                   {errors.name}
                 </p>
               ) : null}
@@ -158,7 +158,7 @@ export const ContactPage: PageComponentType = () => {
             <label className="block">
               <span className="mb-1.5 flex items-baseline justify-between gap-2 text-sm font-medium text-ink">
                 <span>Email</span>
-                <span className="text-xs font-normal text-ink/45">Required</span>
+                <span className="text-xs font-normal text-ink-muted">Required</span>
               </span>
               <input
                 type="email"
@@ -173,7 +173,7 @@ export const ContactPage: PageComponentType = () => {
                 onBlur={() => onBlur('email')}
                 className={cn(
                   fieldClass,
-                  errors.email ? 'border-ember' : 'border-ink/15',
+                  errors.email ? 'border-tertiary' : 'border-border',
                 )}
                 autoComplete="email"
                 autoCapitalize="none"
@@ -182,7 +182,7 @@ export const ContactPage: PageComponentType = () => {
                 aria-describedby={errors.email ? 'email-error' : undefined}
               />
               {errors.email ? (
-                <p id="email-error" className="mt-1.5 text-sm text-ember" role="alert">
+                <p id="email-error" className="mt-1.5 text-sm text-tertiary" role="alert">
                   {errors.email}
                 </p>
               ) : null}
@@ -190,7 +190,7 @@ export const ContactPage: PageComponentType = () => {
             <label className="block">
               <span className="mb-1.5 flex items-baseline justify-between gap-2 text-sm font-medium text-ink">
                 <span>Message</span>
-                <span className="text-xs font-normal text-ink/45">Required</span>
+                <span className="text-xs font-normal text-ink-muted">Required</span>
               </span>
               <textarea
                 name="message"
@@ -206,7 +206,7 @@ export const ContactPage: PageComponentType = () => {
                 className={cn(
                   fieldClass,
                   'resize-y',
-                  errors.message ? 'border-ember' : 'border-ink/15',
+                  errors.message ? 'border-tertiary' : 'border-border',
                 )}
                 placeholder="What do you need? Who’s it for?"
                 aria-invalid={Boolean(errors.message)}
@@ -215,7 +215,7 @@ export const ContactPage: PageComponentType = () => {
               {errors.message ? (
                 <p
                   id="message-error"
-                  className="mt-1.5 text-sm text-ember"
+                  className="mt-1.5 text-sm text-tertiary"
                   role="alert"
                 >
                   {errors.message}
@@ -240,19 +240,19 @@ export const ContactPage: PageComponentType = () => {
             </div>
 
             {status === 'sent' ? (
-              <p className="text-sm text-path" role="status">
+              <p className="text-sm font-medium text-primary" role="status">
                 Got it. We&apos;ll read it soon.
               </p>
             ) : null}
             {status === 'mailto' ? (
-              <p className="text-sm text-ink/65" role="status">
+              <p className="text-sm text-ink-muted" role="status">
                 Opening your mail app
                 {API_BASE_URL ? '.' : ' (no API set; mailto fallback).'} Your
                 message is still in the form if you need to copy it.
               </p>
             ) : null}
             {status === 'error' ? (
-              <p className="text-sm text-ink/65" role="status">
+              <p className="text-sm text-ink-muted" role="status">
                 API didn&apos;t answer. Opened a mail draft instead. Your words
                 are still here.
               </p>
@@ -261,8 +261,8 @@ export const ContactPage: PageComponentType = () => {
         </div>
 
         <div>
-          <div className="rounded-md border border-ink/10 bg-mist/30 p-4 text-sm leading-relaxed text-ink/70 md:text-base">
-            <p className="font-medium text-ink">What happens next</p>
+          <div className="rounded-md border border-primary/25 bg-primary-soft p-4 text-sm leading-relaxed text-ink-muted md:text-base">
+            <p className="font-medium text-primary">What happens next</p>
             <p className="mt-2">
               We read every note. If the API is up, you&apos;ll see a quick
               “Got it.” If not, your mail app opens a draft to{' '}
@@ -271,7 +271,7 @@ export const ContactPage: PageComponentType = () => {
             </p>
           </div>
 
-          <ul className="mt-10 space-y-5 border-t border-ink/10 pt-8 text-sm leading-relaxed text-ink/70 md:text-base">
+          <ul className="mt-10 space-y-5 border-t border-border pt-8 text-sm leading-relaxed text-ink-muted md:text-base">
             <li>
               <span className="font-display text-lg font-semibold text-ink">
                 A site someone needs
@@ -296,13 +296,14 @@ export const ContactPage: PageComponentType = () => {
                 Or just a question
               </span>
               <p className="mt-1">
-                How we work, what Meanwhile is, whether this fits. Ask.
+                How we work, what Meanwhile is, whether this fits. Ask. “I
+                don’t know yet” is allowed on our side too.
               </p>
             </li>
           </ul>
 
           <figure className="mt-10 hidden md:block">
-            <div className="overflow-hidden">
+            <div className="overflow-hidden ring-1 ring-border/50">
               <Photo
                 id="contactDesk"
                 className="aspect-[16/10] w-full object-cover"

@@ -3,16 +3,42 @@
 @tailwind utilities;
 
 :root {
-  /* Dusk ink + copper ember on cool bone (not purple, not cream-terracotta) */
-  --ink: 214 32% 12%;
-  --mist: 210 24% 90%;
-  --paper: 40 22% 97%;
-  --path: 168 32% 26%;
-  --ridge: 214 18% 36%;
-  --soft: 210 20% 86%;
-  --ember: 18 72% 40%;
-  --dusk: 214 28% 16%;
-  --focus: 18 72% 40%;
+  /*
+   * Theme roles (use these by name):
+   *   primary   — spruce: CTAs, brand weight, inverse surfaces
+   *   secondary — marigold: eyebrows, highlights, secondary chrome
+   *   tertiary  — coral: links, small accents, ghost actions
+   * Avoids clinical cool gray, SaaS purple, and cream-terracotta clones.
+   */
+  --primary: 158 42% 26%;
+  --primary-soft: 152 28% 90%;
+  --primary-fg: 42 35% 98%;
+
+  --secondary: 36 88% 48%;
+  --secondary-soft: 38 72% 92%;
+  --secondary-fg: 28 42% 14%;
+
+  --tertiary: 8 72% 46%;
+  --tertiary-soft: 10 60% 94%;
+  --tertiary-fg: 40 30% 98%;
+
+  /* Surfaces + type */
+  --surface: 42 30% 96%;
+  --surface-2: 150 20% 91%;
+  --surface-inverse: 158 36% 15%;
+  --ink: 160 24% 13%;
+  --ink-muted: 158 12% 36%;
+  --border: 150 14% 80%;
+  --focus: 36 88% 42%;
+
+  /* Legacy aliases (same HSL channels as roles; keeps old class names working) */
+  --paper: 42 30% 96%;
+  --mist: 150 20% 91%;
+  --dusk: 158 36% 15%;
+  --ember: 36 88% 48%;
+  --path: 8 72% 46%;
+  --ridge: 158 12% 36%;
+  --soft: 150 14% 80%;
 
   /* Fluid type: rem term kept so zoom still works */
   --text-xs: clamp(0.75rem, 0.72rem + 0.12vw, 0.8125rem);
@@ -32,7 +58,7 @@
 
 @layer base {
   * {
-    @apply border-soft/60;
+    @apply border-border/70;
   }
 
   html {
@@ -42,15 +68,32 @@
   body {
     font-size: var(--text-base);
     line-height: 1.65;
+    color: hsl(var(--ink));
+    background-color: hsl(var(--surface));
   }
 
   a {
-    @apply text-path underline-offset-4 transition-colors hover:text-ember;
+    @apply text-tertiary underline-offset-4 transition-colors hover:text-primary;
   }
 
   :focus-visible {
     outline: 2px solid hsl(var(--focus));
     outline-offset: 2px;
+  }
+}
+
+@layer components {
+  .eyebrow {
+    @apply font-mono text-[11px] font-medium uppercase tracking-[0.18em] text-secondary;
+  }
+
+  .theme-rail {
+    background: linear-gradient(
+      90deg,
+      hsl(var(--primary)) 0 33.33%,
+      hsl(var(--secondary)) 33.33% 66.66%,
+      hsl(var(--tertiary)) 66.66% 100%
+    );
   }
 }
 
@@ -69,33 +112,40 @@
 
   .bg-grain {
     background-image:
-      radial-gradient(ellipse at 10% 0%, hsl(18 55% 48% / 0.1), transparent 40%),
-      radial-gradient(ellipse at 90% 5%, hsl(210 40% 70% / 0.18), transparent 46%),
-      linear-gradient(168deg, hsl(210 28% 93%) 0%, hsl(40 22% 97%) 52%, hsl(40 16% 95%) 100%);
+      radial-gradient(ellipse at 8% 0%, hsl(var(--secondary) / 0.18), transparent 42%),
+      radial-gradient(ellipse at 92% 6%, hsl(var(--primary) / 0.12), transparent 48%),
+      radial-gradient(ellipse at 50% 100%, hsl(var(--tertiary) / 0.08), transparent 55%),
+      linear-gradient(168deg, hsl(var(--surface-2)) 0%, hsl(var(--surface)) 55%, hsl(42 28% 94%) 100%);
   }
 
   .bg-band-dusk {
     background:
-      linear-gradient(125deg, hsl(214 32% 12% / 0.88), hsl(214 28% 18% / 0.5)),
-      hsl(214 32% 12%);
+      linear-gradient(125deg, hsl(var(--primary) / 0.92), hsl(158 30% 20% / 0.75)),
+      hsl(var(--surface-inverse));
+  }
+
+  .bg-band-secondary {
+    background:
+      linear-gradient(160deg, hsl(var(--secondary-soft)), hsl(var(--surface))),
+      hsl(var(--secondary-soft));
   }
 
   .bg-atmosphere {
     background-image:
-      radial-gradient(ellipse 80% 55% at 20% -10%, hsl(18 50% 50% / 0.08), transparent 55%),
-      radial-gradient(ellipse 60% 40% at 100% 0%, hsl(210 35% 65% / 0.12), transparent 50%),
-      linear-gradient(180deg, hsl(var(--paper)), hsl(210 20% 94%));
+      radial-gradient(ellipse 80% 55% at 15% -10%, hsl(var(--secondary) / 0.16), transparent 55%),
+      radial-gradient(ellipse 55% 40% at 100% 10%, hsl(var(--primary) / 0.1), transparent 50%),
+      radial-gradient(ellipse 40% 30% at 70% 100%, hsl(var(--tertiary) / 0.08), transparent 50%),
+      linear-gradient(180deg, hsl(var(--surface)), hsl(var(--surface-2)));
   }
 
-  /* Soft frost for sticky chrome; solid fallback underneath */
   .chrome-glass {
-    background-color: hsl(var(--paper) / 0.92);
+    background-color: hsl(var(--surface) / 0.92);
     backdrop-filter: blur(10px);
   }
 
   @supports not ((backdrop-filter: blur(1px)) or (-webkit-backdrop-filter: blur(1px))) {
     .chrome-glass {
-      background-color: hsl(var(--paper));
+      background-color: hsl(var(--surface));
     }
   }
 }

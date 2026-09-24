@@ -9,7 +9,7 @@ type PageShellProps = {
 
 export function PageShell({ children }: PageShellProps) {
   return (
-    <div className="flex min-h-screen w-full flex-col bg-paper text-ink">
+    <div className="flex min-h-screen w-full flex-col bg-surface text-ink">
       <SiteHeader />
       <main className="flex-1 pb-24 md:pb-0">{children}</main>
       <SiteFooter />

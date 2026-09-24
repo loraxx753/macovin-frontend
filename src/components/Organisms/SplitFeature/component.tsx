@@ -32,7 +32,7 @@ export function SplitFeature({
     >
       <div className={cn(reverse && 'md:order-2')}>
         <figure>
-          <div className="overflow-hidden">
+          <div className="overflow-hidden ring-1 ring-border/50">
             <Photo
               id={photo}
               priority={priority}
@@ -43,15 +43,11 @@ export function SplitFeature({
         </figure>
       </div>
       <div className={cn(reverse && 'md:order-1')}>
-        {eyebrow ? (
-          <p className="mb-3 font-mono text-[11px] font-medium uppercase tracking-[0.18em] text-ember">
-            {eyebrow}
-          </p>
-        ) : null}
+        {eyebrow ? <p className="eyebrow mb-3">{eyebrow}</p> : null}
         <h2 className="font-display text-3xl font-semibold tracking-tight text-ink md:text-4xl text-balance">
           {title}
         </h2>
-        <div className="mt-4 space-y-4 text-base leading-relaxed text-ink/75 md:text-lg text-pretty">
+        <div className="mt-4 space-y-4 text-base leading-relaxed text-ink-muted md:text-lg text-pretty">
           {children}
         </div>
       </div>

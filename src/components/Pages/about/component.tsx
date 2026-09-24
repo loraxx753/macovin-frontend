@@ -11,16 +11,19 @@ const habits = [
   {
     title: 'Name it once',
     body: 'Design, engineering, and testing use the same words for the same thing. That’s how you stop playing telephone.',
+    accent: 'border-secondary',
     span: 'md:col-span-2',
   },
   {
     title: 'Write it plain first',
     body: 'What should happen, in language a normal person can read. Tickets and docs follow. They’re leftovers, not the main event.',
+    accent: 'border-tertiary',
     span: 'md:col-span-1',
   },
   {
     title: 'Ship it',
     body: 'Talk without a live site is just talk. We care what actually went out and how long it took.',
+    accent: 'border-primary',
     span: 'md:col-span-1',
   },
 ] as const;
@@ -29,12 +32,12 @@ const faqs = [
   {
     question: 'Is Macovin a big agency?',
     answer:
-      'No. Small family company. Meanwhile is the factory. We build websites and apps and try not to spend the week re-explaining the same banner.',
+      'Nah. Small family company. Meanwhile is the factory. We build websites and apps and try not to spend the week re-explaining the same banner.',
   },
   {
     question: 'Why the shared names?',
     answer:
-      'So every seat stays in the same weather. The person pointing, the people in the middle, and the people building all get to say “I don’t know yet.”',
+      'So every seat stays in the same weather. The person pointing, the people in the middle, and the people building all get to say “I don’t know yet.” Including whoever has to report up.',
   },
 ] as const;
 
@@ -47,20 +50,18 @@ export const AboutPage: PageComponentType = () => {
           priority
           className="absolute inset-0 h-full w-full object-cover"
         />
-        <div className="absolute inset-0 bg-gradient-to-t from-ink via-ink/55 to-ink/25" />
+        <div className="absolute inset-0 bg-gradient-to-t from-surface-inverse via-primary/50 to-secondary/15" />
         <div className="relative z-10 mx-auto flex min-h-[48vh] max-w-6xl flex-col justify-end px-4 pb-12 pt-10 md:min-h-[56vh] md:px-8 md:pb-16">
-          <p className="font-mono text-[11px] font-medium uppercase tracking-[0.18em] text-paper/75">
-            About
-          </p>
-          <h1 className="mt-3 max-w-3xl font-display text-4xl font-semibold tracking-tight text-paper md:text-5xl text-balance">
+          <p className="eyebrow text-secondary">About</p>
+          <h1 className="mt-3 max-w-3xl font-display text-4xl font-semibold tracking-tight text-primary-fg md:text-5xl text-balance">
             How we work
           </h1>
-          <p className="mt-4 max-w-xl text-base leading-relaxed text-paper/80 md:text-lg text-pretty">
+          <p className="mt-4 max-w-xl text-base leading-relaxed text-primary-fg/85 md:text-lg text-pretty">
             Macovin&apos;s a small family company. Meanwhile&apos;s the factory.
             We build sites and apps. We try not to spend the week re-explaining
-            the same banner.
+            the same banner. (You&apos;ve been in that meeting. We know.)
           </p>
-          <PhotoCredit id="aboutPath" className="text-paper/50" />
+          <PhotoCredit id="aboutPath" className="text-primary-fg/50" />
         </div>
       </section>
 
@@ -72,7 +73,7 @@ export const AboutPage: PageComponentType = () => {
             with a paycheck.
           </p>
         </SectionIntro>
-        <div className="mt-10 max-w-3xl space-y-5 text-base leading-relaxed text-ink/75 md:text-lg text-pretty">
+        <div className="mt-10 max-w-3xl space-y-5 text-base leading-relaxed text-ink-muted md:text-lg text-pretty">
           <p>
             Someone means a thing. The ticket says something else. Design hears
             a third version. Engineering builds a fourth. QA checks a fifth.
@@ -81,26 +82,25 @@ export const AboutPage: PageComponentType = () => {
           <p>
             Real talk: we&apos;re not trying to guess better. We&apos;re trying
             to keep what was meant in the room. If we don&apos;t know yet, we
-            say that.
+            say that. Inventing an answer just to make the schedule feel tidy is
+            a silly argument on its face.
           </p>
         </div>
       </PageSection>
 
-      <section className="bg-mist/40">
+      <section className="bg-band-secondary">
         <PageSection>
-          <p className="font-mono text-[11px] font-medium uppercase tracking-[0.18em] text-ember">
-            Three habits
-          </p>
+          <p className="eyebrow">Three habits</p>
           <div className="mt-8 grid gap-4 md:grid-cols-2">
             {habits.map((habit) => (
               <div
                 key={habit.title}
-                className={`border-t-2 border-ember/70 bg-paper/60 pt-5 ${habit.span}`}
+                className={`border-t-4 bg-surface/80 pt-5 ${habit.accent} ${habit.span}`}
               >
                 <h2 className="font-display text-2xl font-semibold text-ink">
                   {habit.title}
                 </h2>
-                <p className="mt-3 max-w-prose text-sm leading-relaxed text-ink/70 md:text-base">
+                <p className="mt-3 max-w-prose text-sm leading-relaxed text-ink-muted md:text-base">
                   {habit.body}
                 </p>
               </div>
@@ -134,14 +134,14 @@ export const AboutPage: PageComponentType = () => {
         <FaqList items={faqs} className="mt-8" />
       </PageSection>
 
-      <section className="bg-dusk text-paper">
+      <section className="bg-band-dusk text-primary-fg">
         <PageSection>
-          <h2 className="max-w-2xl font-display text-3xl font-semibold tracking-tight md:text-4xl text-balance">
+          <h2 className="max-w-2xl font-display text-3xl font-semibold tracking-tight text-secondary md:text-4xl text-balance">
             Want more detail?
           </h2>
-          <p className="mt-4 max-w-2xl text-base leading-relaxed text-paper/70 md:text-lg text-pretty">
+          <p className="mt-4 max-w-2xl text-base leading-relaxed text-primary-fg/75 md:text-lg text-pretty">
             Company docs are on GitHub. The factory is Meanwhile. This site is
-            the front door.
+            the front door. If that fits, tell us.
           </p>
           <div className="mt-8 flex flex-col gap-3 sm:flex-row">
             <Button
@@ -157,11 +157,15 @@ export const AboutPage: PageComponentType = () => {
               target="_blank"
               rel="noreferrer"
               variant="secondary"
-              className="border-0 bg-paper/10 text-paper no-underline ring-1 ring-paper/35 hover:bg-paper/20"
+              className="no-underline"
             >
               Meanwhile factory
             </Button>
-            <Button to="/contact" variant="ghost" className="text-paper no-underline">
+            <Button
+              to="/contact"
+              variant="ghost"
+              className="text-secondary no-underline hover:bg-primary/30"
+            >
               Talk to us
             </Button>
           </div>

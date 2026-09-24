@@ -14,8 +14,8 @@ function linkClass({ isActive }: { isActive: boolean }) {
   return cn(
     'block min-h-tap rounded-md px-3 py-2.5 text-base font-medium no-underline transition md:inline-flex md:min-h-0 md:items-center md:px-3 md:py-2 md:text-sm',
     isActive
-      ? 'bg-ink/5 text-ink'
-      : 'text-ink/70 hover:bg-ink/5 hover:text-ink',
+      ? 'bg-primary-soft text-primary'
+      : 'text-ink-muted hover:bg-secondary-soft hover:text-ink',
   );
 }
 
@@ -46,19 +46,20 @@ export function SiteHeader() {
 
   return (
     <header className="sticky top-0 z-30">
-      <div className="border-b border-ink/8 chrome-glass">
+      <div className="theme-rail h-1 w-full" aria-hidden />
+      <div className="border-b border-border/60 chrome-glass">
         <div className="mx-auto flex max-w-6xl items-center justify-between gap-3 px-4 py-3 md:gap-6 md:px-8 md:py-3.5">
           <NavLink
             to="/"
             onClick={closeMenu}
-            className="relative z-40 font-display text-xl font-semibold tracking-tight text-ink no-underline hover:text-ink"
+            className="relative z-40 font-display text-xl font-semibold tracking-tight text-primary no-underline hover:text-tertiary"
           >
             Macovin
           </NavLink>
 
           <button
             type="button"
-            className="relative z-40 inline-flex h-11 w-11 items-center justify-center rounded-md text-ink ring-1 ring-ink/15 transition hover:bg-ink/5 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-ember md:hidden"
+            className="relative z-40 inline-flex h-11 w-11 items-center justify-center rounded-md text-ink ring-1 ring-border transition hover:bg-secondary-soft focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-focus md:hidden"
             aria-expanded={open}
             aria-controls={menuId}
             aria-label={open ? 'Close menu' : 'Open menu'}
@@ -101,10 +102,7 @@ export function SiteHeader() {
                 {link.label}
               </NavLink>
             ))}
-            <Button
-              to="/work"
-              className="ml-3 no-underline"
-            >
+            <Button to="/work" className="ml-3 no-underline">
               See what we can build
             </Button>
           </nav>
@@ -120,7 +118,7 @@ export function SiteHeader() {
         <button
           type="button"
           className={cn(
-            'absolute inset-0 bg-ink/30 transition-opacity',
+            'absolute inset-0 bg-ink/35 transition-opacity',
             open ? 'opacity-100' : 'opacity-0',
           )}
           aria-label="Close menu"
@@ -131,7 +129,7 @@ export function SiteHeader() {
           id={menuId}
           aria-label="Primary"
           className={cn(
-            'absolute inset-x-0 top-0 border-b border-ink/10 bg-paper px-4 pb-8 pt-20 shadow-sm transition-transform duration-200',
+            'absolute inset-x-0 top-0 border-b border-border bg-surface px-4 pb-8 pt-20 shadow-sm transition-transform duration-200',
             open ? 'translate-y-0' : '-translate-y-full',
           )}
         >

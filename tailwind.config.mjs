@@ -4,9 +4,35 @@ export default {
   theme: {
     extend: {
       colors: {
-        ink: 'hsl(var(--ink) / <alpha-value>)',
-        mist: 'hsl(var(--mist) / <alpha-value>)',
+        primary: {
+          DEFAULT: 'hsl(var(--primary) / <alpha-value>)',
+          soft: 'hsl(var(--primary-soft) / <alpha-value>)',
+          fg: 'hsl(var(--primary-fg) / <alpha-value>)',
+        },
+        secondary: {
+          DEFAULT: 'hsl(var(--secondary) / <alpha-value>)',
+          soft: 'hsl(var(--secondary-soft) / <alpha-value>)',
+          fg: 'hsl(var(--secondary-fg) / <alpha-value>)',
+        },
+        tertiary: {
+          DEFAULT: 'hsl(var(--tertiary) / <alpha-value>)',
+          soft: 'hsl(var(--tertiary-soft) / <alpha-value>)',
+          fg: 'hsl(var(--tertiary-fg) / <alpha-value>)',
+        },
+        surface: {
+          DEFAULT: 'hsl(var(--surface) / <alpha-value>)',
+          2: 'hsl(var(--surface-2) / <alpha-value>)',
+          inverse: 'hsl(var(--surface-inverse) / <alpha-value>)',
+        },
+        ink: {
+          DEFAULT: 'hsl(var(--ink) / <alpha-value>)',
+          muted: 'hsl(var(--ink-muted) / <alpha-value>)',
+        },
+        border: 'hsl(var(--border) / <alpha-value>)',
+        focus: 'hsl(var(--focus) / <alpha-value>)',
+        /* Legacy aliases */
         paper: 'hsl(var(--paper) / <alpha-value>)',
+        mist: 'hsl(var(--mist) / <alpha-value>)',
         path: 'hsl(var(--path) / <alpha-value>)',
         ridge: 'hsl(var(--ridge) / <alpha-value>)',
         soft: 'hsl(var(--soft) / <alpha-value>)',

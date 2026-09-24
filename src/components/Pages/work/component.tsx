@@ -24,7 +24,7 @@ const extraCopy: Record<
 > = {
   'elder-care': {
     forWhom:
-      'For the person holding it together when someone in the family is dying. Not a clinic. Not a pitch.',
+      'For the person holding it together when someone in the family is dying. Not a clinic. Not a pitch. Just the packet you wish someone had handed you.',
     ifWeBuild:
       'If we build it: what to ask, what to expect, where the forms and numbers are, how to keep relatives from talking past each other. Plain language. Readable when you’re wiped.',
   },
@@ -63,16 +63,17 @@ export const WorkPage: PageComponentType = () => {
           <SectionIntro as="h1" eyebrow="Work" title="What we can build">
             <p>
               These are ideas. Not live products. If we build them, each one
-              gets a clear job. Same approach as everything else we ship.
+              gets a clear job. Same approach as everything else we ship. No
+              fake “portfolio” theater.
             </p>
           </SectionIntro>
           {source === 'fallback' ? (
-            <p className="mt-6 text-sm text-ink/55" role="status">
+            <p className="mt-6 text-sm text-ink-muted" role="status">
               Offline copy. API isn&apos;t up or isn&apos;t set. Same ideas
               either way.
             </p>
           ) : source === 'api' ? (
-            <p className="mt-6 text-sm text-ink/55" role="status">
+            <p className="mt-6 text-sm text-ink-muted" role="status">
               Loaded from the API.
             </p>
           ) : null}
@@ -84,12 +85,14 @@ export const WorkPage: PageComponentType = () => {
           const photo = photoById[example.id] ?? 'workElder';
           const copy = extraCopy[example.id];
           const featured = index === 0;
+          const accent = featured ? 'border-secondary' : 'border-tertiary';
 
           return (
             <article
               key={example.id}
               className={cn(
-                'grid items-start gap-8 border-t border-ink/10 pt-12',
+                'grid items-start gap-8 border-t-4 pt-12',
+                accent,
                 featured
                   ? 'md:grid-cols-[1.15fr_0.85fr] md:gap-14'
                   : 'md:grid-cols-2 md:gap-12',
@@ -97,7 +100,7 @@ export const WorkPage: PageComponentType = () => {
               )}
             >
               <figure>
-                <div className="overflow-hidden">
+                <div className="overflow-hidden ring-1 ring-border/50">
                   <Photo
                     id={photo}
                     priority={featured}
@@ -110,9 +113,7 @@ export const WorkPage: PageComponentType = () => {
                 <PhotoCredit id={photo} />
               </figure>
               <div>
-                <p className="font-mono text-[11px] font-medium uppercase tracking-[0.18em] text-ember">
-                  Idea / coming work
-                </p>
+                <p className="eyebrow">Idea / coming work</p>
                 <h2
                   className={cn(
                     'mt-3 font-display font-semibold tracking-tight text-ink text-balance',
@@ -123,11 +124,11 @@ export const WorkPage: PageComponentType = () => {
                 >
                   {example.title}
                 </h2>
-                <p className="mt-4 text-lg leading-relaxed text-ink/75 text-pretty">
+                <p className="mt-4 text-lg leading-relaxed text-ink-muted text-pretty">
                   {example.summary}
                 </p>
                 {copy ? (
-                  <div className="mt-6 space-y-4 text-base leading-relaxed text-ink/70 text-pretty">
+                  <div className="mt-6 space-y-4 text-base leading-relaxed text-ink-muted text-pretty">
                     <p>{copy.forWhom}</p>
                     <p>{copy.ifWeBuild}</p>
                   </div>
@@ -138,14 +139,14 @@ export const WorkPage: PageComponentType = () => {
         })}
       </PageSection>
 
-      <section className="bg-dusk text-paper">
+      <section className="bg-band-dusk text-primary-fg">
         <PageSection>
-          <h2 className="max-w-2xl font-display text-3xl font-semibold tracking-tight md:text-4xl text-balance">
+          <h2 className="max-w-2xl font-display text-3xl font-semibold tracking-tight text-secondary md:text-4xl text-balance">
             Know someone who needs one of these?
           </h2>
-          <p className="mt-4 max-w-xl text-base leading-relaxed text-paper/70 md:text-lg text-pretty">
+          <p className="mt-4 max-w-xl text-base leading-relaxed text-primary-fg/75 md:text-lg text-pretty">
             Tell us. We haven&apos;t named dollars. We&apos;re still figuring
-            out what fits.
+            out what fits. Messy notes welcome.
           </p>
           <div className="mt-8">
             <Button to="/contact" className="no-underline">

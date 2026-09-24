@@ -18,16 +18,12 @@ export function SectionIntro({
 }: SectionIntroProps) {
   return (
     <header className={cn('max-w-2xl', className)}>
-      {eyebrow ? (
-        <p className="mb-3 font-mono text-[11px] font-medium uppercase tracking-[0.18em] text-ember">
-          {eyebrow}
-        </p>
-      ) : null}
+      {eyebrow ? <p className="eyebrow mb-3">{eyebrow}</p> : null}
       <Heading className="font-display text-3xl font-semibold tracking-tight text-ink sm:text-4xl text-balance">
         {title}
       </Heading>
       {children ? (
-        <div className="mt-4 text-lg leading-relaxed text-ink/75 text-pretty">
+        <div className="mt-4 text-lg leading-relaxed text-ink-muted text-pretty">
           {children}
         </div>
       ) : null}

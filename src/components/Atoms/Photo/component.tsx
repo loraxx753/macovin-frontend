@@ -44,7 +44,7 @@ export function PhotoCredit({
 }) {
   const credit = photoCredits[id];
   return (
-    <p className={cn('mt-2 text-xs tracking-wide text-ink/45', className)}>
+    <p className={cn('mt-2 text-xs tracking-wide text-ink-muted', className)}>
       Photo:{' '}
       <a
         href={credit.url}
