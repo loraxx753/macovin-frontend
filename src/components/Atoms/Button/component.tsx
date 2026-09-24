@@ -3,12 +3,13 @@ import { Link, LinkProps } from 'react-router-dom';
 import { cn } from '@/lib/utils';
 
 const base =
-  'inline-flex items-center justify-center gap-2 rounded-md px-5 py-2.5 text-sm font-semibold tracking-wide transition focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-path';
+  'inline-flex min-h-tap items-center justify-center gap-2 border-[3px] border-ink px-5 py-3 text-sm font-bold tracking-wide shadow-[3px_3px_0_0_hsl(var(--ink))] transition duration-press focus-visible:outline focus-visible:outline-3 focus-visible:outline-offset-2 focus-visible:outline-focus active:translate-x-[2px] active:translate-y-[2px] active:shadow-none disabled:pointer-events-none disabled:opacity-60';
 
 const variants = {
-  primary: 'bg-path text-paper hover:bg-ink',
-  secondary: 'bg-transparent text-ink ring-1 ring-ink/20 hover:bg-mist/70',
-  ghost: 'bg-transparent text-path hover:bg-mist/60',
+  primary: 'bg-primary text-primary-fg hover:bg-secondary hover:text-secondary-fg',
+  secondary: 'bg-surface text-ink hover:bg-secondary-soft',
+  tertiary: 'bg-tertiary text-tertiary-fg hover:bg-primary hover:text-primary-fg',
+  ghost: 'border-ink bg-transparent text-ink shadow-none hover:bg-primary',
 } as const;
 
 type Variant = keyof typeof variants;

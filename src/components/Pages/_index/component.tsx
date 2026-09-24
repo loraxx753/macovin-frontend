@@ -1,97 +1,191 @@
 import { PageComponentType } from '@/lib/types';
 import { PageShell } from '@/components/Organisms/PageShell';
 import { Button } from '@/components/Atoms/Button';
-import { SectionIntro } from '@/components/Molecules/SectionIntro';
+import { Photo, PhotoCredit } from '@/components/Atoms/Photo';
+import { SplitFeature } from '@/components/Organisms/SplitFeature';
+import { PageSection } from '@/components/Molecules/PageSection';
+import { FaqList } from '@/components/Molecules/FaqList';
 
-function HeroScene() {
-  return (
-    <div
-      aria-hidden
-      className="pointer-events-none absolute inset-0 overflow-hidden"
-    >
-      <div className="absolute inset-0 bg-[radial-gradient(ellipse_at_20%_20%,hsl(186_35%_88%/_0.95),transparent_55%),radial-gradient(ellipse_at_85%_10%,hsl(42_40%_94%/_0.9),transparent_45%),linear-gradient(180deg,hsl(198_32%_90%)_0%,hsl(42_28%_97%)_72%,hsl(42_28%_97%)_100%)]" />
-      <svg
-        className="absolute inset-x-0 bottom-0 h-[58%] w-full animate-drift text-ridge/25"
-        viewBox="0 0 1440 520"
-        preserveAspectRatio="none"
-      >
-        <path
-          fill="currentColor"
-          d="M0 320 C180 260 280 380 460 320 C640 260 720 180 900 240 C1080 300 1200 220 1440 280 L1440 520 L0 520 Z"
-        />
-        <path
-          className="animate-haze text-path/20"
-          fill="currentColor"
-          d="M0 380 C220 320 360 420 540 360 C720 300 840 260 1020 320 C1200 380 1320 300 1440 340 L1440 520 L0 520 Z"
-        />
-        <path
-          fill="hsl(210 28% 14% / 0.08)"
-          d="M0 430 C260 390 420 460 640 420 C860 380 1040 400 1440 390 L1440 520 L0 520 Z"
-        />
-      </svg>
-      <div className="absolute left-[12%] top-[28%] h-24 w-24 rounded-full bg-paper/30 blur-2xl animate-haze sm:h-36 sm:w-36" />
-      <div className="absolute right-[18%] top-[18%] h-16 w-40 rounded-full bg-path/10 blur-3xl animate-haze" />
-    </div>
-  );
-}
+const faqs = [
+  {
+    question: 'What do you actually sell?',
+    answer:
+      'Sites and apps people can use when life gets hard. Clear info, plain language, one job per page. Not a feature buffet. Honestly, that’s the whole pitch.',
+  },
+  {
+    question: 'Is anything live yet?',
+    answer:
+      'Ideas / coming work. Not live products. If we build them, they get the same clear treatment. We’re not pretending a mockup is a launch.',
+  },
+  {
+    question: 'What’s Meanwhile?',
+    answer:
+      'Meanwhile is the factory. Macovin is the company. Same tooling and habits so the next site feels like an afternoon, not a custom month.',
+  },
+  {
+    question: 'How do we start?',
+    answer:
+      'Tell us what you need. Who it’s for. What’s true today. Messy is fine. Feel free to send the messy version. We’ll read it and say what fits.',
+  },
+] as const;
 
 export const IndexPage: PageComponentType = () => {
   return (
-    <PageShell overlayHeader>
-      <section className="relative min-h-[100svh] overflow-hidden">
-        <HeroScene />
-        <div className="relative z-10 mx-auto flex min-h-[100svh] max-w-6xl flex-col justify-end px-4 pb-16 pt-24 md:px-8 md:pb-24 md:pt-28">
-          <p className="animate-fade-up font-display text-4xl font-semibold tracking-tight text-ink sm:text-6xl md:text-8xl">
+    <PageShell>
+      <section className="relative min-h-[min(100svh,52rem)] overflow-hidden border-b-[3px] border-ink md:min-h-[min(100svh,44rem)]">
+        <div className="absolute inset-0">
+          <Photo
+            id="heroHome"
+            priority
+            className="h-full w-full object-cover animate-ken-slow"
+          />
+          <div className="absolute inset-0 bg-ink/75" />
+          <div className="absolute inset-0 bg-halftone opacity-40 mix-blend-overlay" />
+          <div className="absolute inset-x-0 bottom-0 h-1/3 bg-gradient-to-t from-primary/40 to-transparent" />
+        </div>
+        <div className="relative z-10 mx-auto flex min-h-[min(100svh,52rem)] max-w-6xl flex-col justify-end px-4 pb-16 pt-10 md:min-h-[min(100svh,44rem)] md:px-8 md:pb-20">
+          <p className="animate-fade-up wordmark text-hero leading-none text-primary drop-shadow-[3px_3px_0_hsl(var(--ink))]">
             Macovin
           </p>
-          <h1 className="animate-fade-up-delay mt-4 max-w-2xl font-display text-xl font-medium leading-snug text-ink/90 sm:text-2xl md:mt-5 md:text-3xl text-balance">
-            Clear apps and informative websites for people when life gets hard.
+          <h1 className="animate-fade-up-delay mt-5 max-w-2xl font-display text-2xl uppercase leading-tight text-surface md:text-3xl text-balance">
+            Clear apps and sites for people when life gets hard.
           </h1>
-          <p className="animate-fade-up-late mt-4 max-w-xl text-base leading-relaxed text-ink/70 md:mt-5 md:text-lg">
-            We build the packet you wish someone had handed you. Meanwhile is
-            the factory that keeps the words the same from seat to seat.
+          <p className="animate-fade-up-late mt-4 max-w-lg text-base leading-relaxed text-surface/85 md:text-lg text-pretty">
+            The packet you wish someone had handed you. No sales funnel.
+            Meanwhile is how we ship it.
           </p>
-          <div className="animate-fade-up-late mt-6 flex flex-col gap-3 sm:mt-8 sm:flex-row sm:flex-wrap">
-            <Button to="/work">See example sentences</Button>
-            <Button to="/contact" variant="secondary">
+          <div className="animate-fade-up-late mt-8 flex flex-col gap-3 sm:flex-row sm:flex-wrap">
+            <Button to="/work" className="no-underline">
+              See what we can build
+            </Button>
+            <Button to="/contact" variant="secondary" className="no-underline">
               Talk to us
             </Button>
+          </div>
+          <div className="mt-8">
+            <PhotoCredit id="heroHome" className="text-surface/55" />
           </div>
         </div>
       </section>
 
-      <section className="mx-auto max-w-6xl px-6 py-20 sm:px-8 sm:py-28">
-        <SectionIntro title="What we build">
+      <PageSection>
+        <SplitFeature
+          photo="homeTogether"
+          eyebrow="Who it’s for"
+          title="Real talk: who this is for"
+        >
           <p>
-            Sites and apps with one clear sentence. Not a sales funnel. Not a
-            buffet of features. Words a tired person can read when the week is
-            already heavy.
+            What are you actually trying to get done this week? Someone in the
+            family is dying and nobody handed you the packet. Relatives keep
+            talking past each other. You need a straight answer about work,
+            care, or the next form, and you&apos;re wiped.
           </p>
-        </SectionIntro>
-        <div className="mt-12 grid gap-10 md:grid-cols-2">
-          <div>
-            <h3 className="font-display text-xl font-semibold text-ink">
-              For people
-            </h3>
-            <p className="mt-3 leading-relaxed text-ink/70">
-              Practical information when you&apos;re caring for someone, learning
-              what you&apos;re allowed to refuse at work, or trying to keep
-              relatives from playing telephone. Same shop language for every
-              product.
-            </p>
+          <p>
+            That&apos;s who we build for. Clear info for a hard week. If we
+            don&apos;t know something yet, we say so. Guessing just to sound
+            sure is a silly way to run a week.
+          </p>
+        </SplitFeature>
+      </PageSection>
+
+      <section className="border-y-[3px] border-ink bg-band-dusk text-surface">
+        <PageSection>
+          <p className="eyebrow text-primary">How we work</p>
+          <h2 className="mt-3 max-w-3xl font-display text-3xl uppercase tracking-tight md:text-4xl text-balance">
+            Most teams burn a week re-explaining the same thing.
+          </h2>
+          <p className="mt-4 max-w-2xl text-base leading-relaxed text-surface/80 md:text-lg">
+            We name a thing once so design, engineering, and testing aren&apos;t
+            playing telephone. Kudos if your standup already does this. Ours
+            does.
+          </p>
+          <div className="mt-10 grid gap-4 md:grid-cols-6">
+            <div className="panel bg-primary p-6 text-primary-fg md:col-span-3 md:row-span-2 md:p-8">
+              <h3 className="font-display text-2xl uppercase md:text-3xl">
+                Same words
+              </h3>
+              <p className="mt-4 text-base leading-relaxed md:text-lg">
+                Design, engineering, and testing use the same names. Less
+                telephone. Less “wait, which banner was that again?”
+              </p>
+            </div>
+            <div className="panel bg-secondary p-6 text-secondary-fg md:col-span-3">
+              <h3 className="font-display text-xl uppercase">Write it plain first</h3>
+              <p className="mt-3 text-sm leading-relaxed md:text-base">
+                What should happen, in language a normal person can read.
+                Tickets and docs come after. They&apos;re not the point.
+              </p>
+            </div>
+            <div className="panel bg-tertiary p-6 text-tertiary-fg md:col-span-3">
+              <h3 className="font-display text-xl uppercase">Ship it</h3>
+              <p className="mt-3 text-sm leading-relaxed md:text-base">
+                Process talk without a live site is just talk. We care what
+                actually went out.
+              </p>
+            </div>
           </div>
-          <div>
-            <h3 className="font-display text-xl font-semibold text-ink">
-              Meanwhile as factory
-            </h3>
-            <p className="mt-3 leading-relaxed text-ink/70">
-              Macovin is the company. Meanwhile is where we name a thing once,
-              build from a short story, and prove it with a clock. Tickets,
-              Storybook, and docs are byproduct, not a second project.
-            </p>
-          </div>
-        </div>
+        </PageSection>
       </section>
+
+      <PageSection>
+        <SplitFeature
+          photo="aboutPath"
+          reverse
+          eyebrow="Meanwhile"
+          title="Macovin builds it. Meanwhile is the shop."
+        >
+          <p>
+            Same tooling, same habits. Want the longer version? About page and
+            the company docs. Or just ask. Curious beats a brochure every time.
+          </p>
+          <p>
+            Factory code:{' '}
+            <a
+              href="https://github.com/MeanwhileJS/meanwhile"
+              target="_blank"
+              rel="noreferrer"
+            >
+              Meanwhile on GitHub
+            </a>
+            .
+          </p>
+          <div className="pt-2">
+            <Button to="/about" variant="secondary" className="no-underline">
+              How we work
+            </Button>
+          </div>
+        </SplitFeature>
+      </PageSection>
+
+      <section className="border-y-[3px] border-ink bg-atmosphere">
+        <PageSection>
+          <div className="panel flex flex-col gap-6 bg-primary p-6 md:flex-row md:items-end md:justify-between md:p-10">
+            <div className="max-w-2xl text-primary-fg">
+              <p className="eyebrow text-ink">Coming work</p>
+              <h2 className="mt-3 font-display text-3xl uppercase tracking-tight md:text-4xl text-balance">
+                Sites we might build
+              </h2>
+              <p className="mt-4 text-base leading-relaxed md:text-lg text-pretty">
+                Not live yet. Ideas. An elder care end-of-life packet. A Texas
+                workers&apos; rights site (nurses first, then other jobs). If
+                that fits someone you know, tell us. We haven&apos;t named
+                dollars.
+              </p>
+            </div>
+            <Button to="/work" variant="tertiary" className="no-underline shrink-0">
+              See what we can build
+            </Button>
+          </div>
+        </PageSection>
+      </section>
+
+      <PageSection>
+        <p className="eyebrow">Straight answers</p>
+        <h2 className="mt-3 max-w-2xl font-display text-3xl uppercase tracking-tight md:text-4xl text-balance">
+          Questions we get
+        </h2>
+        <FaqList items={faqs} className="mt-8" />
+      </PageSection>
     </PageShell>
   );
 };

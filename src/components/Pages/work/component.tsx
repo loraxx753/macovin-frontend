@@ -2,12 +2,39 @@ import { useEffect, useState } from 'react';
 import { PageComponentType } from '@/lib/types';
 import { PageShell } from '@/components/Organisms/PageShell';
 import { SectionIntro } from '@/components/Molecules/SectionIntro';
+import { PageSection } from '@/components/Molecules/PageSection';
 import { Button } from '@/components/Atoms/Button';
+import { Photo, PhotoCredit } from '@/components/Atoms/Photo';
 import {
   FALLBACK_EXAMPLES,
   SiteExample,
   fetchExamples,
 } from '@/lib/api';
+import { PhotoCreditKey } from '@/lib/photos';
+import { cn } from '@/lib/utils';
+
+const photoById: Record<string, PhotoCreditKey> = {
+  'elder-care': 'workElder',
+  'texas-workers-rights': 'workNurses',
+};
+
+const extraCopy: Record<
+  string,
+  { forWhom: string; ifWeBuild: string }
+> = {
+  'elder-care': {
+    forWhom:
+      'For the person holding it together when someone in the family is dying. Not a clinic. Not a pitch. Just the packet you wish someone had handed you.',
+    ifWeBuild:
+      'If we build it: what to ask, what to expect, where the forms and numbers are, how to keep relatives from talking past each other. Plain language. Readable when you’re wiped.',
+  },
+  'texas-workers-rights': {
+    forWhom:
+      'For people in specific Texas jobs who need real answers. Nurses first, then other jobs. Not a law firm. Not a rant.',
+    ifWeBuild:
+      'If we build it: what you can refuse, what has to be in writing, who to call, and how hospital vs clinic vs agency changes it.',
+  },
+};
 
 export const WorkPage: PageComponentType = () => {
   const [examples, setExamples] = useState<SiteExample[]>(FALLBACK_EXAMPLES);
@@ -31,52 +58,101 @@ export const WorkPage: PageComponentType = () => {
 
   return (
     <PageShell>
-      <section className="mx-auto max-w-6xl px-6 py-16 sm:px-8 sm:py-24">
-        <SectionIntro
-          eyebrow="Work"
-          title="Example sentences we might invent"
-        >
-          <p>
-            These are ideas / coming work. They&apos;re not live products yet.
-            If we build them, each one gets a clear sentence in the same factory.
-          </p>
-        </SectionIntro>
+      <section className="relative overflow-hidden border-b-[3px] border-ink bg-grain">
+        <PageSection className="pb-8 md:pb-10">
+          <SectionIntro as="h1" eyebrow="Work" title="What we can build">
+            <p>
+              These are ideas. Not live products. If we build them, each one
+              gets a clear job. Same approach as everything else we ship. No
+              fake “portfolio” theater.
+            </p>
+          </SectionIntro>
+          {source === 'fallback' ? (
+            <p className="mt-6 text-sm text-ink-muted" role="status">
+              Offline copy. API isn&apos;t up or isn&apos;t set. Same ideas
+              either way.
+            </p>
+          ) : source === 'api' ? (
+            <p className="mt-6 text-sm text-ink-muted" role="status">
+              Loaded from the API.
+            </p>
+          ) : null}
+        </PageSection>
+      </section>
 
-        {source === 'fallback' ? (
-          <p className="mt-6 text-sm text-ink/55" role="status">
-            Showing the offline copy (API unreachable or unset). Same ideas.
-          </p>
-        ) : null}
+      <PageSection className="space-y-16 pt-2 md:space-y-24">
+        {examples.map((example, index) => {
+          const photo = photoById[example.id] ?? 'workElder';
+          const copy = extraCopy[example.id];
+          const featured = index === 0;
+          const panelTone = featured ? 'bg-primary' : 'bg-secondary-soft';
 
-        <ul className="mt-14 space-y-14">
-          {examples.map((example) => (
-            <li
+          return (
+            <article
               key={example.id}
-              className="max-w-3xl border-t border-ink/10 pt-10"
+              className={cn(
+                'panel grid items-start gap-0 overflow-hidden',
+                featured
+                  ? 'md:grid-cols-[1.1fr_0.9fr]'
+                  : 'md:grid-cols-2',
+                !featured && index % 2 === 1 && 'md:[&>figure]:order-2',
+              )}
             >
-              <p className="text-xs font-semibold uppercase tracking-[0.14em] text-path">
-                Idea / coming work
-              </p>
-              <h3 className="mt-3 font-display text-2xl font-semibold text-ink sm:text-3xl">
-                {example.title}
-              </h3>
-              <p className="mt-4 text-lg leading-relaxed text-ink/75">
-                {example.summary}
-              </p>
-            </li>
-          ))}
-        </ul>
+              <figure className="border-b-[3px] border-ink md:border-b-0 md:border-r-[3px]">
+                <Photo
+                  id={photo}
+                  priority={featured}
+                  className={cn(
+                    'w-full object-cover',
+                    featured ? 'aspect-[16/11]' : 'aspect-[5/4]',
+                  )}
+                />
+                <div className="border-t-[3px] border-ink bg-surface px-3 py-2">
+                  <PhotoCredit id={photo} className="mt-0" />
+                </div>
+              </figure>
+              <div className={cn('p-6 md:p-8', panelTone, featured ? 'text-primary-fg' : 'text-ink')}>
+                <p className={cn('eyebrow', featured ? 'text-ink' : undefined)}>
+                  Idea / coming work
+                </p>
+                <h2
+                  className={cn(
+                    'mt-3 font-display uppercase tracking-tight text-balance',
+                    featured ? 'text-3xl md:text-5xl' : 'text-3xl md:text-4xl',
+                  )}
+                >
+                  {example.title}
+                </h2>
+                <p className="mt-4 text-lg leading-relaxed text-pretty opacity-90">
+                  {example.summary}
+                </p>
+                {copy ? (
+                  <div className="mt-6 space-y-4 text-base leading-relaxed text-pretty opacity-85">
+                    <p>{copy.forWhom}</p>
+                    <p>{copy.ifWeBuild}</p>
+                  </div>
+                ) : null}
+              </div>
+            </article>
+          );
+        })}
+      </PageSection>
 
-        <div className="mt-16 max-w-2xl">
-          <p className="leading-relaxed text-ink/70">
-            If a sentence like this would help someone you know, tell us. We
-            haven&apos;t named dollars here. We&apos;re still pointing at what
-            fits.
+      <section className="border-t-[3px] border-ink bg-band-dusk text-surface">
+        <PageSection>
+          <h2 className="max-w-2xl font-display text-3xl uppercase tracking-tight text-primary md:text-4xl text-balance">
+            Know someone who needs one of these?
+          </h2>
+          <p className="mt-4 max-w-xl text-base leading-relaxed text-surface/80 md:text-lg text-pretty">
+            Tell us. We haven&apos;t named dollars. We&apos;re still figuring
+            out what fits. Messy notes welcome.
           </p>
-          <div className="mt-6">
-            <Button to="/contact">Contact Macovin</Button>
+          <div className="mt-8">
+            <Button to="/contact" className="no-underline">
+              Talk to us
+            </Button>
           </div>
-        </div>
+        </PageSection>
       </section>
     </PageShell>
   );
