@@ -36,6 +36,21 @@ const extraCopy: Record<
   },
 };
 
+const panelTones = [
+  {
+    panel: 'bg-primary text-primary-fg',
+    eyebrow: 'text-ink',
+  },
+  {
+    panel: 'bg-secondary text-secondary-fg',
+    eyebrow: 'text-primary',
+  },
+  {
+    panel: 'bg-tertiary text-tertiary-fg',
+    eyebrow: 'text-primary',
+  },
+] as const;
+
 export const WorkPage: PageComponentType = () => {
   const [examples, setExamples] = useState<SiteExample[]>(FALLBACK_EXAMPLES);
   const [source, setSource] = useState<'api' | 'fallback' | 'loading'>(
@@ -58,9 +73,21 @@ export const WorkPage: PageComponentType = () => {
 
   return (
     <PageShell>
-      <section className="relative overflow-hidden border-b-[3px] border-ink bg-grain">
-        <PageSection className="pb-8 md:pb-10">
-          <SectionIntro as="h1" eyebrow="Work" title="What we can build">
+      <section className="relative overflow-hidden border-b-[3px] border-ink bg-band-dusk text-surface">
+        <div className="absolute inset-0 bg-halftone opacity-30 mix-blend-overlay" aria-hidden />
+        <div
+          className="absolute -right-8 top-6 font-display text-[8rem] leading-none text-primary/15 md:text-[12rem]"
+          aria-hidden
+        >
+          WORK
+        </div>
+        <PageSection className="relative z-10 pb-10 md:pb-14">
+          <SectionIntro
+            as="h1"
+            eyebrow="Work"
+            title="What we can build"
+            tone="dusk"
+          >
             <p>
               These are ideas. Not live products. If we build them, each one
               gets a clear job. Same approach as everything else we ship. No
@@ -68,24 +95,24 @@ export const WorkPage: PageComponentType = () => {
             </p>
           </SectionIntro>
           {source === 'fallback' ? (
-            <p className="mt-6 text-sm text-ink-muted" role="status">
+            <p className="mt-6 text-sm text-surface/55" role="status">
               Offline copy. API isn&apos;t up or isn&apos;t set. Same ideas
               either way.
             </p>
           ) : source === 'api' ? (
-            <p className="mt-6 text-sm text-ink-muted" role="status">
+            <p className="mt-6 text-sm text-surface/55" role="status">
               Loaded from the API.
             </p>
           ) : null}
         </PageSection>
       </section>
 
-      <PageSection className="space-y-16 pt-2 md:space-y-24">
+      <PageSection className="space-y-12 pt-2 md:space-y-20">
         {examples.map((example, index) => {
           const photo = photoById[example.id] ?? 'workElder';
           const copy = extraCopy[example.id];
           const featured = index === 0;
-          const panelTone = featured ? 'bg-primary' : 'bg-secondary-soft';
+          const tone = panelTones[index % panelTones.length];
 
           return (
             <article
@@ -111,8 +138,14 @@ export const WorkPage: PageComponentType = () => {
                   <PhotoCredit id={photo} className="mt-0" />
                 </div>
               </figure>
-              <div className={cn('p-6 md:p-8', panelTone, featured ? 'text-primary-fg' : 'text-ink')}>
-                <p className={cn('eyebrow', featured ? 'text-ink' : undefined)}>
+              <div className={cn('relative overflow-hidden p-6 md:p-8', tone.panel)}>
+                <span
+                  aria-hidden
+                  className="stamp absolute -bottom-2 -right-1 font-display text-6xl leading-none opacity-15 md:text-7xl"
+                >
+                  {String(index + 1).padStart(2, '0')}
+                </span>
+                <p className={cn('eyebrow', tone.eyebrow)}>
                   Idea / coming work
                 </p>
                 <h2
@@ -138,17 +171,17 @@ export const WorkPage: PageComponentType = () => {
         })}
       </PageSection>
 
-      <section className="border-t-[3px] border-ink bg-band-dusk text-surface">
+      <section className="border-t-[3px] border-ink bg-primary text-primary-fg">
         <PageSection>
-          <h2 className="max-w-2xl font-display text-3xl uppercase tracking-tight text-primary md:text-4xl text-balance">
+          <h2 className="max-w-2xl font-display text-3xl uppercase tracking-tight md:text-4xl text-balance">
             Know someone who needs one of these?
           </h2>
-          <p className="mt-4 max-w-xl text-base leading-relaxed text-surface/80 md:text-lg text-pretty">
+          <p className="mt-4 max-w-xl text-base leading-relaxed md:text-lg text-pretty opacity-85">
             Tell us. We haven&apos;t named dollars. We&apos;re still figuring
             out what fits. Messy notes welcome.
           </p>
           <div className="mt-8">
-            <Button to="/contact" className="no-underline">
+            <Button to="/contact" variant="tertiary" className="no-underline">
               Talk to us
             </Button>
           </div>
