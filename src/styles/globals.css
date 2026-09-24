@@ -98,8 +98,32 @@
 
   .wordmark {
     font-family: 'Alfa Slab One', 'Georgia', serif;
-    letter-spacing: 0.01em;
     font-weight: 400;
+    letter-spacing: 0.04em;
+    line-height: 1;
+  }
+
+  /* Nav-scale wordmark: open tracking, ink underline tick for intentional mark */
+  .wordmark-nav {
+    display: inline-flex;
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 0.28rem;
+    letter-spacing: 0.06em;
+  }
+
+  .wordmark-nav::after {
+    content: '';
+    display: block;
+    width: 1.65rem;
+    height: 3px;
+    background: hsl(var(--secondary));
+    transition: width 120ms ease, background-color 120ms ease;
+  }
+
+  .wordmark-nav:hover::after {
+    width: 2.4rem;
+    background: hsl(var(--tertiary));
   }
 
   .panel {

@@ -10,12 +10,19 @@ const links = [
   { to: '/contact', label: 'Contact' },
 ] as const;
 
+/**
+ * Nav states (CTA stays yellow — menu must not):
+ *   default — ink text, no chrome
+ *   hover   — cyan underline + cyan text
+ *   active  — ink underline bar + ink text (filled cyan wash, no yellow)
+ */
 function linkClass({ isActive }: { isActive: boolean }) {
   return cn(
-    'block min-h-tap border-[2px] border-transparent px-3 py-2.5 text-base font-bold uppercase tracking-wide no-underline transition md:inline-flex md:min-h-0 md:items-center md:px-3 md:py-1.5 md:text-xs',
+    'relative block min-h-tap px-3 py-2.5 text-base font-bold uppercase tracking-wide no-underline transition md:inline-flex md:min-h-0 md:items-center md:px-2.5 md:py-2 md:text-xs',
+    'after:absolute after:inset-x-2.5 after:bottom-1 after:h-[3px] after:origin-left after:transition',
     isActive
-      ? 'border-ink bg-primary text-ink'
-      : 'text-ink hover:border-ink hover:bg-secondary-soft',
+      ? 'bg-secondary-soft text-ink after:scale-x-100 after:bg-ink hover:text-ink'
+      : 'text-ink after:scale-x-0 after:bg-secondary hover:text-secondary hover:after:scale-x-100',
   );
 }
 
@@ -48,11 +55,12 @@ export function SiteHeader() {
     <header className="sticky top-0 z-30">
       <div className="theme-rail h-1.5 w-full" aria-hidden />
       <div className="border-b-[3px] border-ink bg-surface">
-        <div className="mx-auto flex max-w-6xl items-center justify-between gap-3 px-4 py-3 md:gap-6 md:px-8 md:py-3.5">
+        <div className="mx-auto flex max-w-6xl items-center justify-between gap-3 px-4 py-3 md:gap-6 md:px-8 md:py-3">
           <NavLink
             to="/"
             onClick={closeMenu}
-            className="wordmark relative z-40 text-xl text-ink no-underline hover:text-tertiary md:text-2xl"
+            className="wordmark wordmark-nav relative z-40 text-[1.2rem] text-ink no-underline transition hover:text-ink md:text-[1.35rem]"
+            aria-label="Macovin home"
           >
             Macovin
           </NavLink>
@@ -90,7 +98,7 @@ export function SiteHeader() {
 
           <nav
             aria-label="Primary"
-            className="hidden items-center gap-1.5 md:flex"
+            className="hidden items-center gap-0.5 md:flex"
           >
             {links.map((link) => (
               <NavLink
@@ -102,7 +110,7 @@ export function SiteHeader() {
                 {link.label}
               </NavLink>
             ))}
-            <Button to="/work" className="ml-2 no-underline">
+            <Button to="/work" className="ml-3 no-underline">
               See what we can build
             </Button>
           </nav>
@@ -133,7 +141,7 @@ export function SiteHeader() {
             open ? 'translate-y-0' : '-translate-y-full',
           )}
         >
-          <ul className="flex flex-col gap-2">
+          <ul className="flex flex-col gap-1">
             {links.map((link) => (
               <li key={link.to}>
                 <NavLink
