@@ -12,6 +12,12 @@ export const photoCredits = {
     photographer: 'Annie Spratt',
     url: 'https://unsplash.com/photos/people-sitting-beside-table-1522071820081',
   },
+  workStars: {
+    file: 'work-stars.jpg',
+    alt: 'Person under a starry night sky',
+    photographer: 'Greg Rakozy',
+    url: 'https://unsplash.com/photos/person-under-starry-sky-Yj1M5riCKk4',
+  },
   workElder: {
     file: 'work-elder.jpg',
     alt: 'Older adult and caregiver outdoors',

@@ -1,5 +1,6 @@
 import heroHome from '@/assets/photos/hero-home.jpg';
 import homeTogether from '@/assets/photos/home-together.jpg';
+import workStars from '@/assets/photos/work-stars.jpg';
 import workElder from '@/assets/photos/work-elder.jpg';
 import workNurses from '@/assets/photos/work-nurses.jpg';
 import aboutPath from '@/assets/photos/about-path.jpg';
@@ -10,6 +11,7 @@ import { cn } from '@/lib/utils';
 const images = {
   heroHome,
   homeTogether,
+  workStars,
   workElder,
   workNurses,
   aboutPath,

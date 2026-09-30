@@ -161,15 +161,15 @@ export const IndexPage: PageComponentType = () => {
         <PageSection>
           <div className="panel flex flex-col gap-6 bg-primary p-6 md:flex-row md:items-end md:justify-between md:p-10">
             <div className="max-w-2xl text-primary-fg">
-              <p className="eyebrow text-ink">Coming work</p>
+              <p className="eyebrow text-ink">Work</p>
               <h2 className="mt-3 font-display text-3xl uppercase tracking-tight md:text-4xl text-balance">
-                Sites we might build
+                One shipped. More ideas.
               </h2>
               <p className="mt-4 text-base leading-relaxed md:text-lg text-pretty">
-                Not live yet. Ideas. An elder care end-of-life packet. A Texas
-                workers&apos; rights site (nurses first, then other jobs). If
-                that fits someone you know, tell us. We haven&apos;t named
-                dollars.
+                Shimmering Stars is live (astrology, birth charts, same
+                factory). Still ideas: an elder care end-of-life packet, a
+                Texas workers&apos; rights site (nurses first). If that fits
+                someone you know, tell us. We haven&apos;t named dollars.
               </p>
             </div>
             <Button to="/work" variant="tertiary" className="no-underline shrink-0">
