@@ -70,19 +70,19 @@ export const WorkPage: PageComponentType = () => {
             <article
               key={example.id}
               className={cn(
-                'panel grid items-start gap-0 overflow-hidden',
+                'panel grid gap-0 overflow-hidden',
                 featured
                   ? 'md:grid-cols-[1.1fr_0.9fr]'
                   : 'md:grid-cols-2',
                 !featured && index % 2 === 1 && 'md:[&>figure]:order-2',
               )}
             >
-              <figure className="border-b-[3px] border-ink md:border-b-0 md:border-r-[3px]">
+              <figure className="flex flex-col border-b-[3px] border-ink md:border-b-0 md:border-r-[3px]">
                 <Photo
                   id={photo}
                   priority={featured}
                   className={cn(
-                    'w-full object-cover',
+                    'w-full object-cover md:aspect-auto md:h-0 md:min-h-72 md:flex-1',
                     featured ? 'aspect-[16/11]' : 'aspect-[5/4]',
                   )}
                 />

@@ -15,7 +15,7 @@ const faqs = [
   {
     question: 'Is anything live yet?',
     answer:
-      'Ideas / coming work. Not live products. If we build them, they get the same clear treatment. We’re not pretending a mockup is a launch.',
+      'Yes. Shimmering Stars is live: astrology and birth charts, built in the same factory. The other examples on the Work page are ideas, not launches. If we build them, they get the same clear treatment.',
   },
   {
     question: 'What’s Meanwhile?',
