@@ -1,15 +1,10 @@
-import { useEffect, useState } from 'react';
 import { PageComponentType } from '@/lib/types';
 import { PageShell } from '@/components/Organisms/PageShell';
 import { SectionIntro } from '@/components/Molecules/SectionIntro';
 import { PageSection } from '@/components/Molecules/PageSection';
 import { Button } from '@/components/Atoms/Button';
 import { Photo, PhotoCredit } from '@/components/Atoms/Photo';
-import {
-  FALLBACK_EXAMPLES,
-  SiteExample,
-  fetchExamples,
-} from '@/lib/api';
+import { SiteExample, siteExamples } from '@/lib/examples';
 import { PhotoCreditKey } from '@/lib/photos';
 import { cn } from '@/lib/utils';
 
@@ -50,25 +45,6 @@ function statusLabel(example: SiteExample): string {
 }
 
 export const WorkPage: PageComponentType = () => {
-  const [examples, setExamples] = useState<SiteExample[]>(FALLBACK_EXAMPLES);
-  const [source, setSource] = useState<'api' | 'fallback' | 'loading'>(
-    'loading',
-  );
-
-  useEffect(() => {
-    let cancelled = false;
-
-    fetchExamples().then((result) => {
-      if (cancelled) return;
-      setExamples(result.examples);
-      setSource(result.source);
-    });
-
-    return () => {
-      cancelled = true;
-    };
-  }, []);
-
   return (
     <PageShell>
       <section className="relative overflow-hidden border-b-[3px] border-ink bg-grain">
@@ -80,21 +56,11 @@ export const WorkPage: PageComponentType = () => {
               we ship. No fake “portfolio” theater.
             </p>
           </SectionIntro>
-          {source === 'fallback' ? (
-            <p className="mt-6 text-sm text-ink-muted" role="status">
-              Offline copy. API isn&apos;t up or isn&apos;t set. Same ideas
-              either way.
-            </p>
-          ) : source === 'api' ? (
-            <p className="mt-6 text-sm text-ink-muted" role="status">
-              Loaded from the API.
-            </p>
-          ) : null}
         </PageSection>
       </section>
 
       <PageSection className="space-y-16 pt-2 md:space-y-24">
-        {examples.map((example, index) => {
+        {siteExamples.map((example, index) => {
           const photo = photoById[example.id] ?? 'workElder';
           const copy = extraCopy[example.id];
           const featured = index === 0;

@@ -9,39 +9,6 @@ export type ContactPayload = {
   company?: string;
 };
 
-export type SiteExample = {
-  id: string;
-  title: string;
-  summary: string;
-  /** shipped = live MVP; idea = coming work. Defaults to idea when omitted. */
-  status?: 'shipped' | 'idea';
-};
-
-/** Local fallback when /api/examples is unreachable. Same shape as the backend. */
-export const FALLBACK_EXAMPLES: SiteExample[] = [
-  {
-    id: 'shimmering-stars',
-    title: 'Shimmering Stars',
-    status: 'shipped',
-    summary:
-      'A live astrology site we already run in the same factory. Birth charts and the product week around them. It shipped. Proof we can take something live, not a deck slide we’re still inventing.',
-  },
-  {
-    id: 'elder-care',
-    title: 'Elder care (end of life)',
-    status: 'idea',
-    summary:
-      'One place with what you need to know when you’re caring for a family member at the end of life. Not a clinic. Not a sales funnel. The practical stuff people scramble for when nobody handed them a packet.',
-  },
-  {
-    id: 'texas-workers-rights',
-    title: 'Texas workers’ rights (nurses first)',
-    status: 'idea',
-    summary:
-      'A Texas workers’ rights site with real answers for specific jobs, starting with nurses. What you’re allowed to refuse, what has to be in writing, who to call. Plain language. Not a law firm. Not a rant.',
-  },
-];
-
 function apiUrl(path: string): string {
   return `${API_BASE_URL.replace(/\/$/, '')}${path}`;
 }
@@ -71,37 +38,6 @@ export async function submitContact(
     return 'api';
   } catch {
     return 'error';
-  }
-}
-
-export type ExamplesResult = {
-  examples: SiteExample[];
-  source: 'api' | 'fallback';
-};
-
-/**
- * Loads GET /api/examples. Falls back to static blurbs if the API is down
- * or MACOVIN_API_BASE_URL is unset.
- */
-export async function fetchExamples(): Promise<ExamplesResult> {
-  if (!API_BASE_URL) {
-    return { examples: FALLBACK_EXAMPLES, source: 'fallback' };
-  }
-
-  try {
-    const response = await fetch(apiUrl('/api/examples'));
-    if (!response.ok) {
-      return { examples: FALLBACK_EXAMPLES, source: 'fallback' };
-    }
-
-    const data = (await response.json()) as { examples?: SiteExample[] };
-    if (!Array.isArray(data.examples) || data.examples.length === 0) {
-      return { examples: FALLBACK_EXAMPLES, source: 'fallback' };
-    }
-
-    return { examples: data.examples, source: 'api' };
-  } catch {
-    return { examples: FALLBACK_EXAMPLES, source: 'fallback' };
   }
 }
 

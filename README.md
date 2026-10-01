@@ -12,7 +12,7 @@ static `path`, `cn` utility, and Atoms / Molecules / Organisms folders.
 Pages:
 
 - **Home** (`#/`) - who we are, what we build, Meanwhile as factory
-- **Work** (`#/work`) - Shimmering Stars (shipped MVP) + elder care + Texas workers' rights via `GET /api/examples` (static fallback if API is down)
+- **Work** (`#/work`) - Shimmering Stars (shipped MVP) + elder care + Texas workers' rights, from `src/lib/examples.ts`
 - **About** (`#/about`) - name once, story-first, clock as proof
 - **Contact** (`#/contact`) - `POST /api/contact`, mailto fallback if API is down or unset
 
@@ -55,7 +55,7 @@ start (or SPA output dir). This repo ships both:
 | Variable | Required? | Notes |
 | --- | --- | --- |
 | `PORT` | set by Railway | Bound by `start` |
-| `MACOVIN_API_BASE_URL` | **yes for live contact/examples** | Backend public HTTPS origin, no trailing slash (e.g. `https://YOUR-BACKEND.up.railway.app`). Baked in at **build** time; redeploy after changing. Empty → mailto + static examples only. |
+| `MACOVIN_API_BASE_URL` | **yes for live contact** | Backend public HTTPS origin, no trailing slash (e.g. `https://YOUR-BACKEND.up.railway.app`). Baked in at **build** time; redeploy after changing. Empty → mailto only. |
 | `RAILPACK_SPA_OUTPUT_DIR` | optional | Set to `dist` to force Railpack Caddy SPA mode. If set, you can clear a custom start command in the dashboard and let Railpack serve `dist` |
 
 Do **not** set `RAILPACK_STATIC_FILE_ROOT` for this Node app (wrong provider; causes the same “no start command” failure).
@@ -78,9 +78,9 @@ Point this at macovin-backend (no trailing slash).
 
 | Value | Behavior |
 | --- | --- |
-| `http://localhost:3001` | Local API: contact + examples |
+| `http://localhost:3001` | Local API: contact |
 | `https://YOUR-BACKEND.up.railway.app` | Production API (set on Railway frontend service, then redeploy) |
-| empty / unset | Mailto for contact; static example blurbs on Work |
+| empty / unset | Mailto for contact |
 
 Production: set `MACOVIN_API_BASE_URL` on the **frontend** Railway service to the backend’s public HTTPS URL, then redeploy so webpack bakes it in.
 
@@ -90,8 +90,8 @@ cp .env.example .env
 MACOVIN_API_BASE_URL=http://localhost:3001 npm run dev
 ```
 
-If the API is down, contact opens a mailto draft and Work shows the offline
-copy. The site stays shippable either way.
+If the API is down, contact opens a mailto draft. The site stays shippable
+either way.
 
 Backend CORS defaults already allow `http://localhost:5173`. If you change the
 dev port, add it to the backend `CORS_ORIGINS` list.
