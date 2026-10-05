@@ -16,6 +16,13 @@ export const siteExamples: SiteExample[] = [
       'A live astrology site we already run in the same factory. Birth charts and the product week around them. It shipped. Proof we can take something live, not a deck slide we’re still inventing.',
   },
   {
+    id: 'model-visualization-lab',
+    title: 'Model visualization lab',
+    status: 'shipped',
+    summary:
+      'A live model-visualization lab we already run in the same factory. Charts, models, and the language loop around them. It shipped. Same shop as Stars: shared names, two bibles.',
+  },
+  {
     id: 'elder-care',
     title: 'Elder care (end of life)',
     status: 'idea',

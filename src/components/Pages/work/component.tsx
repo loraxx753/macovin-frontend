@@ -10,6 +10,7 @@ import { cn } from '@/lib/utils';
 
 const photoById: Record<string, PhotoCreditKey> = {
   'shimmering-stars': 'workStars',
+  'model-visualization-lab': 'workViz',
   'elder-care': 'workElder',
   'texas-workers-rights': 'workNurses',
 };
@@ -23,6 +24,12 @@ const extraCopy: Record<
       'For people who want a birth chart site that actually runs. Not a demo. Not a pitch deck slide. Same factory loop as everything else we build.',
     detail:
       'What shipped: production sign-in (Google and GitHub), crash reporting, and page views with no private birth-chart data in the analytics. Smaller stopwatch: local run, tickets, commit, production under three minutes.',
+  },
+  'model-visualization-lab': {
+    forWhom:
+      'For people who need models and charts in the same language loop as the rest of the shop. Not a generic BI template. Not a sales demo.',
+    detail:
+      'What shipped: a live lab in the factory (`ML/viz/frontend`), next to Shimmering Stars. Shared names, shared packet, its own bible. Proof the clock exists on more than one product.',
   },
   'elder-care': {
     forWhom:
@@ -51,7 +58,7 @@ export const WorkPage: PageComponentType = () => {
         <PageSection className="pb-8 md:pb-10">
           <SectionIntro as="h1" eyebrow="Work" title="What we can build">
             <p>
-              One of these already shipped. The rest are ideas. If we build
+              Two of these already shipped. The rest are ideas. If we build
               them, each one gets a clear job. Same approach as everything else
               we ship. No fake “portfolio” theater.
             </p>

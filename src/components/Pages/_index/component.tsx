@@ -15,7 +15,7 @@ const faqs = [
   {
     question: 'Is anything live yet?',
     answer:
-      'Yes. Shimmering Stars is live: astrology and birth charts, built in the same factory. The other examples on the Work page are ideas, not launches. If we build them, they get the same clear treatment.',
+      'Yes. Shimmering Stars (astrology) and a model-visualization lab are live, both built in the same factory. The other examples on the Work page are ideas, not launches. If we build them, they get the same clear treatment.',
   },
   {
     question: 'What’s Meanwhile?',
@@ -163,13 +163,14 @@ export const IndexPage: PageComponentType = () => {
             <div className="max-w-2xl text-primary-fg">
               <p className="eyebrow text-ink">Work</p>
               <h2 className="mt-3 font-display text-3xl uppercase tracking-tight md:text-4xl text-balance">
-                One shipped. More ideas.
+                Two shipped. More ideas.
               </h2>
               <p className="mt-4 text-base leading-relaxed md:text-lg text-pretty">
-                Shimmering Stars is live (astrology, birth charts, same
-                factory). Still ideas: an elder care end-of-life packet, a
-                Texas workers&apos; rights site (nurses first). If that fits
-                someone you know, tell us. We haven&apos;t named dollars.
+                Shimmering Stars is live (astrology, birth charts). So is the
+                model-visualization lab. Same factory. Still ideas: an elder
+                care end-of-life packet, a Texas workers&apos; rights site
+                (nurses first). If that fits someone you know, tell us. We
+                haven&apos;t named dollars.
               </p>
             </div>
             <Button to="/work" variant="tertiary" className="no-underline shrink-0">
