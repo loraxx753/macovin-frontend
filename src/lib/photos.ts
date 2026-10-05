@@ -18,6 +18,12 @@ export const photoCredits = {
     photographer: 'Greg Rakozy',
     url: 'https://unsplash.com/photos/person-under-starry-sky-Yj1M5riCKk4',
   },
+  workViz: {
+    file: 'work-viz.jpg',
+    alt: 'Analytics charts on a computer screen',
+    photographer: 'Luke Chesser',
+    url: 'https://unsplash.com/photos/IkgsM67yxlc',
+  },
   workElder: {
     file: 'work-elder.jpg',
     alt: 'Older adult and caregiver outdoors',

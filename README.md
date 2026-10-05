@@ -12,7 +12,7 @@ static `path`, `cn` utility, and Atoms / Molecules / Organisms folders.
 Pages:
 
 - **Home** (`#/`) - who we are, what we build, Meanwhile as factory
-- **Work** (`#/work`) - Shimmering Stars (shipped MVP) + elder care + Texas workers' rights, from `src/lib/examples.ts`
+- **Work** (`#/work`) - Shimmering Stars + model-visualization lab (shipped MVP) + elder care + Texas workers' rights, from `src/lib/examples.ts`
 - **About** (`#/about`) - name once, story-first, clock as proof
 - **Contact** (`#/contact`) - `POST /api/contact`, mailto fallback if API is down or unset
 
