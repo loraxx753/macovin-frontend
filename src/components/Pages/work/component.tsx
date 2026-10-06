@@ -100,7 +100,18 @@ export const WorkPage: PageComponentType = () => {
                     featured ? 'text-3xl md:text-5xl' : 'text-3xl md:text-4xl',
                   )}
                 >
-                  {example.title}
+                  {example.url ? (
+                    <a
+                      href={example.url}
+                      target="_blank"
+                      rel="noreferrer"
+                      className="text-inherit no-underline decoration-[3px] underline-offset-4 hover:underline"
+                    >
+                      {example.title}
+                    </a>
+                  ) : (
+                    example.title
+                  )}
                 </h2>
                 <p className="mt-4 text-lg leading-relaxed text-pretty opacity-90">
                   {example.summary}
@@ -109,6 +120,19 @@ export const WorkPage: PageComponentType = () => {
                   <div className="mt-6 space-y-4 text-base leading-relaxed text-pretty opacity-85">
                     <p>{copy.forWhom}</p>
                     <p>{copy.detail}</p>
+                  </div>
+                ) : null}
+                {example.url ? (
+                  <div className="mt-8">
+                    <Button
+                      href={example.url}
+                      target="_blank"
+                      rel="noreferrer"
+                      variant="secondary"
+                      className="no-underline"
+                    >
+                      Visit {new URL(example.url).host}
+                    </Button>
                   </div>
                 ) : null}
               </div>

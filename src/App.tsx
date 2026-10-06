@@ -1,11 +1,16 @@
 import {
-  createHashRouter,
+  createBrowserRouter,
   RouterProvider,
 } from 'react-router-dom';
 import * as pages from './components/Pages';
 import './index.css';
 
-const router = createHashRouter(
+// The site used hash routing before; keep old shared links like /#/work working.
+if (window.location.hash.startsWith('#/')) {
+  window.history.replaceState(null, '', window.location.hash.slice(1));
+}
+
+const router = createBrowserRouter(
   Object.entries(pages).map(([, Element]) => ({
     ...Element,
     element: <Element />,
