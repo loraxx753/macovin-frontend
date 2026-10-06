@@ -4,6 +4,7 @@ export type SiteExample = {
   summary: string;
   /** shipped = live MVP; idea = coming work. Defaults to idea when omitted. */
   status?: 'shipped' | 'idea';
+  url?: string;
 };
 
 /** Short blurbs for the Work page. Source: macovin/project-ideas. */
@@ -12,6 +13,7 @@ export const siteExamples: SiteExample[] = [
     id: 'shimmering-stars',
     title: 'Shimmering Stars',
     status: 'shipped',
+    url: 'https://shimmeringstars.org',
     summary:
       'A live astrology site we already run in the same factory. Birth charts and the product week around them. It shipped. Proof we can take something live, not a deck slide we’re still inventing.',
   },

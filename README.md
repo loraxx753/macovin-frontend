@@ -5,16 +5,20 @@ Meanwhile is the factory; this repo is the people-facing front door.
 
 ## What this is
 
-A thin React + TypeScript site (Webpack, Tailwind, hash router) shaped like
+A thin React + TypeScript site (Webpack, Tailwind, browser router) shaped like
 [Meanwhile](https://github.com/MeanwhileJS/meanwhile): page components with a
 static `path`, `cn` utility, and Atoms / Molecules / Organisms folders.
 
 Pages:
 
-- **Home** (`#/`) - who we are, what we build, Meanwhile as factory
-- **Work** (`#/work`) - Shimmering Stars (shipped MVP) + elder care + Texas workers' rights, from `src/lib/examples.ts`
-- **About** (`#/about`) - name once, story-first, clock as proof
-- **Contact** (`#/contact`) - `POST /api/contact`, mailto fallback if API is down or unset
+- **Home** (`/`) - who we are, what we build, Meanwhile as factory
+- **Work** (`/work`) - Shimmering Stars (shipped MVP, links to [shimmeringstars.org](https://shimmeringstars.org)) + elder care + Texas workers' rights, from `src/lib/examples.ts`
+- **About** (`/about`) - name once, story-first, clock as proof
+- **Contact** (`/contact`) - `POST /api/contact`, mailto fallback if API is down or unset
+
+Routing is browser routing (`/work`, not `/#/work`), so the server must send
+`index.html` for every path. `npm start` (`serve -s`), the dev server, and
+the `Staticfile` all do. Old `/#/work` links redirect to `/work`.
 
 ## Run locally
 
@@ -99,5 +103,5 @@ dev port, add it to the backend `CORS_ORIGINS` list.
 ## Notes
 
 - Do not invent prices, dates, or bridge amounts on the site.
-- Example work pages are clearly marked as ideas, not live products.
+- Example work pages are clearly marked as ideas, except Shimmering Stars, which is live.
 - Voice matches Macovin company docs: contractions, plain sentences, no em dashes.
