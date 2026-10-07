@@ -32,7 +32,7 @@ const faqs = [
   {
     question: 'Is Macovin a big agency?',
     answer:
-      'Nah. Small family company. Meanwhile is the factory. We build websites and apps and try not to spend the week re-explaining the same banner.',
+      'Nah. Small company. Meanwhile is the factory. We build websites and apps and try not to spend the week re-explaining the same banner.',
   },
   {
     question: 'Why the shared names?',
@@ -58,7 +58,7 @@ export const AboutPage: PageComponentType = () => {
             How we work
           </h1>
           <p className="mt-4 max-w-xl text-base leading-relaxed text-surface/85 md:text-lg text-pretty">
-            Macovin&apos;s a small family company. Meanwhile&apos;s the factory.
+            Macovin&apos;s a small company. Meanwhile&apos;s the factory.
             We build sites and apps. We try not to spend the week re-explaining
             the same banner. (You&apos;ve been in that meeting. We know.)
           </p>
