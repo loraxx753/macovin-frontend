@@ -15,6 +15,7 @@ Pages:
 - **Work** (`/work`) - Shimmering Stars (shipped MVP, links to [shimmeringstars.org](https://shimmeringstars.org)) + elder care + Texas workers' rights, from `src/lib/examples.ts`
 - **About** (`/about`) - name once, story-first, clock as proof
 - **Contact** (`/contact`) - `POST /api/contact`, mailto fallback if API is down or unset
+- **404** (any other path) - plain "nothing here" page with links home and to Work
 
 Routing is browser routing (`/work`, not `/#/work`), so the server must send
 `index.html` for every path. `npm start` (`serve -s`), the dev server, and
