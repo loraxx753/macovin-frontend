@@ -110,8 +110,8 @@ export function SiteHeader() {
                 {link.label}
               </NavLink>
             ))}
-            <Button to="/work" className="ml-3 no-underline">
-              See what we can build
+            <Button to="/contact" className="ml-3 no-underline">
+              Talk to us
             </Button>
           </nav>
         </div>
@@ -156,8 +156,8 @@ export function SiteHeader() {
             ))}
           </ul>
           <div className="mt-5">
-            <Button to="/work" className="w-full no-underline" onClick={closeMenu}>
-              See what we can build
+            <Button to="/contact" className="w-full no-underline" onClick={closeMenu}>
+              Talk to us
             </Button>
           </div>
         </nav>

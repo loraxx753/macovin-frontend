@@ -9,20 +9,20 @@ import { FaqList } from '@/components/Molecules/FaqList';
 
 const habits = [
   {
-    title: 'Name it once',
-    body: 'Design, engineering, and testing use the same words for the same thing. That’s how you stop playing telephone.',
+    title: 'Keep your material',
+    body: 'Chats, writing, skills, notes. The stuff that already sounds like you. That’s the input. Not a thin paste.',
     tone: 'bg-primary text-primary-fg',
     span: 'md:col-span-2',
   },
   {
-    title: 'Write it plain first',
-    body: 'What should happen, in language a normal person can read. Tickets and docs follow. They’re leftovers, not the main event.',
+    title: 'Build the bible',
+    body: 'Profile and examples live in files you can edit. The assistant stays in your canon. It doesn’t invent a second person.',
     tone: 'bg-secondary text-secondary-fg',
     span: 'md:col-span-1',
   },
   {
-    title: 'Ship it',
-    body: 'Talk without a live site is just talk. We care what actually went out and how long it took.',
+    title: 'Ship the piece',
+    body: 'Talk without a draft that sounds like you is just talk. We care what actually went out, and whether anyone clocks it as slop.',
     tone: 'bg-tertiary text-tertiary-fg',
     span: 'md:col-span-1',
   },
@@ -32,12 +32,12 @@ const faqs = [
   {
     question: 'Is Macovin a big agency?',
     answer:
-      'Nah. Small company. Meanwhile is the factory. We build websites and apps and try not to spend the week re-explaining the same banner.',
+      'Nah. Small company. Meanwhile is the factory. We sell voice content and try not to ship drafts that sound like ChatGPT.',
   },
   {
-    question: 'Why the shared names?',
+    question: 'Why a voice bible?',
     answer:
-      'So every seat stays in the same weather. The person pointing, the people in the middle, and the people building all get to say “I don’t know yet.” Including whoever has to report up.',
+      'Because a thin paste is mirroring. A real bible keeps the next piece in your canon, the way project rules keep a show from inventing a second lead.',
   },
 ] as const;
 
@@ -58,32 +58,32 @@ export const AboutPage: PageComponentType = () => {
             How we work
           </h1>
           <p className="mt-4 max-w-xl text-base leading-relaxed text-surface/85 md:text-lg text-pretty">
-            Macovin&apos;s a small company. Meanwhile&apos;s the factory.
-            We build sites and apps. We try not to spend the week re-explaining
-            the same banner. (You&apos;ve been in that meeting. We know.)
+            Macovin&apos;s a small company. Meanwhile&apos;s the factory. We
+            sell content in your voice. We try not to ship AI slop.
+            (You&apos;ve read that draft. We know.)
           </p>
           <PhotoCredit id="aboutPath" className="text-surface/50" />
         </div>
       </section>
 
       <PageSection>
-        <SectionIntro title="You’ve been in that meeting">
+        <SectionIntro title="You’ve read that draft">
           <p>
-            Everyone&apos;s tired. You&apos;re talking about the same thing for
-            the tenth time and it still isn&apos;t clear. That&apos;s telephone
-            with a paycheck.
+            You got somewhere worth sharing with AI. Then you asked for a blog
+            post. It came back with tells all over the place. That&apos;s
+            telephone with a different costume.
           </p>
         </SectionIntro>
         <div className="mt-10 max-w-3xl space-y-5 text-base leading-relaxed text-ink-muted md:text-lg text-pretty">
           <p>
-            Someone means a thing. The ticket says something else. Design hears
-            a third version. Engineering builds a fourth. QA checks a fifth.
-            Standup repeats it so everyone can pretend they&apos;re aligned.
+            The meaning was in the chat. The draft didn&apos;t keep the person.
+            Thin context is mirroring. The model guesses a generic &quot;good
+            post&quot; because it never had a bible for you.
           </p>
           <p>
-            Real talk: we&apos;re not trying to guess better. We&apos;re trying
-            to keep what was meant in the room. If we don&apos;t know yet, we
-            say that.
+            Real talk: we&apos;re not trying to prompt better. We&apos;re trying
+            to keep who you are in the room. If we don&apos;t know yet, we say
+            that.
           </p>
         </div>
       </PageSection>
@@ -114,13 +114,12 @@ export const AboutPage: PageComponentType = () => {
           title="Same standard for every seat"
         >
           <p>
-            The person pointing, the people in the middle, and the people
-            building all get to say “I don’t know yet.” Including whoever has to
-            report up.
+            You, the person pointing, and whoever helps fill the draft all get
+            to say “I don’t know yet.” Including whoever has to report up.
           </p>
           <p>
-            Have you ever sat through a second meeting that was just a retelling
-            of the first? Yeah. If the ticket is the story, you can skip that.
+            Have you ever pasted a chat, gotten slop, and tried again with a
+            longer prompt? Yeah. If the bible is the story, you can skip that.
           </p>
         </SplitFeature>
       </PageSection>
@@ -139,7 +138,7 @@ export const AboutPage: PageComponentType = () => {
           </h2>
           <p className="mt-4 max-w-2xl text-base leading-relaxed text-surface/80 md:text-lg text-pretty">
             Company docs are on GitHub. The factory is Meanwhile. This site is
-            the front door. If that fits, tell us.
+            the front door for voice content. If that fits, tell us.
           </p>
           <div className="mt-8 flex flex-col gap-3 sm:flex-row">
             <Button

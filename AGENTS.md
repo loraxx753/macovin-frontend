@@ -31,5 +31,9 @@ Scope: this file applies to all work under macovin-frontend/.
 
 ## Working Rules for Agents
 - Match the company voice from [macovin/AGENTS.md](https://github.com/loraxx753/macovin/blob/master/AGENTS.md): contractions, plain sentences, no em dashes.
+- This season’s ridge (hard to misread): we sell **voice content**; Meanwhile
+  keeps the voice bible (chats → profile → piece); **sites** are later /
+  secondary on the Work page. See company [PLAN.md](https://github.com/loraxx753/macovin/blob/master/PLAN.md).
 - Do not invent prices, dates, or bridge amounts on the site.
-- Shimmering Stars is live. The other Work examples are ideas and say so.
+- Shimmering Stars is live factory proof. The other Work examples are later /
+  secondary site ideas and say so.

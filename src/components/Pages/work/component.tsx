@@ -20,19 +20,19 @@ const extraCopy: Record<
 > = {
   'shimmering-stars': {
     forWhom:
-      'For people who want a birth chart site that actually runs. Not a demo. Not a pitch deck slide. Same factory loop as everything else we build.',
+      'Proof the factory ships. Not a demo. Not a pitch deck slide. Same shop that holds a voice bible when that’s the job.',
     detail:
       'What shipped: production sign-in (Google and GitHub), crash reporting, and page views with no private birth-chart data in the analytics. Smaller stopwatch: local run, tickets, commit, production under three minutes.',
   },
   'elder-care': {
     forWhom:
-      'For the person holding it together when someone in the family is dying. Not a clinic. Not a pitch. Just the packet you wish someone had handed you.',
+      'Later / secondary. For the person holding it together when someone in the family is dying. Not this season’s front door.',
     detail:
       'If we build it: what to ask, what to expect, where the forms and numbers are, how to keep relatives from talking past each other. Plain language. Readable when you’re wiped.',
   },
   'texas-workers-rights': {
     forWhom:
-      'For people in specific Texas jobs who need real answers. Nurses first, then other jobs. Not a law firm. Not a rant.',
+      'Later / secondary. For people in specific Texas jobs who need real answers. Nurses first. Not this season’s front door.',
     detail:
       'If we build it: what you can refuse, what has to be in writing, who to call, and how hospital vs clinic vs agency changes it.',
   },
@@ -49,11 +49,11 @@ export const WorkPage: PageComponentType = () => {
     <PageShell>
       <section className="relative overflow-hidden border-b-[3px] border-ink bg-grain">
         <PageSection className="pb-8 md:pb-10">
-          <SectionIntro as="h1" eyebrow="Work" title="What we can build">
+          <SectionIntro as="h1" eyebrow="Work" title="Factory proof (sites later)">
             <p>
-              One of these already shipped. The rest are ideas. If we build
-              them, each one gets a clear job. Same approach as everything else
-              we ship. No fake “portfolio” theater.
+              Voice content is the front door this season. What&apos;s below is
+              factory proof and later / secondary site ideas. One already
+              shipped. The rest say so. No fake “portfolio” theater.
             </p>
           </SectionIntro>
         </PageSection>
@@ -144,11 +144,11 @@ export const WorkPage: PageComponentType = () => {
       <section className="border-t-[3px] border-ink bg-band-dusk text-surface">
         <PageSection>
           <h2 className="max-w-2xl font-display text-3xl uppercase tracking-tight text-primary md:text-4xl text-balance">
-            Know someone who needs one of these?
+            Got chats and notes that already sound like you?
           </h2>
           <p className="mt-4 max-w-xl text-base leading-relaxed text-surface/80 md:text-lg text-pretty">
-            Tell us. We haven&apos;t named dollars. We&apos;re still figuring
-            out what fits. Messy notes welcome.
+            That&apos;s the front door. Tell us. We haven&apos;t named dollars.
+            Messy notes welcome.
           </p>
           <div className="mt-8">
             <Button to="/contact" className="no-underline">

@@ -37,11 +37,11 @@ export function StickyCta() {
     >
       <div className="pointer-events-auto border-t-[3px] border-ink bg-surface px-4 pb-[max(0.75rem,env(safe-area-inset-bottom))] pt-3">
         <Button
-          to={onWork ? '/contact' : '/work'}
+          to={onWork ? '/contact' : '/about'}
           className="w-full no-underline"
           tabIndex={visible ? 0 : -1}
         >
-          {onWork ? 'Talk to us' : 'See what we can build'}
+          {onWork ? 'Talk to us' : 'How we work'}
         </Button>
       </div>
     </div>

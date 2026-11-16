@@ -15,8 +15,8 @@ export function SiteFooter() {
         <div>
           <p className="wordmark text-3xl text-primary">Macovin</p>
           <p className="mt-3 max-w-md text-sm leading-relaxed text-surface/85 md:text-base">
-            Clear apps and sites for people when life gets hard. Small
-            company. Meanwhile&apos;s the factory. We&apos;ll tell you when we
+            Content in your voice. Not AI slop. Small company.
+            Meanwhile&apos;s the factory. We&apos;ll tell you when we
             don&apos;t know yet.
           </p>
         </div>
