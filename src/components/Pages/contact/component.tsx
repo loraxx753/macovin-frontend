@@ -119,8 +119,9 @@ export const ContactPage: PageComponentType = () => {
       <PageSection className="grid items-start gap-8 md:grid-cols-2 md:gap-x-14 md:gap-y-8 md:py-20">
         <SectionIntro as="h1" eyebrow="Contact" title="Say hello">
           <p>
-            Tell us what you need. Who it&apos;s for. What&apos;s true today.
-            Messy is fine. Feel free to send the messy version.
+            Got chats, drafts, or notes that already sound like you? Send the
+            messy version. We&apos;ll say what fits. We haven&apos;t named
+            dollars.
           </p>
         </SectionIntro>
 
@@ -278,21 +279,20 @@ export const ContactPage: PageComponentType = () => {
           <ul className="mt-10 space-y-5 border-t-[3px] border-ink pt-8 text-sm leading-relaxed text-ink-muted md:text-base">
             <li>
               <span className="font-display text-lg uppercase text-ink">
-                A site someone needs
+                Voice content
               </span>
               <p className="mt-1">
-                Elder care, workers&apos; rights, or another hard week where
-                clear info would help. Ideas are fine. We haven&apos;t named
-                dollars here.
+                Chats, writing, skills, notes. You want the next piece to sound
+                like you, not like ChatGPT. That&apos;s the front door.
               </p>
             </li>
             <li>
               <span className="font-display text-lg uppercase text-ink">
-                Something that fits how we build
+                Something that fits the bible habit
               </span>
               <p className="mt-1">
-                One clear job. Same language through design, engineering, and
-                testing. That&apos;s the Meanwhile habit.
+                Keep the material. Build the profile. Ship the piece. That&apos;s
+                the Meanwhile habit behind the voice work.
               </p>
             </li>
             <li>
